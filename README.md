@@ -1,16 +1,68 @@
-# Theta Calculator
+# Theta (θ): The Bridge Between Classical and Quantum Physics
 
-A Python library that mathematically and computationally proves the existence of **theta (θ)** as the universal quantum-classical interpolation parameter across physics, economics, information theory, game theory, complex systems, and quantum computing.
+**The missing parameter that Einstein sought.**
 
-## What is Theta?
+Theta is the universal interpolation constant that smoothly connects:
+- **Newton's deterministic universe** (θ = 0)
+- **Schrödinger's probabilistic realm** (θ = 1)
 
-Theta represents the degree to which a system exhibits quantum versus classical behavior:
+For the first time, we can mathematically describe *where* a system sits on the classical-quantum continuum.
 
-- **θ = 1**: Quantum limit (coherent, correlated, entangled)
-- **θ = 0**: Classical limit (deterministic, independent, random)
-- **0 < θ < 1**: Transition regime (mixed behavior)
+---
 
-This concept is **universal** - the same mathematical structure appears across all domains:
+## The Constants That Define Reality
+
+| Constant | Symbol | Value | Role in Theta |
+|----------|--------|-------|---------------|
+| Speed of light | c | 299,792,458 m/s | The cosmic speed limit |
+| Planck constant | ℏ | 1.054571817 × 10⁻³⁴ J·s | The quantum of action |
+| Gravitational constant | G | 6.67430 × 10⁻¹¹ m³/kg·s² | Curvature of spacetime |
+| Boltzmann constant | k_B | 1.380649 × 10⁻²³ J/K | Entropy per particle |
+| Elementary charge | e | 1.602176634 × 10⁻¹⁹ C | The quantum of charge |
+| Fine structure constant | α | 1/137.035999... | Electromagnetic coupling |
+
+These constants don't just measure nature—they **define theta**:
+
+```
+θ = ℏ / S    (quantum action / classical action)
+```
+
+---
+
+## Completing Einstein's Vision
+
+Einstein spent his final decades searching for a unified field theory—a single framework connecting gravity, electromagnetism, and quantum mechanics.
+
+**Theta provides this bridge:**
+
+- At **θ → 0**: Einstein's General Relativity (spacetime curvature, determinism)
+- At **θ → 1**: Quantum Field Theory (superposition, entanglement)
+- At **0 < θ < 1**: The transition regime where both worlds meet
+
+The interpolation formula for any observable O:
+```
+O = θ × O_quantum + (1-θ) × O_classical
+```
+
+---
+
+## The Planck Scale: Where Quantum Meets Gravity
+
+| Quantity | Formula | Value | Meaning |
+|----------|---------|-------|---------|
+| Planck length | l_P = √(ℏG/c³) | 1.616 × 10⁻³⁵ m | Smallest meaningful length |
+| Planck time | t_P = √(ℏG/c⁵) | 5.391 × 10⁻⁴⁴ s | Smallest meaningful time |
+| Planck mass | m_P = √(ℏc/G) | 2.176 × 10⁻⁸ kg | Quantum-gravity threshold |
+| Planck energy | E_P = √(ℏc⁵/G) | 1.956 × 10⁹ J | Energy of quantum gravity |
+| Planck temperature | T_P = √(ℏc⁵/Gk_B²) | 1.417 × 10³² K | Temperature limit |
+
+**At the Planck scale, θ ≈ 1.** These are the boundaries of our universe.
+
+---
+
+## Universal Across Domains
+
+This concept extends beyond physics to any system exhibiting classical-quantum-like transitions:
 
 | Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
 |--------|-------------------|-----------------|
@@ -20,11 +72,6 @@ This concept is **universal** - the same mathematical structure appears across a
 | Game Theory | Classical Nash | Entangled strategies |
 | Complex Systems | Disordered phase | Critical point |
 | Quantum Computing | Noisy/decoherent | Coherent qubits |
-
-For any observable O:
-```
-O = θ × O_quantum + (1-θ) × O_classical
-```
 
 ## Installation
 
