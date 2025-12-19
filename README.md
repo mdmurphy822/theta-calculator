@@ -1,14 +1,25 @@
 # Theta Calculator
 
-A Python library that mathematically and computationally proves the existence of **theta (θ)** as the fundamental quantum-classical interpolation parameter.
+A Python library that mathematically and computationally proves the existence of **theta (θ)** as the universal quantum-classical interpolation parameter across physics, economics, information theory, game theory, complex systems, and quantum computing.
 
 ## What is Theta?
 
-Theta represents the degree to which a physical system exhibits quantum versus classical behavior:
+Theta represents the degree to which a system exhibits quantum versus classical behavior:
 
-- **θ = 1**: Fully quantum (superposition, entanglement, interference)
-- **θ = 0**: Fully classical (definite states, deterministic evolution)
-- **0 < θ < 1**: Transition regime (mixed quantum-classical behavior)
+- **θ = 1**: Quantum limit (coherent, correlated, entangled)
+- **θ = 0**: Classical limit (deterministic, independent, random)
+- **0 < θ < 1**: Transition regime (mixed behavior)
+
+This concept is **universal** - the same mathematical structure appears across all domains:
+
+| Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
+|--------|-------------------|-----------------|
+| Physics | Planets, baseballs | Electrons, photons |
+| Economics | Efficient markets | Crashes, bubbles |
+| Information | Pure/deterministic | Maximally mixed |
+| Game Theory | Classical Nash | Entangled strategies |
+| Complex Systems | Disordered phase | Critical point |
+| Quantum Computing | Noisy/decoherent | Coherent qubits |
 
 For any observable O:
 ```
@@ -72,6 +83,47 @@ python3 -m theta_calculator explain --system electron --format markdown
 python3 -m theta_calculator quick --mass 0.145 --length 0.074 --temp 300
 ```
 
+### Multi-Domain Theta
+
+**List all domains and their example systems:**
+```bash
+python3 -m theta_calculator domains
+```
+
+**Analyze a specific domain system:**
+```bash
+# Market crash (economics)
+python3 -m theta_calculator domain -d economics -s market_crash
+
+# Google Willow quantum chip
+python3 -m theta_calculator domain -d quantum_computing -s google_willow
+
+# Ferromagnet at critical temperature
+python3 -m theta_calculator domain -d complex_systems -s ferromagnet_critical
+```
+
+**Cross-domain comparison:**
+```bash
+python3 -m theta_calculator crossdomain
+```
+
+Output:
+```
+UNIVERSAL THETA: Cross-Domain Comparison
+================================================================================
+ECONOMICS
+--------------------------------------------------
+  flash_crash                    0.727 [██████████████░░░░░░]
+  market_crash                   0.707 [██████████████░░░░░░]
+  efficient_market               0.402 [████████░░░░░░░░░░░░]
+
+QUANTUM COMPUTING
+--------------------------------------------------
+  quantinuum_h2                  0.983 [███████████████████░]
+  google_willow                  0.925 [██████████████████░░]
+  noisy_classical                0.000 [░░░░░░░░░░░░░░░░░░░░]
+```
+
 ## The Proof
 
 Theta is proven through three independent methodologies that converge:
@@ -103,8 +155,16 @@ theta_calculator/
 │   ├── theta_state.py       # Data structures
 │   └── interpolation.py     # 5 theta calculation methods
 ├── constants/               # Physical constants (CODATA 2022)
-│   ├── values.py
-│   └── planck_units.py
+│   ├── codata_2022.py       # 308 constants incl. particle physics & cosmology
+│   ├── values.py            # Core values
+│   └── planck_units.py      # Planck scale
+├── domains/                 # Multi-domain theta framework
+│   ├── economics.py         # Ising model markets
+│   ├── information.py       # Shannon vs von Neumann entropy
+│   ├── game_theory.py       # Quantum game entanglement
+│   ├── complex_systems.py   # Critical phenomena
+│   ├── quantum_computing.py # Error thresholds
+│   └── universal.py         # Cross-domain unification
 ├── proofs/                  # Three-part proof framework
 │   ├── unified.py
 │   ├── mathematical/
@@ -112,6 +172,17 @@ theta_calculator/
 ├── visualization/           # Plotting and explanation
 └── cli.py                   # Command-line interface
 ```
+
+## Constants
+
+The library includes **308 CODATA 2022 fundamental constants** including:
+
+- **Core constants**: c, h, ℏ, e, k_B, N_A, G
+- **Electromagnetic**: α, μ₀, ε₀, Z₀, Φ₀
+- **Particle masses**: electron, proton, neutron, muon, tau
+- **Planck units**: l_P, t_P, m_P, E_P, T_P
+- **Particle physics**: W, Z, Higgs masses, α_s, sin²θ_W
+- **Cosmological**: H₀, Λ, Ω_Λ, Ω_m, ρ_c, T_CMB
 
 ## Arxiiv Knowledge Repo
 

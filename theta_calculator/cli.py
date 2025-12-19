@@ -21,6 +21,16 @@ from .proofs.mathematical.constant_bootstrap import ConstantBootstrap
 from .visualization.proof_narrator import ProofNarrator
 from .visualization.theta_landscape import ThetaLandscapePlotter
 
+# Domain imports
+from .domains import (
+    ECONOMIC_SYSTEMS, INFORMATION_SYSTEMS, GAME_SYSTEMS,
+    COMPLEX_SYSTEMS, QUANTUM_HARDWARE,
+    compute_market_theta, compute_information_theta,
+    compute_entanglement_theta, compute_complex_theta,
+    compute_quantum_computing_theta, cross_domain_comparison,
+    UniversalTheta, DomainType,
+)
+
 
 def cmd_prove(args):
     """Execute proof command."""
@@ -164,6 +174,151 @@ def cmd_compare(args):
     return 0
 
 
+def cmd_domains(args):
+    """List all available domains and their example systems."""
+    domains_info = {
+        "economics": ("Market phase transitions (Ising model)", ECONOMIC_SYSTEMS),
+        "information": ("Shannon vs von Neumann entropy", INFORMATION_SYSTEMS),
+        "game_theory": ("Quantum game entanglement", GAME_SYSTEMS),
+        "complex_systems": ("Critical phenomena and phase transitions", COMPLEX_SYSTEMS),
+        "quantum_computing": ("Error thresholds and coherence", QUANTUM_HARDWARE),
+    }
+
+    print("=" * 70)
+    print("THETA DOMAINS: Quantum-Classical Interpolation Across Fields")
+    print("=" * 70)
+    print()
+    print("θ = 0: Classical limit (deterministic, independent, random)")
+    print("θ = 1: Quantum limit (coherent, correlated, entangled)")
+    print()
+
+    for domain, (description, systems) in domains_info.items():
+        print(f"\n{domain.upper().replace('_', ' ')}")
+        print(f"  {description}")
+        print(f"  Systems: {', '.join(systems.keys())}")
+
+    if args.verbose:
+        print("\n" + "=" * 70)
+        print("DETAILED THETA VALUES")
+        print("=" * 70)
+        comparison = cross_domain_comparison()
+        for domain, systems in comparison.items():
+            print(f"\n{domain.upper().replace('_', ' ')}")
+            print("-" * 50)
+            for name, theta in sorted(systems.items(), key=lambda x: -x[1]):
+                bar = "█" * int(theta * 20) + "░" * (20 - int(theta * 20))
+                print(f"  {name:<30} {theta:.3f} [{bar}]")
+
+    return 0
+
+
+def cmd_domain(args):
+    """Compute theta for a specific domain system."""
+    domain = args.domain
+    system_name = args.system
+
+    # Map domain to systems and compute function
+    domain_map = {
+        "economics": (ECONOMIC_SYSTEMS, compute_market_theta, "Coupling", "Temperature"),
+        "information": (INFORMATION_SYSTEMS, compute_information_theta, "Entropy", "Purity"),
+        "game_theory": (GAME_SYSTEMS, compute_entanglement_theta, "Entanglement γ", ""),
+        "complex_systems": (COMPLEX_SYSTEMS, compute_complex_theta, "Order param", "Reduced T"),
+        "quantum_computing": (QUANTUM_HARDWARE, compute_quantum_computing_theta, "Error rate", "T1"),
+    }
+
+    if domain not in domain_map:
+        print(f"Unknown domain: {domain}")
+        print(f"Available: {', '.join(domain_map.keys())}")
+        return 1
+
+    systems, compute_fn, param1, param2 = domain_map[domain]
+
+    if system_name not in systems:
+        print(f"Unknown system: {system_name}")
+        print(f"Available in {domain}: {', '.join(systems.keys())}")
+        return 1
+
+    system = systems[system_name]
+    theta = compute_fn(system)
+
+    # Determine regime
+    if theta < 0.1:
+        regime = "Classical"
+    elif theta > 0.9:
+        regime = "Quantum"
+    elif theta > 0.5:
+        regime = "Quantum-leaning"
+    else:
+        regime = "Classical-leaning"
+
+    print(f"\n{domain.upper().replace('_', ' ')} THETA ANALYSIS")
+    print("=" * 50)
+    print(f"System: {system.name}")
+    print(f"θ = {theta:.4f}")
+    print(f"Regime: {regime}")
+    print()
+
+    # Show domain-specific details
+    if domain == "economics":
+        print(f"Coupling strength: {system.coupling_strength:.4f}")
+        print(f"Temperature: {system.temperature:.2f}")
+        print(f"Order parameter: {system.order_parameter:.3f}")
+    elif domain == "information":
+        print(f"Dimension: {system.dimension}")
+        if system.purity:
+            print(f"Purity: {system.purity:.4f}")
+    elif domain == "game_theory":
+        print(f"Entanglement γ: {system.gamma:.4f}")
+        print(f"Game type: {system.game_type.value}")
+    elif domain == "complex_systems":
+        print(f"Order parameter: {system.order_parameter:.3f}")
+        print(f"Reduced temperature: {system.reduced_temperature:.4f}")
+    elif domain == "quantum_computing":
+        print(f"Error rate: {system.error_rate:.2e}")
+        print(f"T1 coherence: {system.T1*1e6:.1f} μs")
+        print(f"Below threshold: {system.is_below_threshold}")
+
+    return 0
+
+
+def cmd_crossdomain(args):
+    """Cross-domain theta comparison."""
+    print("=" * 80)
+    print("UNIVERSAL THETA: Cross-Domain Comparison")
+    print("=" * 80)
+    print()
+    print("Theta represents the same concept across all domains:")
+    print("  θ = 0: Classical (deterministic, independent, random)")
+    print("  θ = 1: Quantum (coherent, correlated, entangled)")
+    print()
+
+    comparison = cross_domain_comparison()
+
+    for domain, systems in comparison.items():
+        print(f"\n{domain.upper().replace('_', ' ')}")
+        print("-" * 50)
+        for name, theta in sorted(systems.items(), key=lambda x: -x[1]):
+            bar = "█" * int(theta * 20) + "░" * (20 - int(theta * 20))
+            print(f"  {name:<30} {theta:.3f} [{bar}]")
+
+    # Print isomorphism table
+    print()
+    print("=" * 70)
+    print("ISOMORPHISM TABLE")
+    print("=" * 70)
+    print()
+    print(f"{'Domain':<20} {'θ=0 (Classical)':<25} {'θ=1 (Quantum)':<25}")
+    print("-" * 70)
+    print(f"{'Physics':<20} {'Planets, baseballs':<25} {'Electrons, photons':<25}")
+    print(f"{'Economics':<20} {'Efficient markets':<25} {'Crashes, bubbles':<25}")
+    print(f"{'Information':<20} {'Pure/deterministic':<25} {'Maximally mixed':<25}")
+    print(f"{'Game Theory':<20} {'Classical Nash':<25} {'Entangled strategies':<25}")
+    print(f"{'Complex Systems':<20} {'Disordered phase':<25} {'Critical point':<25}")
+    print(f"{'Quantum Computing':<20} {'Noisy/decoherent':<25} {'Coherent qubits':<25}")
+
+    return 0
+
+
 def main():
     """Main entry point for CLI."""
     parser = argparse.ArgumentParser(
@@ -224,6 +379,24 @@ Examples:
     # compare command
     compare_parser = subparsers.add_parser("compare", help="Compare theta across systems")
 
+    # domains command
+    domains_parser = subparsers.add_parser("domains", help="List all theta domains")
+    domains_parser.add_argument("--verbose", "-v", action="store_true",
+                                help="Show detailed theta values")
+
+    # domain command
+    domain_parser = subparsers.add_parser("domain", help="Compute theta for a domain system")
+    domain_parser.add_argument("--domain", "-d", type=str, required=True,
+                               choices=["economics", "information", "game_theory",
+                                        "complex_systems", "quantum_computing"],
+                               help="Domain to analyze")
+    domain_parser.add_argument("--system", "-s", type=str, required=True,
+                               help="System name within the domain")
+
+    # crossdomain command
+    crossdomain_parser = subparsers.add_parser("crossdomain",
+                                               help="Cross-domain theta comparison")
+
     # Parse arguments
     args = parser.parse_args()
 
@@ -239,6 +412,9 @@ Examples:
         "landscape": cmd_landscape,
         "quick": cmd_quick,
         "compare": cmd_compare,
+        "domains": cmd_domains,
+        "domain": cmd_domain,
+        "crossdomain": cmd_crossdomain,
     }
 
     handler = commands.get(args.command)
