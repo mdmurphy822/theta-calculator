@@ -1,0 +1,663 @@
+% BIBLIOGRAPHY.bib
+% Citations for sources used in the Theta Calculator
+% Format: BibTeX
+%
+% Usage: These are the actual sources used to build this tool.
+% When adding new physics formulas or concepts, add corresponding entries here.
+
+% =============================================================================
+% FUNDAMENTAL CONSTANTS
+% =============================================================================
+
+@misc{CODATA2022,
+  author       = {{NIST}},
+  title        = {{CODATA} Recommended Values of the Fundamental Physical Constants: 2022},
+  year         = {2024},
+  howpublished = {\url{https://physics.nist.gov/cuu/Constants/}},
+  note         = {Committee on Data of the International Science Council}
+}
+
+% =============================================================================
+% BLACK HOLE THERMODYNAMICS
+% =============================================================================
+
+@article{Hawking1974,
+  author  = {Hawking, S. W.},
+  title   = {Black hole explosions?},
+  journal = {Nature},
+  volume  = {248},
+  number  = {5443},
+  pages   = {30--31},
+  year    = {1974},
+  doi     = {10.1038/248030a0},
+  note    = {First prediction of Hawking radiation and black hole temperature}
+}
+
+@article{Hawking1975,
+  author  = {Hawking, S. W.},
+  title   = {Particle creation by black holes},
+  journal = {Communications in Mathematical Physics},
+  volume  = {43},
+  number  = {3},
+  pages   = {199--220},
+  year    = {1975},
+  doi     = {10.1007/BF02345020},
+  note    = {Full derivation of Hawking radiation}
+}
+
+@article{Bekenstein1973,
+  author  = {Bekenstein, Jacob D.},
+  title   = {Black Holes and Entropy},
+  journal = {Physical Review D},
+  volume  = {7},
+  number  = {8},
+  pages   = {2333--2346},
+  year    = {1973},
+  doi     = {10.1103/PhysRevD.7.2333},
+  note    = {Bekenstein entropy: S = kA/(4l_P^2)}
+}
+
+@article{Schwarzschild1916,
+  author  = {Schwarzschild, Karl},
+  title   = {{\"U}ber das {G}ravitationsfeld eines {M}assenpunktes nach der {E}insteinschen {T}heorie},
+  journal = {Sitzungsberichte der K\"oniglich Preussischen Akademie der Wissenschaften},
+  pages   = {189--196},
+  year    = {1916},
+  note    = {Schwarzschild metric and event horizon: r_s = 2GM/c^2}
+}
+
+% =============================================================================
+% QUANTUM DECOHERENCE
+% =============================================================================
+
+@article{Zurek2003,
+  author  = {Zurek, Wojciech H.},
+  title   = {Decoherence, einselection, and the quantum origins of the classical},
+  journal = {Reviews of Modern Physics},
+  volume  = {75},
+  number  = {3},
+  pages   = {715--775},
+  year    = {2003},
+  doi     = {10.1103/RevModPhys.75.715},
+  note    = {Quantum Darwinism and environment-induced superselection}
+}
+
+@article{Penrose1996,
+  author  = {Penrose, Roger},
+  title   = {On Gravity's role in Quantum State Reduction},
+  journal = {General Relativity and Gravitation},
+  volume  = {28},
+  number  = {5},
+  pages   = {581--600},
+  year    = {1996},
+  doi     = {10.1007/BF02105068},
+  note    = {Gravitational decoherence: t_D ~ hbar/E_G}
+}
+
+@article{JoosZeh1985,
+  author  = {Joos, E. and Zeh, H. D.},
+  title   = {The emergence of classical properties through interaction with the environment},
+  journal = {Zeitschrift f\"ur Physik B Condensed Matter},
+  volume  = {59},
+  number  = {2},
+  pages   = {223--243},
+  year    = {1985},
+  doi     = {10.1007/BF01725541},
+  note    = {Environmental decoherence mechanisms}
+}
+
+% =============================================================================
+% INFORMATION THEORY
+% =============================================================================
+
+@article{Shannon1948,
+  author  = {Shannon, Claude E.},
+  title   = {A Mathematical Theory of Communication},
+  journal = {The Bell System Technical Journal},
+  volume  = {27},
+  number  = {3},
+  pages   = {379--423},
+  year    = {1948},
+  doi     = {10.1002/j.1538-7305.1948.tb01338.x},
+  note    = {Shannon entropy: H = -sum p_i log p_i}
+}
+
+@book{VonNeumann1932,
+  author    = {von Neumann, John},
+  title     = {Mathematische Grundlagen der Quantenmechanik},
+  publisher = {Springer},
+  address   = {Berlin},
+  year      = {1932},
+  note      = {Von Neumann entropy: S = -Tr(rho log rho)}
+}
+
+@article{Landauer1961,
+  author  = {Landauer, Rolf},
+  title   = {Irreversibility and Heat Generation in the Computing Process},
+  journal = {IBM Journal of Research and Development},
+  volume  = {5},
+  number  = {3},
+  pages   = {183--191},
+  year    = {1961},
+  doi     = {10.1147/rd.53.0183},
+  note    = {Landauer limit: E >= kT ln(2) per bit erased}
+}
+
+% =============================================================================
+% INFORMATION BOUNDS
+% =============================================================================
+
+@article{Bekenstein1981,
+  author  = {Bekenstein, Jacob D.},
+  title   = {Universal upper bound on the entropy-to-energy ratio for bounded systems},
+  journal = {Physical Review D},
+  volume  = {23},
+  number  = {2},
+  pages   = {287--298},
+  year    = {1981},
+  doi     = {10.1103/PhysRevD.23.287},
+  note    = {Bekenstein bound: S <= 2*pi*k*R*E/(hbar*c)}
+}
+
+@article{MargoluLevitin1998,
+  author  = {Margolus, Norman and Levitin, Lev B.},
+  title   = {The maximum speed of dynamical evolution},
+  journal = {Physica D: Nonlinear Phenomena},
+  volume  = {120},
+  number  = {1-2},
+  pages   = {188--195},
+  year    = {1998},
+  doi     = {10.1016/S0167-2789(98)00054-2},
+  note    = {Quantum speed limit: N_ops <= 2*E*t/(pi*hbar)}
+}
+
+% =============================================================================
+% QUANTUM COMPUTING
+% =============================================================================
+
+@inproceedings{Shor1996,
+  author    = {Shor, Peter W.},
+  title     = {Fault-tolerant quantum computation},
+  booktitle = {Proceedings of 37th Annual Symposium on Foundations of Computer Science},
+  pages     = {56--65},
+  year      = {1996},
+  doi       = {10.1109/SFCS.1996.548464},
+  note      = {Threshold theorem for fault-tolerant quantum computing}
+}
+
+@article{Kitaev2003,
+  author  = {Kitaev, A. Yu.},
+  title   = {Fault-tolerant quantum computation by anyons},
+  journal = {Annals of Physics},
+  volume  = {303},
+  number  = {1},
+  pages   = {2--30},
+  year    = {2003},
+  doi     = {10.1016/S0003-4916(02)00018-0},
+  note    = {Topological quantum error correction}
+}
+
+@article{GoogleQuantum2024,
+  author  = {{Google Quantum AI}},
+  title   = {Quantum error correction below the surface code threshold},
+  journal = {Nature},
+  year    = {2024},
+  doi     = {10.1038/s41586-024-08449-y},
+  note    = {Experimental demonstration of error correction threshold}
+}
+
+@article{Preskill2018,
+  author  = {Preskill, John},
+  title   = {Quantum Computing in the {NISQ} era and beyond},
+  journal = {Quantum},
+  volume  = {2},
+  pages   = {79},
+  year    = {2018},
+  doi     = {10.22331/q-2018-08-06-79},
+  note    = {NISQ (Noisy Intermediate-Scale Quantum) computing framework}
+}
+
+@article{Fowler2012,
+  author  = {Fowler, Austin G. and Mariantoni, Matteo and Martinis, John M. and Cleland, Andrew N.},
+  title   = {Surface codes: Towards practical large-scale quantum computation},
+  journal = {Physical Review A},
+  volume  = {86},
+  number  = {3},
+  pages   = {032324},
+  year    = {2012},
+  doi     = {10.1103/PhysRevA.86.032324},
+  note    = {Surface code error correction architecture}
+}
+
+% =============================================================================
+% ECONOMICS / ISING MODELS
+% =============================================================================
+
+@article{Bornholdt2001,
+  author  = {Bornholdt, Stefan},
+  title   = {Expectation bubbles in a spin model of markets: Intermittency from frustration across scales},
+  journal = {International Journal of Modern Physics C},
+  volume  = {12},
+  number  = {5},
+  pages   = {667--674},
+  year    = {2001},
+  doi     = {10.1142/S0129183101001845},
+  note    = {Ising model applied to financial markets}
+}
+
+@article{Krawiecki2002,
+  author  = {Krawiecki, A. and Ho{\l}yst, J. A. and Helbing, D.},
+  title   = {Volatility clustering and scaling for financial time series due to attractor bubbling},
+  journal = {Physical Review Letters},
+  volume  = {89},
+  number  = {15},
+  pages   = {158701},
+  year    = {2002},
+  doi     = {10.1103/PhysRevLett.89.158701},
+  note    = {Volatility clustering in Ising-like market models}
+}
+
+% =============================================================================
+% QUANTUM GAME THEORY
+% =============================================================================
+
+@article{Eisert1999,
+  author  = {Eisert, Jens and Wilkens, Martin and Lewenstein, Maciej},
+  title   = {Quantum Games and Quantum Strategies},
+  journal = {Physical Review Letters},
+  volume  = {83},
+  number  = {15},
+  pages   = {3077--3080},
+  year    = {1999},
+  doi     = {10.1103/PhysRevLett.83.3077},
+  note    = {Quantum formulation of game theory}
+}
+
+@article{Meyer1999,
+  author  = {Meyer, David A.},
+  title   = {Quantum Strategies},
+  journal = {Physical Review Letters},
+  volume  = {82},
+  number  = {5},
+  pages   = {1052--1055},
+  year    = {1999},
+  doi     = {10.1103/PhysRevLett.82.1052},
+  note    = {Quantum advantage in game-theoretic settings}
+}
+
+@article{Du2002,
+  author  = {Du, Jiangfeng and Li, Hui and Xu, Xiaodong and Shi, Mingjun and Wu, Jihui and Zhou, Xianyi and Han, Rongdian},
+  title   = {Experimental Realization of Quantum Games on a Quantum Computer},
+  journal = {Physical Review Letters},
+  volume  = {88},
+  number  = {13},
+  pages   = {137902},
+  year    = {2002},
+  doi     = {10.1103/PhysRevLett.88.137902},
+  note    = {Experimental quantum game implementation}
+}
+
+% =============================================================================
+% COMPLEX SYSTEMS / PHASE TRANSITIONS
+% =============================================================================
+
+@article{WilsonKogut1974,
+  author  = {Wilson, Kenneth G. and Kogut, John},
+  title   = {The renormalization group and the $\epsilon$ expansion},
+  journal = {Physics Reports},
+  volume  = {12},
+  number  = {2},
+  pages   = {75--199},
+  year    = {1974},
+  doi     = {10.1016/0370-1573(74)90023-4},
+  note    = {Renormalization group theory}
+}
+
+@book{Stanley1971,
+  author    = {Stanley, H. Eugene},
+  title     = {Introduction to Phase Transitions and Critical Phenomena},
+  publisher = {Oxford University Press},
+  year      = {1971},
+  note      = {Critical phenomena and universality classes}
+}
+
+@article{BakTangWiesenfeld1987,
+  author  = {Bak, Per and Tang, Chao and Wiesenfeld, Kurt},
+  title   = {Self-organized criticality: An explanation of the 1/f noise},
+  journal = {Physical Review Letters},
+  volume  = {59},
+  number  = {4},
+  pages   = {381--384},
+  year    = {1987},
+  doi     = {10.1103/PhysRevLett.59.381},
+  note    = {Self-organized criticality in complex systems}
+}
+
+@article{Hastings2009,
+  author  = {Hastings, M. B.},
+  title   = {Superadditivity of communication capacity using entangled inputs},
+  journal = {Nature Physics},
+  volume  = {5},
+  pages   = {255--257},
+  year    = {2009},
+  doi     = {10.1038/nphys1224},
+  note    = {Non-additivity of quantum channel capacity}
+}
+
+% =============================================================================
+% FOUNDATIONAL PHYSICS
+% =============================================================================
+
+@article{Planck1901,
+  author  = {Planck, Max},
+  title   = {{\"U}ber das {G}esetz der {E}nergieverteilung im {N}ormalspectrum},
+  journal = {Annalen der Physik},
+  volume  = {309},
+  number  = {3},
+  pages   = {553--563},
+  year    = {1901},
+  doi     = {10.1002/andp.19013090310},
+  note    = {Planck constant: h = 6.62607015e-34 J*s}
+}
+
+@article{Einstein1905SR,
+  author  = {Einstein, Albert},
+  title   = {Zur Elektrodynamik bewegter K\"orper},
+  journal = {Annalen der Physik},
+  volume  = {322},
+  number  = {10},
+  pages   = {891--921},
+  year    = {1905},
+  doi     = {10.1002/andp.19053221004},
+  note    = {Special relativity and c as universal speed limit}
+}
+
+@article{StefanBoltzmann,
+  author  = {Stefan, Josef},
+  title   = {{\"U}ber die {B}eziehung zwischen der {W}\"armestrahlung und der {T}emperatur},
+  journal = {Sitzungsberichte der mathematisch-naturwissenschaftlichen Classe der kaiserlichen Akademie der Wissenschaften},
+  volume  = {79},
+  pages   = {391--428},
+  year    = {1879},
+  note    = {Stefan-Boltzmann law: sigma = pi^2 k^4 / (60 hbar^3 c^2)}
+}
+
+% =============================================================================
+% QUANTUM BIOLOGY
+% =============================================================================
+
+@article{Engel2007,
+  author  = {Engel, Gregory S. and Calhoun, Tessa R. and Read, Elizabeth L. and Ahn, Tae-Kyu and Man\v{c}al, Tom\'{a}\v{s} and Cheng, Yuan-Chung and Blankenship, Robert E. and Fleming, Graham R.},
+  title   = {Evidence for wavelike energy transfer through quantum coherence in photosynthetic systems},
+  journal = {Nature},
+  volume  = {446},
+  number  = {7137},
+  pages   = {782--786},
+  year    = {2007},
+  doi     = {10.1038/nature05678},
+  note    = {First observation of quantum coherence in FMO complex at 77K}
+}
+
+@article{Ritz2000,
+  author  = {Ritz, Thorsten and Adem, Salih and Schulten, Klaus},
+  title   = {A Model for Photoreceptor-Based Magnetoreception in Birds},
+  journal = {Biophysical Journal},
+  volume  = {78},
+  number  = {2},
+  pages   = {707--718},
+  year    = {2000},
+  doi     = {10.1016/S0006-3495(00)76629-X},
+  note    = {Radical pair mechanism for avian magnetic compass}
+}
+
+@article{Klinman2013,
+  author  = {Klinman, Judith P. and Kohen, Amnon},
+  title   = {Hydrogen Tunneling Links Protein Dynamics to Enzyme Catalysis},
+  journal = {Annual Review of Biochemistry},
+  volume  = {82},
+  pages   = {471--496},
+  year    = {2013},
+  doi     = {10.1146/annurev-biochem-051710-133623},
+  note    = {Evidence for proton tunneling in enzyme catalysis}
+}
+
+@article{Lowdin1963,
+  author  = {L{\"o}wdin, Per-Olov},
+  title   = {Proton tunneling in {DNA} and its biological implications},
+  journal = {Reviews of Modern Physics},
+  volume  = {35},
+  number  = {3},
+  pages   = {724--732},
+  year    = {1963},
+  doi     = {10.1103/RevModPhys.35.724},
+  note    = {Proton tunneling as mechanism for point mutations in DNA}
+}
+
+@article{Turin1996,
+  author  = {Turin, Luca},
+  title   = {A spectroscopic mechanism for primary olfactory reception},
+  journal = {Chemical Senses},
+  volume  = {21},
+  number  = {6},
+  pages   = {773--791},
+  year    = {1996},
+  doi     = {10.1093/chemse/21.6.773},
+  note    = {Vibration theory of olfaction via inelastic electron tunneling}
+}
+
+% =============================================================================
+% COSMOLOGY
+% =============================================================================
+
+@article{Planck2020,
+  author  = {{Planck Collaboration} and Aghanim, N. and Akrami, Y. and others},
+  title   = {Planck 2018 results. {VI}. Cosmological parameters},
+  journal = {Astronomy \& Astrophysics},
+  volume  = {641},
+  pages   = {A6},
+  year    = {2020},
+  doi     = {10.1051/0004-6361/201833910},
+  note    = {Cosmological parameters: H0, Omega_m, Omega_Lambda, CMB temperature}
+}
+
+@book{Weinberg1972,
+  author    = {Weinberg, Steven},
+  title     = {Gravitation and Cosmology: Principles and Applications of the General Theory of Relativity},
+  publisher = {Wiley},
+  year      = {1972},
+  note      = {Classical cosmology and general relativity foundations}
+}
+
+@article{Guth1981,
+  author  = {Guth, Alan H.},
+  title   = {Inflationary universe: A possible solution to the horizon and flatness problems},
+  journal = {Physical Review D},
+  volume  = {23},
+  number  = {2},
+  pages   = {347--356},
+  year    = {1981},
+  doi     = {10.1103/PhysRevD.23.347},
+  note    = {Original cosmic inflation proposal}
+}
+
+@article{Peebles1965,
+  author  = {Peebles, P. J. E.},
+  title   = {Primordial Helium Abundance and the Primordial Fireball},
+  journal = {Physical Review Letters},
+  volume  = {16},
+  pages   = {410--413},
+  year    = {1966},
+  doi     = {10.1103/PhysRevLett.16.410},
+  note    = {Big Bang nucleosynthesis predictions}
+}
+
+@article{Riess1998,
+  author  = {Riess, Adam G. and others},
+  title   = {Observational Evidence from Supernovae for an Accelerating Universe and a Cosmological Constant},
+  journal = {The Astronomical Journal},
+  volume  = {116},
+  pages   = {1009--1038},
+  year    = {1998},
+  doi     = {10.1086/300499},
+  note    = {Discovery of cosmic acceleration (dark energy)}
+}
+
+% =============================================================================
+% CONTROL THEORY
+% =============================================================================
+
+@book{Astrom2010,
+  author    = {{\AA}str{\"o}m, Karl Johan and Murray, Richard M.},
+  title     = {Feedback Systems: An Introduction for Scientists and Engineers},
+  publisher = {Princeton University Press},
+  year      = {2010},
+  isbn      = {978-0-691-13576-2},
+  note      = {Modern control theory: feedback, stability margins, Bode analysis}
+}
+
+@book{Ogata2010,
+  author    = {Ogata, Katsuhiko},
+  title     = {Modern Control Engineering},
+  publisher = {Prentice Hall},
+  edition   = {5th},
+  year      = {2010},
+  isbn      = {978-0-13-615673-4},
+  note      = {Classical control theory: transfer functions, PID, state-space}
+}
+
+@book{Doyle1992,
+  author    = {Doyle, John C. and Francis, Bruce A. and Tannenbaum, Allen R.},
+  title     = {Feedback Control Theory},
+  publisher = {Macmillan},
+  year      = {1992},
+  isbn      = {978-0-02-330011-0},
+  note      = {Robust control theory: H-infinity, Nyquist stability criterion}
+}
+
+@book{Skogestad2005,
+  author    = {Skogestad, Sigurd and Postlethwaite, Ian},
+  title     = {Multivariable Feedback Control: Analysis and Design},
+  publisher = {Wiley},
+  edition   = {2nd},
+  year      = {2005},
+  isbn      = {978-0-470-01167-6},
+  note      = {MIMO control systems and robustness analysis}
+}
+
+% =============================================================================
+% NONLINEAR DYNAMICS AND CHAOS
+% =============================================================================
+
+@book{Strogatz2015,
+  author    = {Strogatz, Steven H.},
+  title     = {Nonlinear Dynamics and Chaos: With Applications to Physics, Biology, Chemistry, and Engineering},
+  publisher = {Westview Press},
+  edition   = {2nd},
+  year      = {2015},
+  isbn      = {978-0-8133-4910-7},
+  note      = {Standard text on chaos theory, bifurcations, and nonlinear systems}
+}
+
+@article{Feigenbaum1978,
+  author  = {Feigenbaum, Mitchell J.},
+  title   = {Quantitative universality for a class of nonlinear transformations},
+  journal = {Journal of Statistical Physics},
+  volume  = {19},
+  number  = {1},
+  pages   = {25--52},
+  year    = {1978},
+  doi     = {10.1007/BF01020332},
+  note    = {Feigenbaum constants: delta = 4.669..., alpha = 2.502...}
+}
+
+@article{Lorenz1963,
+  author  = {Lorenz, Edward N.},
+  title   = {Deterministic Nonperiodic Flow},
+  journal = {Journal of the Atmospheric Sciences},
+  volume  = {20},
+  number  = {2},
+  pages   = {130--141},
+  year    = {1963},
+  doi     = {10.1175/1520-0469(1963)020<0130:DNF>2.0.CO;2},
+  note    = {Discovery of deterministic chaos in atmospheric model}
+}
+
+@book{Ott2002,
+  author    = {Ott, Edward},
+  title     = {Chaos in Dynamical Systems},
+  publisher = {Cambridge University Press},
+  edition   = {2nd},
+  year      = {2002},
+  isbn      = {978-0-521-01084-9},
+  note      = {Lyapunov exponents, attractor dimensions, and chaos characterization}
+}
+
+@article{Langton1990,
+  author  = {Langton, Chris G.},
+  title   = {Computation at the edge of chaos: Phase transitions and emergent computation},
+  journal = {Physica D: Nonlinear Phenomena},
+  volume  = {42},
+  number  = {1-3},
+  pages   = {12--37},
+  year    = {1990},
+  doi     = {10.1016/0167-2789(90)90064-V},
+  note    = {Edge of chaos as optimal regime for computation}
+}
+
+% =============================================================================
+% QUANTUM GRAVITY
+% =============================================================================
+
+@book{Rovelli2004,
+  author    = {Rovelli, Carlo},
+  title     = {Quantum Gravity},
+  publisher = {Cambridge University Press},
+  year      = {2004},
+  isbn      = {978-0-521-83733-0},
+  note      = {Loop quantum gravity and background-independent formulation}
+}
+
+@article{Ashtekar2004,
+  author  = {Ashtekar, Abhay and Lewandowski, Jerzy},
+  title   = {Background Independent Quantum Gravity: A Status Report},
+  journal = {Classical and Quantum Gravity},
+  volume  = {21},
+  number  = {15},
+  pages   = {R53--R152},
+  year    = {2004},
+  doi     = {10.1088/0264-9381/21/15/R01},
+  note    = {Comprehensive review of loop quantum gravity}
+}
+
+@book{Thiemann2007,
+  author    = {Thiemann, Thomas},
+  title     = {Modern Canonical Quantum General Relativity},
+  publisher = {Cambridge University Press},
+  year      = {2007},
+  isbn      = {978-0-521-84263-1},
+  note      = {Mathematical foundations of LQG: spin networks and discrete spectra}
+}
+
+@article{Immirzi1997,
+  author  = {Immirzi, Giorgio},
+  title   = {Quantum gravity and Regge calculus},
+  journal = {Nuclear Physics B - Proceedings Supplements},
+  volume  = {57},
+  number  = {1-3},
+  pages   = {65--72},
+  year    = {1997},
+  doi     = {10.1016/S0920-5632(97)00354-X},
+  note    = {Barbero-Immirzi parameter: gamma ~ 0.2375 from BH entropy}
+}
+
+@article{Diosi1989,
+  author  = {Di{\'o}si, Lajos},
+  title   = {Models for universal reduction of macroscopic quantum fluctuations},
+  journal = {Physical Review A},
+  volume  = {40},
+  number  = {3},
+  pages   = {1165--1174},
+  year    = {1989},
+  doi     = {10.1103/PhysRevA.40.1165},
+  note    = {Gravitational decoherence model (Penrose-Diosi mechanism)}
+}

@@ -1,6 +1,10 @@
 # Theta Calculator
 
-A scoring framework that estimates the "quantum-likeness" of physical systems using action-scale ratios.
+Computes a dimensionless parameter **θ** that estimates where a system sits on a classical ↔ quantum-like continuum.
+
+- **θ ≈ 0**: classical-like (deterministic, well-localized, large action)
+- **θ ≈ 1**: quantum-like (coherent/superposed, action near ℏ)
+- **0 < θ < 1**: transition regime (crossover scales)
 
 ## Quick Start
 
@@ -24,9 +28,10 @@ python3 -m theta_calculator quick --mass 9.1e-31 --length 2.8e-15 --temp 300
 θ = ℏ / S    (Planck action / system action)
 ```
 
-- **θ → 0**: Classical regime (large action, deterministic behavior)
-- **θ → 1**: Quantum regime (action ≈ ℏ, probabilistic behavior)
-- **0 < θ < 1**: Transition regime
+**S** (system action) is estimated from user-provided physical parameters:
+- Mass × velocity × length scale
+- Or: Energy × characteristic time
+- The calculator uses multiple estimation methods and takes a weighted average
 
 This is an *operational scoring model*, not a new physical constant.
 
@@ -55,16 +60,16 @@ THETA COMPARISON ACROSS PHYSICAL SYSTEMS
 ============================================================
 System                         Theta Regime
 ------------------------------------------------------------
-electron                    0.869991 transition
+electron                    0.869991 quantum-like
+hydrogen_atom               0.770084 quantum-like
+water_molecule              0.769286 quantum-like
 proton                      0.607457 transition
-hydrogen_atom               0.770084 transition
-water_molecule              0.769286 transition
-virus                       0.422613 transition
-human_cell                  0.232905 transition
-baseball                    0.130017 transition
-human                       0.130001 transition
-earth                       0.130000 transition
 stellar_black_hole          0.508157 transition
+virus                       0.422613 transition
+human_cell                  0.232905 classical-like
+baseball                    0.130017 classical-like
+human                       0.130001 classical-like
+earth                       0.130000 classical-like
 ```
 
 ### Prove theta for a custom system

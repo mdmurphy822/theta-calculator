@@ -289,6 +289,94 @@ def classify_coherence_regime(theta: float) -> CoherenceRegime:
         return CoherenceRegime.CLASSICAL
 
 
+def compute_logical_theta(
+    system: QubitSystem,
+    target_logical_error: float = 1e-10
+) -> float:
+    """
+    Compute theta for a logical (error-corrected) qubit.
+
+    This represents the "effective quantumness" of a fault-tolerant
+    quantum computer, accounting for error correction overhead.
+
+    For below-threshold operation:
+    - Physical errors are suppressed exponentially with code distance
+    - Logical theta approaches 1 as errors become negligible
+
+    For above-threshold operation:
+    - Errors accumulate faster than correction
+    - Logical theta = 0 (effectively classical/noisy)
+
+    Reference: Preskill (2018) - Quantum Computing in the NISQ era
+    """
+    if not system.is_below_threshold:
+        return 0.0  # Above threshold = classical noise
+
+    if system.code_distance is None:
+        # No QEC, use physical theta
+        return compute_quantum_computing_theta(system)
+
+    # Compute logical error rate
+    logical_error = logical_error_rate(
+        system.error_rate,
+        system.error_threshold,
+        system.code_distance
+    )
+
+    # Theta based on how close we are to target logical error
+    # theta = 1 when logical_error << target
+    # theta = 0 when logical_error >> target
+    if logical_error <= 0:
+        return 1.0
+
+    log_ratio = np.log10(target_logical_error / logical_error)
+    theta = 1.0 / (1.0 + np.exp(-log_ratio))
+
+    return np.clip(theta, 0.0, 1.0)
+
+
+def threshold_crossing_timeline() -> Dict[str, dict]:
+    """
+    Track historical progress toward error threshold.
+
+    Reference: Google Quantum AI (2024) - Below threshold demonstration
+    """
+    return {
+        "2019_google_sycamore": {
+            "year": 2019,
+            "system": "Google Sycamore",
+            "physical_error": 0.006,
+            "threshold": 0.01,
+            "below_threshold": False,
+            "milestone": "Quantum supremacy claim"
+        },
+        "2023_google_d5": {
+            "year": 2023,
+            "system": "Google (d=5 surface code)",
+            "physical_error": 0.003,
+            "threshold": 0.01,
+            "below_threshold": True,
+            "milestone": "First below-threshold logical qubit"
+        },
+        "2024_google_willow": {
+            "year": 2024,
+            "system": "Google Willow",
+            "physical_error": 0.00143,
+            "threshold": 0.01,
+            "below_threshold": True,
+            "milestone": "Exponential error suppression demonstrated"
+        },
+        "2024_quantinuum_h2": {
+            "year": 2024,
+            "system": "Quantinuum H2",
+            "physical_error": 0.001,
+            "threshold": 0.01,
+            "below_threshold": True,
+            "milestone": "Best 2-qubit gate fidelity"
+        },
+    }
+
+
 # =============================================================================
 # CURRENT QUANTUM HARDWARE (2024-2025)
 # =============================================================================
@@ -373,6 +461,47 @@ QUANTUM_HARDWARE: Dict[str, QubitSystem] = {
         T2=0.5e-6,     # 0.5 μs
         gate_time=100e-9,
         error_rate=0.1,  # 10% error!
+        error_threshold=0.01,
+    ),
+    # Additional systems (2024-2025)
+    "amazon_ocelot": QubitSystem(
+        name="Amazon Ocelot (2025)",
+        qubit_type=QubitType.CAT_QUBIT,
+        n_qubits=1,    # Single logical qubit demo
+        T1=1.0,        # 1 second (cat qubit advantage)
+        T2=0.5,        # 500 ms
+        gate_time=1e-6,
+        error_rate=0.01,  # Bit-flip suppressed
+        error_threshold=0.01,
+    ),
+    "psiquantum_photonic": QubitSystem(
+        name="PsiQuantum Photonic (Target)",
+        qubit_type=QubitType.PHOTONIC,
+        n_qubits=1000000,  # Million qubit target
+        T1=float('inf'),   # Photons don't decay (in principle)
+        T2=1e-9,           # Limited by detection timing
+        gate_time=1e-12,   # Ultrafast optical gates
+        error_rate=0.001,
+        error_threshold=0.01,
+    ),
+    "rigetti_ankaa": QubitSystem(
+        name="Rigetti Ankaa-2 (2024)",
+        qubit_type=QubitType.TRANSMON,
+        n_qubits=84,
+        T1=25e-6,
+        T2=15e-6,
+        gate_time=40e-9,
+        error_rate=0.005,
+        error_threshold=0.01,
+    ),
+    "oxford_ionics": QubitSystem(
+        name="Oxford Ionics (2024)",
+        qubit_type=QubitType.TRAPPED_ION,
+        n_qubits=32,
+        T1=100.0,      # Very long coherence
+        T2=10.0,
+        gate_time=50e-6,
+        error_rate=0.0005,  # 0.05% - very high fidelity
         error_threshold=0.01,
     ),
 }

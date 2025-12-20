@@ -30,6 +30,21 @@ from .domains import (
     compute_quantum_computing_theta, cross_domain_comparison,
     UniversalTheta, DomainType,
 )
+from .domains.quantum_biology import (
+    BIOLOGICAL_SYSTEMS, compute_quantum_bio_theta
+)
+from .domains.cosmology import (
+    COSMIC_TIMELINE, compute_cosmic_theta
+)
+from .domains.control_theory import (
+    CONTROL_SYSTEMS, compute_control_theta
+)
+from .domains.nonlinear_dynamics import (
+    DYNAMICAL_SYSTEMS, compute_dynamics_theta
+)
+from .domains.quantum_gravity import (
+    QUANTUM_GRAVITY_SYSTEMS, compute_quantum_gravity_theta
+)
 
 
 def cmd_prove(args):
@@ -182,6 +197,11 @@ def cmd_domains(args):
         "game_theory": ("Quantum game entanglement", GAME_SYSTEMS),
         "complex_systems": ("Critical phenomena and phase transitions", COMPLEX_SYSTEMS),
         "quantum_computing": ("Error thresholds and coherence", QUANTUM_HARDWARE),
+        "quantum_biology": ("Quantum effects in living systems", BIOLOGICAL_SYSTEMS),
+        "cosmology": ("Theta across cosmic history", COSMIC_TIMELINE),
+        "control_theory": ("Stability margins and feedback loops", CONTROL_SYSTEMS),
+        "nonlinear_dynamics": ("Chaos, bifurcations, and edge of chaos", DYNAMICAL_SYSTEMS),
+        "quantum_gravity": ("Planck scale emergence and spacetime", QUANTUM_GRAVITY_SYSTEMS),
     }
 
     print("=" * 70)
@@ -224,6 +244,11 @@ def cmd_domain(args):
         "game_theory": (GAME_SYSTEMS, compute_entanglement_theta, "Entanglement γ", ""),
         "complex_systems": (COMPLEX_SYSTEMS, compute_complex_theta, "Order param", "Reduced T"),
         "quantum_computing": (QUANTUM_HARDWARE, compute_quantum_computing_theta, "Error rate", "T1"),
+        "quantum_biology": (BIOLOGICAL_SYSTEMS, compute_quantum_bio_theta, "Coherence", "Mechanism"),
+        "cosmology": (COSMIC_TIMELINE, compute_cosmic_theta, "Temperature", "Energy"),
+        "control_theory": (CONTROL_SYSTEMS, compute_control_theta, "Gain margin", "Phase margin"),
+        "nonlinear_dynamics": (DYNAMICAL_SYSTEMS, compute_dynamics_theta, "Lyapunov exp", "Attractor"),
+        "quantum_gravity": (QUANTUM_GRAVITY_SYSTEMS, compute_quantum_gravity_theta, "Length scale", "Energy"),
     }
 
     if domain not in domain_map:
@@ -277,6 +302,29 @@ def cmd_domain(args):
         print(f"Error rate: {system.error_rate:.2e}")
         print(f"T1 coherence: {system.T1*1e6:.1f} μs")
         print(f"Below threshold: {system.is_below_threshold}")
+    elif domain == "quantum_biology":
+        print(f"Mechanism: {system.mechanism.value}")
+        print(f"Coherence time: {system.coherence_time:.2e} s")
+        print(f"Organism: {system.organism}")
+    elif domain == "cosmology":
+        print(f"Temperature: {system.temperature:.2e} K")
+        print(f"Energy: {system.energy:.2e} eV")
+        print(f"Era: {system.era.value}")
+    elif domain == "control_theory":
+        print(f"Controller: {system.controller_type.value}")
+        print(f"Gain margin: {system.gain_margin_db:.1f} dB")
+        print(f"Phase margin: {system.phase_margin_deg:.1f} deg")
+        print(f"Stable: {system.is_stable}")
+    elif domain == "nonlinear_dynamics":
+        print(f"Attractor type: {system.attractor_type.value}")
+        print(f"Max Lyapunov: {system.max_lyapunov:.3f}")
+        print(f"Dimension: {system.dimension}D")
+        print(f"Chaotic: {system.is_chaotic}")
+    elif domain == "quantum_gravity":
+        print(f"Length scale: {system.length_scale_m:.2e} m")
+        print(f"Energy scale: {system.energy_ev:.2e} eV")
+        if system.mass_kg:
+            print(f"Mass: {system.mass_kg:.2e} kg")
 
     return 0
 
@@ -315,6 +363,9 @@ def cmd_crossdomain(args):
     print(f"{'Game Theory':<20} {'Classical Nash':<25} {'Entangled strategies':<25}")
     print(f"{'Complex Systems':<20} {'Disordered phase':<25} {'Critical point':<25}")
     print(f"{'Quantum Computing':<20} {'Noisy/decoherent':<25} {'Coherent qubits':<25}")
+    print(f"{'Control Theory':<20} {'Unstable system':<25} {'Perfectly stable':<25}")
+    print(f"{'Nonlinear Dynamics':<20} {'Periodic/ordered':<25} {'Chaotic':<25}")
+    print(f"{'Quantum Gravity':<20} {'Smooth spacetime':<25} {'Planck foam':<25}")
 
     return 0
 
@@ -388,7 +439,10 @@ Examples:
     domain_parser = subparsers.add_parser("domain", help="Compute theta for a domain system")
     domain_parser.add_argument("--domain", "-d", type=str, required=True,
                                choices=["economics", "information", "game_theory",
-                                        "complex_systems", "quantum_computing"],
+                                        "complex_systems", "quantum_computing",
+                                        "quantum_biology", "cosmology",
+                                        "control_theory", "nonlinear_dynamics",
+                                        "quantum_gravity"],
                                help="Domain to analyze")
     domain_parser.add_argument("--system", "-s", type=str, required=True,
                                help="System name within the domain")
