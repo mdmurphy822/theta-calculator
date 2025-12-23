@@ -4,21 +4,30 @@ Complex Systems Domain: Phase Transitions and Critical Exponents
 This module implements theta as the quantum-classical interpolation parameter
 for complex systems using critical phenomena and universality.
 
-Key Insight: Complex systems exhibit phase transitions between:
-- theta ~ 0: Disordered phase (random, independent behavior)
-- theta ~ 1: Ordered phase (collective, correlated behavior)
+## Mapping Definition
 
-Near the critical point (T ~ T_c), systems show:
-- Diverging correlation length (ξ → ∞)
-- Power-law scaling (critical exponents)
-- Universal behavior independent of microscopic details
+This domain maps complex systems to theta via proximity to critical point:
 
-Applications:
-- Opinion dynamics and social polarization
-- Epidemic spreading
-- Network cascades
-- Civil unrest and revolutions
-- Neural criticality
+**Inputs (Physical Analogs):**
+- order_parameter (m) → Magnetization, opinion consensus, etc. [0, 1]
+- reduced_temperature (t) → (T - T_c) / T_c, distance from critical point
+- correlation_length (ξ) → Spatial extent of correlations
+- susceptibility (χ) → Response to external perturbation
+
+**Theta Mapping:**
+θ = exp(-|t|) × f(ξ/L) × g(m)
+
+Near critical point (t → 0): θ → 1
+Far from critical point (|t| >> 1): θ → 0
+
+**Interpretation:**
+- θ → 0: Disordered phase (random, independent behavior, high entropy)
+- θ → 1: At critical point (diverging correlations, power-law scaling)
+
+**Key Feature:** At θ ≈ 1, systems exhibit universal behavior independent
+of microscopic details (critical exponents, scaling laws).
+
+**Important:** This is an ANALOGY SCORE based on statistical mechanics.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{WilsonKogut1974} - Renormalization Group theory

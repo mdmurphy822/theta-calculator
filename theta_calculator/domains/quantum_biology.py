@@ -4,13 +4,31 @@ Quantum Biology Domain: Quantum Effects in Living Systems
 This module implements theta as the quantum-classical interpolation parameter
 for biological systems where quantum coherence plays a functional role.
 
-Key Insight: Living systems exploit quantum effects at the boundary:
-- theta ~ 0: Classical biochemistry (thermal noise dominates)
-- theta ~ 1: Pure quantum coherence (isolated systems)
-- 0.2 < theta < 0.7: Functional quantum biology (evolution-optimized)
+## Mapping Definition
 
-Quantum biology demonstrates that life operates in the transition regime,
-using quantum effects for efficiency while remaining robust against decoherence.
+This domain maps biological systems to theta via coherence metrics:
+
+**Inputs (Physical Analogs):**
+- coherence_time → Duration of quantum coherence (seconds)
+- thermal_time → Characteristic thermal timescale kT/ℏ
+- mechanism → Type of quantum effect (tunneling, coherence, entanglement)
+- temperature → System temperature (typically 300 K for biology)
+- transfer_efficiency → Energy/excitation transfer efficiency
+
+**Theta Mapping:**
+θ = coherence_time / thermal_time × transfer_efficiency
+
+Or: θ = exp(-t_process / T_coherence)
+
+**Interpretation:**
+- θ → 0: Classical biochemistry (thermal noise dominates)
+- θ → 1: Pure quantum coherence (isolated systems)
+- 0.2 < θ < 0.7: Functional quantum biology (evolution-optimized)
+
+**Key Feature:** Life operates in the transition regime, exploiting quantum
+effects for efficiency while remaining robust against decoherence.
+
+**Important:** This is an ANALOGY SCORE based on biological coherence.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{Engel2007} - Quantum coherence in FMO complex photosynthesis

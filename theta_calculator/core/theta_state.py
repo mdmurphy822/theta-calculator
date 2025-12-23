@@ -81,6 +81,9 @@ class PhysicalSystem:
 
     def __post_init__(self):
         """Validate system parameters."""
+        from ..units import validate_physical_inputs
+
+        # Basic type/value validation (raises on error)
         if self.mass < 0:
             raise ValueError(f"Mass must be non-negative, got {self.mass}")
         if self.length_scale <= 0:
@@ -89,6 +92,14 @@ class PhysicalSystem:
             raise ValueError(f"Energy must be non-negative, got {self.energy}")
         if self.temperature < 0:
             raise ValueError(f"Temperature must be non-negative, got {self.temperature}")
+
+        # Extended validation with warnings for edge cases
+        validate_physical_inputs(
+            mass=self.mass,
+            length=self.length_scale,
+            energy=self.energy,
+            temperature=self.temperature
+        )
 
     @property
     def rest_energy(self) -> float:

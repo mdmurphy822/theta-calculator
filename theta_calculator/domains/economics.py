@@ -4,15 +4,27 @@ Economics Domain: Ising Model of Financial Markets
 This module implements theta as the quantum-classical interpolation parameter
 for financial markets using the Ising model framework.
 
-Key Insight: Markets exhibit phase transitions between:
-- theta ~ 0: Efficient market (random walk, no correlations)
-- theta ~ 1: Market crash/bubble (collective behavior, strong correlations)
+## Mapping Definition
 
-The Ising model maps traders to spins:
-- Spin up (+1): Buy decision
-- Spin down (-1): Sell decision
-- Coupling J_ij: Correlation between traders i and j
-- Temperature T: Market volatility / uncertainty
+This domain maps financial market dynamics to theta via the Ising model:
+
+**Inputs (Physical Analogs):**
+- n_traders → Number of spins (N)
+- coupling_strength (J) → Trader correlation intensity
+- temperature (T) → Market volatility / uncertainty
+- order_parameter (m) → Net sentiment [-1, 1]
+
+**Theta Mapping:**
+θ = f(|T - T_c|/T_c, |m|, J)
+
+Where T_c = J × √N is the critical temperature for phase transition.
+
+**Interpretation:**
+- θ → 0: Efficient market (random walk, no correlations, independent traders)
+- θ → 1: Market crash/bubble (collective behavior, herding, strong correlations)
+
+**Important:** This is an ANALOGY SCORE based on the statistical mechanics
+of markets, not a literal quantum parameter.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{Bornholdt2001} - Ising model of financial markets

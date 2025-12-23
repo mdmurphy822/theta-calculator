@@ -3,18 +3,20 @@
 Theta Calculator CLI: Command-line interface for theta computations.
 
 Usage:
-    python -m theta_calculator prove --mass 9.1e-31 --length 2.8e-15 --energy 8.2e-14 --temp 300
+    python -m theta_calculator score --mass 9.1e-31 --length 2.8e-15 --energy 8.2e-14 --temp 300
     python -m theta_calculator constants --show-planck
     python -m theta_calculator explain --system electron
     python -m theta_calculator landscape --output theta.png
+    python -m theta_calculator compare --json
 """
 
 import argparse
+import json
 import sys
-from typing import Optional
+from typing import Optional, Any, Dict
 
 from .core.theta_state import PhysicalSystem, EXAMPLE_SYSTEMS
-from .proofs.unified import UnifiedThetaProof, prove_theta
+from .proofs.unified import UnifiedThetaProof, score_theta
 from .constants.values import FundamentalConstants
 from .constants.planck_units import PlanckUnits
 from .proofs.mathematical.constant_bootstrap import ConstantBootstrap
@@ -47,8 +49,26 @@ from .domains.quantum_gravity import (
 )
 
 
-def cmd_prove(args):
-    """Execute proof command."""
+def format_json(data: Dict[str, Any], indent: int = 2) -> str:
+    """Format data as JSON string."""
+    return json.dumps(data, indent=indent, default=str)
+
+
+def result_to_dict(result) -> Dict[str, Any]:
+    """Convert UnifiedProofResult to JSON-serializable dict."""
+    return {
+        "theta": result.theta,
+        "regime": result.regime.value,
+        "method_agreement": result.method_agreement,
+        "consistency_score": result.consistency_score,
+        "theta_values": result.theta_values,
+        "is_valid": result.is_valid,
+        "validation_notes": result.validation_notes,
+    }
+
+
+def cmd_score(args):
+    """Execute score/estimation command."""
     system = PhysicalSystem(
         name=args.name,
         mass=args.mass,
@@ -57,14 +77,24 @@ def cmd_prove(args):
         temperature=args.temp
     )
 
-    proof = UnifiedThetaProof()
-    result = proof.prove_theta_exists(system)
+    estimator = UnifiedThetaProof()
+    result = estimator.compute_theta(system)
 
-    print(result.summary)
-    print()
-
-    if args.verbose:
-        print(result.detailed_explanation)
+    if getattr(args, 'json', False):
+        output = result_to_dict(result)
+        output["system"] = {
+            "name": args.name,
+            "mass": args.mass,
+            "length": args.length,
+            "energy": args.energy,
+            "temperature": args.temp,
+        }
+        print(format_json(output))
+    else:
+        print(result.summary)
+        print()
+        if args.verbose:
+            print(result.detailed_explanation)
 
     return 0 if result.is_valid else 1
 
@@ -118,8 +148,8 @@ def cmd_explain(args):
         print(f"Available: {', '.join(EXAMPLE_SYSTEMS.keys())}")
         return 1
 
-    # Run proof
-    result = prove_theta(system)
+    # Run estimation
+    result = score_theta(system)
 
     # Narrate
     narrator = ProofNarrator()
@@ -157,34 +187,56 @@ def cmd_quick(args):
 
     theta = estimate_theta_quick(args.mass, args.length, args.temp)
 
-    print(f"Quick theta estimate:")
-    print(f"  Mass: {args.mass:.2e} kg")
-    print(f"  Length: {args.length:.2e} m")
-    print(f"  Temperature: {args.temp:.1f} K")
-    print(f"  θ ≈ {theta:.6f}")
-
     if theta > 0.9:
-        print("  Regime: QUANTUM")
+        regime = "QUANTUM"
     elif theta < 0.1:
-        print("  Regime: CLASSICAL")
+        regime = "CLASSICAL"
     else:
-        print("  Regime: TRANSITION")
+        regime = "TRANSITION"
+
+    if getattr(args, 'json', False):
+        output = {
+            "theta": theta,
+            "regime": regime,
+            "system": {
+                "mass": args.mass,
+                "length": args.length,
+                "temperature": args.temp,
+            }
+        }
+        print(format_json(output))
+    else:
+        print(f"Quick theta estimate:")
+        print(f"  Mass: {args.mass:.2e} kg")
+        print(f"  Length: {args.length:.2e} m")
+        print(f"  Temperature: {args.temp:.1f} K")
+        print(f"  θ ≈ {theta:.6f}")
+        print(f"  Regime: {regime}")
 
     return 0
 
 
 def cmd_compare(args):
     """Compare theta across multiple systems."""
-    proof = UnifiedThetaProof()
+    estimator = UnifiedThetaProof()
 
-    print("THETA COMPARISON ACROSS PHYSICAL SYSTEMS")
-    print("=" * 60)
-    print(f"{'System':<25} {'Theta':>10} {'Regime':<15}")
-    print("-" * 60)
-
+    results = {}
     for name, system in EXAMPLE_SYSTEMS.items():
-        result = proof.prove_theta_exists(system)
-        print(f"{name:<25} {result.theta:>10.6f} {result.regime.value:<15}")
+        result = estimator.compute_theta(system)
+        results[name] = {
+            "theta": result.theta,
+            "regime": result.regime.value,
+        }
+
+    if getattr(args, 'json', False):
+        print(format_json({"systems": results}))
+    else:
+        print("THETA COMPARISON ACROSS PHYSICAL SYSTEMS")
+        print("=" * 60)
+        print(f"{'System':<25} {'Theta':>10} {'Regime':<15}")
+        print("-" * 60)
+        for name, data in results.items():
+            print(f"{name:<25} {data['theta']:>10.6f} {data['regime']:<15}")
 
     return 0
 
@@ -373,29 +425,30 @@ def cmd_crossdomain(args):
 def main():
     """Main entry point for CLI."""
     parser = argparse.ArgumentParser(
-        prog="theta_calculator",
-        description="Theta Calculator: Prove theta exists as the quantum-classical gradient",
+        prog="theta-calc",
+        description="Theta Calculator: Estimate where systems sit on the quantum-classical continuum",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-  theta_calculator prove --mass 9.1e-31 --length 2.8e-15 --energy 8.2e-14 --temp 300
-  theta_calculator constants --show-planck --show-bootstrap
-  theta_calculator explain --system electron --format markdown
-  theta_calculator quick --mass 0.145 --length 0.074 --temp 300
-  theta_calculator compare
+  theta-calc score --mass 9.1e-31 --length 2.8e-15 --energy 8.2e-14 --temp 300
+  theta-calc constants --show-planck --show-bootstrap
+  theta-calc explain --system electron --format markdown
+  theta-calc quick --mass 0.145 --length 0.074 --temp 300
+  theta-calc compare
         """
     )
 
     subparsers = parser.add_subparsers(dest="command", help="Commands")
 
-    # prove command
-    prove_parser = subparsers.add_parser("prove", help="Prove theta for a physical system")
-    prove_parser.add_argument("--mass", type=float, required=True, help="System mass in kg")
-    prove_parser.add_argument("--length", type=float, required=True, help="Length scale in m")
-    prove_parser.add_argument("--energy", type=float, required=True, help="Energy in J")
-    prove_parser.add_argument("--temp", type=float, default=300.0, help="Temperature in K")
-    prove_parser.add_argument("--name", type=str, default="system", help="System name")
-    prove_parser.add_argument("--verbose", "-v", action="store_true", help="Detailed output")
+    # score command
+    score_parser = subparsers.add_parser("score", help="Score/estimate theta for a physical system")
+    score_parser.add_argument("--mass", type=float, required=True, help="System mass in kg")
+    score_parser.add_argument("--length", type=float, required=True, help="Length scale in m")
+    score_parser.add_argument("--energy", type=float, required=True, help="Energy in J")
+    score_parser.add_argument("--temp", type=float, default=300.0, help="Temperature in K")
+    score_parser.add_argument("--name", type=str, default="system", help="System name")
+    score_parser.add_argument("--verbose", "-v", action="store_true", help="Detailed output")
+    score_parser.add_argument("--json", action="store_true", help="Output as JSON")
 
     # constants command
     constants_parser = subparsers.add_parser("constants", help="Display fundamental constants")
@@ -426,9 +479,11 @@ Examples:
     quick_parser.add_argument("--mass", type=float, required=True, help="Mass in kg")
     quick_parser.add_argument("--length", type=float, required=True, help="Length in m")
     quick_parser.add_argument("--temp", type=float, default=300.0, help="Temperature in K")
+    quick_parser.add_argument("--json", action="store_true", help="Output as JSON")
 
     # compare command
     compare_parser = subparsers.add_parser("compare", help="Compare theta across systems")
+    compare_parser.add_argument("--json", action="store_true", help="Output as JSON")
 
     # domains command
     domains_parser = subparsers.add_parser("domains", help="List all theta domains")
@@ -460,7 +515,7 @@ Examples:
 
     # Dispatch to command handler
     commands = {
-        "prove": cmd_prove,
+        "score": cmd_score,
         "constants": cmd_constants,
         "explain": cmd_explain,
         "landscape": cmd_landscape,

@@ -1,22 +1,21 @@
 """
-Unified Theta Proof: Combines mathematical, numerical, and information-theoretic proofs.
+Unified Theta Estimation: Combines mathematical, numerical, and information-theoretic methods.
 
 This module is the core of the theta calculator, combining three independent
-proof methodologies to demonstrate that theta exists as a real, computable
-property of physical systems:
+methodologies to estimate theta as a real, computable property of physical systems:
 
-1. MATHEMATICAL PROOF: Symbolic derivation showing theta emerges from
+1. MATHEMATICAL METHOD: Symbolic derivation showing theta emerges from
    the bootstrap relationships between fundamental constants.
 
-2. NUMERICAL PROOF: Computational evaluation of theta through multiple
-   independent methods (action, thermal, scale, decoherence).
+2. NUMERICAL METHOD: Computational evaluation of theta through multiple
+   independent approaches (action, thermal, scale, decoherence).
 
-3. INFORMATION-THEORETIC PROOF: Derivation of theta from entropy bounds
+3. INFORMATION-THEORETIC METHOD: Derivation of theta from entropy bounds
    (Bekenstein) and computational limits (Landauer).
 
-The convergence of these independent approaches is the proof:
+The convergence of these independent approaches validates the estimate:
 If three different methods, based on different physical principles,
-all compute the same theta value, then theta is real.
+all compute the same theta value, then theta is well-determined.
 """
 
 import numpy as np
@@ -33,39 +32,39 @@ from .information.landauer_limit import LandauerLimit
 @dataclass
 class UnifiedProofResult:
     """
-    Complete result from unified theta proof.
+    Complete result from unified theta estimation.
 
-    This contains all evidence that theta exists for a physical system,
-    including results from all three proof methodologies.
+    This contains all computed theta values for a physical system,
+    including results from all three estimation methodologies.
 
     Attributes:
         theta: Final determined theta value
         theta_uncertainty: Uncertainty in theta (from method spread)
         regime: Physical regime (QUANTUM, CLASSICAL, TRANSITION)
 
-        mathematical_proof: Results from constant bootstrap analysis
-        numerical_proof: Results from numerical theta methods
-        information_proof: Results from Bekenstein/Landauer analysis
+        mathematical_result: Results from constant bootstrap analysis
+        numerical_result: Results from numerical theta methods
+        information_result: Results from Bekenstein/Landauer analysis
 
-        proof_agreement: How well the three proofs agree (0-1)
+        method_agreement: How well the three methods agree (0-1)
         consistency_score: Overall consistency metric
         theta_values: Individual theta values from each method
 
         summary: Brief human-readable summary
         detailed_explanation: Full pedagogical explanation
 
-        is_valid: Whether the proof is considered valid
+        is_valid: Whether the estimate is considered valid
         validation_notes: Notes from validation process
     """
     theta: float
     theta_uncertainty: float
     regime: Regime
 
-    mathematical_proof: Dict
-    numerical_proof: Dict
-    information_proof: Dict
+    mathematical_result: Dict
+    numerical_result: Dict
+    information_result: Dict
 
-    proof_agreement: float
+    method_agreement: float
     consistency_score: float
     theta_values: Dict[str, float]
 
@@ -78,10 +77,10 @@ class UnifiedProofResult:
 
 class UnifiedThetaProof:
     """
-    Combines mathematical, numerical, and information-theoretic proofs
-    to demonstrate theta as the quantum-classical gradient.
+    Combines mathematical, numerical, and information-theoretic methods
+    to estimate theta as the quantum-classical gradient.
 
-    The three approaches must converge to the same theta for a valid proof:
+    The three approaches must converge to the same theta for a valid estimate:
 
     1. Mathematical: Shows theta emerges from constant relationships
        θ = ℏ/S from the action principle
@@ -93,26 +92,26 @@ class UnifiedThetaProof:
        Bekenstein bound and Landauer limit constrain theta
 
     Usage:
-        proof = UnifiedThetaProof()
-        result = proof.prove_theta_exists(system)
+        estimator = UnifiedThetaProof()
+        result = estimator.compute_theta(system)
         print(result.summary)
     """
 
     def __init__(self):
-        """Initialize the unified proof engine with all sub-provers."""
+        """Initialize the unified estimation engine with all sub-calculators."""
         self.calculator = ThetaCalculator()
         self.bootstrap = ConstantBootstrap()
         self.bekenstein = BekensteinBound()
         self.landauer = LandauerLimit()
 
-    def prove_theta_exists(self, system: PhysicalSystem) -> UnifiedProofResult:
+    def compute_theta(self, system: PhysicalSystem) -> UnifiedProofResult:
         """
-        Execute complete unified proof that theta exists for a system.
+        Execute complete unified theta estimation for a system.
 
-        This is the main proof function demonstrating theta as the
+        This is the main function for estimating theta as the
         interpolation parameter between quantum and classical regimes.
 
-        The proof proceeds in steps:
+        The estimation proceeds in steps:
         1. Mathematical: Verify constant bootstrap, compute θ = ℏ/S
         2. Numerical: Compute θ via action, thermal, scale, decoherence
         3. Information: Compute θ from Bekenstein and Landauer limits
@@ -120,33 +119,33 @@ class UnifiedThetaProof:
         5. Validation: Verify internal consistency
 
         Args:
-            system: Physical system to prove theta for
+            system: Physical system to estimate theta for
 
         Returns:
-            UnifiedProofResult with complete proof details
+            UnifiedProofResult with complete estimation details
         """
         validation_notes = []
 
-        # === PHASE 1: MATHEMATICAL PROOF ===
-        mathematical_proof = self._mathematical_proof(system)
-        theta_mathematical = mathematical_proof.get("theta", 0.5)
+        # === PHASE 1: MATHEMATICAL METHOD ===
+        mathematical_result = self._mathematical_method(system)
+        theta_mathematical = mathematical_result.get("theta", 0.5)
 
-        # === PHASE 2: NUMERICAL PROOF ===
-        numerical_proof = self._numerical_proof(system)
-        theta_numerical = numerical_proof.get("theta_unified", 0.5)
+        # === PHASE 2: NUMERICAL METHOD ===
+        numerical_result = self._numerical_method(system)
+        theta_numerical = numerical_result.get("theta_unified", 0.5)
 
-        # === PHASE 3: INFORMATION-THEORETIC PROOF ===
-        information_proof = self._information_proof(system)
-        theta_bekenstein = information_proof.get("theta_bekenstein", 0.5)
-        theta_landauer = information_proof.get("theta_landauer", 0.5)
+        # === PHASE 3: INFORMATION-THEORETIC METHOD ===
+        information_result = self._information_method(system)
+        theta_bekenstein = information_result.get("theta_bekenstein", 0.5)
+        theta_landauer = information_result.get("theta_landauer", 0.5)
 
         # === PHASE 4: COLLECT ALL THETA VALUES ===
         theta_values = {
             "mathematical": theta_mathematical,
-            "numerical_action": numerical_proof.get("theta_action", 0.5),
-            "numerical_thermal": numerical_proof.get("theta_thermal", 0.5),
-            "numerical_scale": numerical_proof.get("theta_scale", 0.5),
-            "numerical_decoherence": numerical_proof.get("theta_decoherence", 0.5),
+            "numerical_action": numerical_result.get("theta_action", 0.5),
+            "numerical_thermal": numerical_result.get("theta_thermal", 0.5),
+            "numerical_scale": numerical_result.get("theta_scale", 0.5),
+            "numerical_decoherence": numerical_result.get("theta_decoherence", 0.5),
             "numerical_unified": theta_numerical,
             "bekenstein": theta_bekenstein,
             "landauer": theta_landauer,
@@ -157,12 +156,12 @@ class UnifiedThetaProof:
         theta_mean = float(np.mean(theta_array))
         theta_std = float(np.std(theta_array))
 
-        # Proof agreement: inverse of coefficient of variation
+        # Method agreement: inverse of coefficient of variation
         if theta_mean > 0.01:
             cv = theta_std / theta_mean
-            proof_agreement = max(0.0, min(1.0, 1.0 - cv))
+            method_agreement = max(0.0, min(1.0, 1.0 - cv))
         else:
-            proof_agreement = 1.0 if theta_std < 0.01 else 0.0
+            method_agreement = 1.0 if theta_std < 0.01 else 0.0
 
         # === PHASE 6: COMPUTE FINAL THETA ===
         # Weighted average favoring more reliable methods
@@ -195,28 +194,28 @@ class UnifiedThetaProof:
 
         # === PHASE 8: CONSISTENCY SCORE ===
         # Combines agreement with confidence in individual methods
-        bootstrap_ok = mathematical_proof.get("bootstrap_consistent", {})
+        bootstrap_ok = mathematical_result.get("bootstrap_consistent", {})
         bootstrap_score = sum(bootstrap_ok.values()) / len(bootstrap_ok) if bootstrap_ok else 0.5
 
         consistency_score = (
-            0.4 * proof_agreement +
+            0.4 * method_agreement +
             0.3 * bootstrap_score +
-            0.3 * numerical_proof.get("confidence", 0.5)
+            0.3 * numerical_result.get("confidence", 0.5)
         )
         consistency_score = max(0.0, min(1.0, consistency_score))
 
         # === PHASE 9: GENERATE EXPLANATIONS ===
-        summary = self._generate_summary(theta_final, regime, proof_agreement, system)
+        summary = self._generate_summary(theta_final, regime, method_agreement, system)
         detailed_explanation = self._generate_detailed_explanation(
-            system, theta_values, theta_final, regime, proof_agreement
+            system, theta_values, theta_final, regime, method_agreement
         )
 
         # === PHASE 10: VALIDATION ===
         is_valid = True
 
-        if proof_agreement < 0.5:
+        if method_agreement < 0.5:
             validation_notes.append(
-                f"Low proof agreement ({proof_agreement:.2%}): methods diverge significantly"
+                f"Low method agreement ({method_agreement:.2%}): methods diverge significantly"
             )
             is_valid = False
 
@@ -242,10 +241,10 @@ class UnifiedThetaProof:
             theta=theta_final,
             theta_uncertainty=theta_uncertainty,
             regime=regime,
-            mathematical_proof=mathematical_proof,
-            numerical_proof=numerical_proof,
-            information_proof=information_proof,
-            proof_agreement=proof_agreement,
+            mathematical_result=mathematical_result,
+            numerical_result=numerical_result,
+            information_result=information_result,
+            method_agreement=method_agreement,
             consistency_score=consistency_score,
             theta_values=theta_values,
             summary=summary,
@@ -254,9 +253,14 @@ class UnifiedThetaProof:
             validation_notes=validation_notes
         )
 
-    def _mathematical_proof(self, system: PhysicalSystem) -> Dict:
+    # Backward compatibility alias
+    def prove_theta_exists(self, system: PhysicalSystem) -> UnifiedProofResult:
+        """Deprecated: Use compute_theta() instead."""
+        return self.compute_theta(system)
+
+    def _mathematical_method(self, system: PhysicalSystem) -> Dict:
         """
-        Execute mathematical proof component.
+        Execute mathematical estimation component.
 
         Shows that theta emerges from the bootstrap relationships
         between fundamental constants.
@@ -280,9 +284,9 @@ class UnifiedThetaProof:
             "confidence": theta_state.confidence,
         }
 
-    def _numerical_proof(self, system: PhysicalSystem) -> Dict:
+    def _numerical_method(self, system: PhysicalSystem) -> Dict:
         """
-        Execute numerical proof component.
+        Execute numerical estimation component.
 
         Computes theta through multiple numerical methods and
         demonstrates convergence.
@@ -309,9 +313,9 @@ class UnifiedThetaProof:
             "confidence": unified_state.confidence,
         }
 
-    def _information_proof(self, system: PhysicalSystem) -> Dict:
+    def _information_method(self, system: PhysicalSystem) -> Dict:
         """
-        Execute information-theoretic proof component.
+        Execute information-theoretic estimation component.
 
         Derives theta from entropy bounds and information limits.
         """
@@ -344,7 +348,7 @@ class UnifiedThetaProof:
         agreement: float,
         system: PhysicalSystem
     ) -> str:
-        """Generate concise proof summary."""
+        """Generate concise estimation summary."""
         regime_desc = {
             Regime.QUANTUM: "quantum (θ ≈ 1)",
             Regime.CLASSICAL: "classical (θ ≈ 0)",
@@ -352,19 +356,19 @@ class UnifiedThetaProof:
         }.get(regime, "undefined")
 
         return (
-            f"THETA PROOF RESULT\n"
+            f"THETA ESTIMATION RESULT\n"
             f"{'=' * 40}\n"
             f"System: {system.name}\n"
             f"θ = {theta:.4f} ± {agreement:.2f}\n"
             f"Regime: {regime_desc}\n"
-            f"Proof agreement: {agreement:.1%}\n"
+            f"Method agreement: {agreement:.1%}\n"
             f"\n"
             f"Interpretation:\n"
             f"  {theta*100:.1f}% quantum description\n"
             f"  {(1-theta)*100:.1f}% classical description\n"
             f"\n"
-            f"Theta exists as a well-defined interpolation\n"
-            f"parameter between quantum and classical physics."
+            f"Theta is a well-defined interpolation index\n"
+            f"between quantum and classical physics."
         )
 
     def _generate_detailed_explanation(
@@ -378,7 +382,7 @@ class UnifiedThetaProof:
         """Generate detailed pedagogical explanation."""
         lines = [
             "=" * 70,
-            "DETAILED PROOF: THETA AS THE QUANTUM-CLASSICAL GRADIENT",
+            "DETAILED ANALYSIS: THETA AS THE QUANTUM-CLASSICAL GRADIENT",
             "=" * 70,
             "",
             "1. SYSTEM UNDER ANALYSIS",
@@ -430,17 +434,16 @@ class UnifiedThetaProof:
 
         lines.extend([
             "",
-            "7. WHAT THIS PROVES",
-            "   a) Theta exists as a well-defined parameter",
+            "7. KEY FINDINGS",
+            "   a) Theta is a well-defined parameter for this system",
             "   b) Theta emerges from fundamental constant relationships",
             "   c) Theta can be computed from system properties",
             "   d) Theta satisfies information-theoretic bounds",
             "   e) Multiple independent methods converge to consistent θ",
             "",
             "8. CONCLUSION",
-            f"   Theta = {theta_final:.4f} is the gradient between quantum",
-            "   and classical descriptions for this physical system.",
-            "   Q.E.D.",
+            f"   Theta = {theta_final:.4f} is the estimated gradient between",
+            "   quantum and classical descriptions for this physical system.",
             "",
             "=" * 70,
         ])
@@ -482,20 +485,20 @@ class UnifiedThetaProof:
         return results
 
 
-def prove_theta(system: PhysicalSystem) -> UnifiedProofResult:
+def score_theta(system: PhysicalSystem) -> UnifiedProofResult:
     """
-    Convenience function to prove theta for a system.
+    Convenience function to estimate theta for a system.
 
-    This is the recommended entry point for theta proofs.
+    This is the recommended entry point for theta estimation.
 
     Args:
         system: Physical system to analyze
 
     Returns:
-        UnifiedProofResult with complete proof
+        UnifiedProofResult with complete estimation
 
     Example:
-        from theta_calculator import PhysicalSystem, prove_theta
+        from theta_calculator import PhysicalSystem, score_theta
 
         electron = PhysicalSystem(
             name="electron",
@@ -505,9 +508,15 @@ def prove_theta(system: PhysicalSystem) -> UnifiedProofResult:
             temperature=300.0
         )
 
-        result = prove_theta(electron)
+        result = score_theta(electron)
         print(f"Theta: {result.theta}")
         print(result.summary)
     """
-    proof = UnifiedThetaProof()
-    return proof.prove_theta_exists(system)
+    estimator = UnifiedThetaProof()
+    return estimator.compute_theta(system)
+
+
+# Backward compatibility alias
+def prove_theta(system: PhysicalSystem) -> UnifiedProofResult:
+    """Deprecated: Use score_theta() instead."""
+    return score_theta(system)

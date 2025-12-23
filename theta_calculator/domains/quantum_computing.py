@@ -4,15 +4,30 @@ Quantum Computing Domain: Error Thresholds and Decoherence
 This module implements theta as the quantum-classical interpolation parameter
 for quantum computing systems using coherence and error rates.
 
-Key Insight: Quantum computers transition between:
-- theta ~ 1: Coherent quantum state (useful quantum computation)
-- theta ~ 0: Decoherent classical state (noise-dominated)
+## Mapping Definition
 
-The critical parameter is the error threshold:
-- p < p_threshold: Quantum error correction works (exponential suppression)
-- p > p_threshold: Errors accumulate faster than correction
+This domain maps quantum computing systems to theta via coherence metrics:
 
-Recent milestone (2024): Google Willow achieved below-threshold operation!
+**Inputs (Physical Analogs):**
+- T1 → Relaxation time (seconds) - energy decay timescale
+- T2 → Dephasing time (seconds) - phase coherence timescale
+- gate_time → Duration of a quantum gate (seconds)
+- error_rate → Probability of error per gate operation
+- error_threshold → Critical error rate for QEC (typically ~1%)
+
+**Theta Mapping:**
+θ = min(T1, T2) / (gate_time × N_gates)
+
+Or equivalently: θ = exp(-gate_time / T_coherence)
+
+**Interpretation:**
+- θ → 1: Coherent quantum state (useful quantum computation possible)
+- θ → 0: Decoherent classical state (noise-dominated, quantum advantage lost)
+
+**Critical Threshold:** When error_rate < error_threshold, quantum error
+correction can suppress errors exponentially.
+
+**Important:** This is an ANALOGY SCORE based on coherence ratios.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{Shor1996} - Fault-tolerant quantum computation (threshold theorem)

@@ -1,0 +1,72 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "theta-calc"
+version = "0.1.0"
+description = "Estimate where systems sit on the classical-quantum continuum"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Theta Proof Project"}]
+keywords = ["physics", "quantum", "classical", "theta", "interpolation", "quantum-classical"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Physics",
+    "Topic :: Scientific/Engineering :: Mathematics",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.24.0",
+    "scipy>=1.11.0",
+    "pint>=0.23",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "matplotlib>=3.7.0",
+]
+viz = [
+    "matplotlib>=3.7.0",
+]
+all = [
+    "theta-calc[dev,viz]",
+]
+
+[project.scripts]
+theta-calc = "theta_calculator.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/theta-proof/theta-calc"
+Repository = "https://github.com/theta-proof/theta-calc"
+Documentation = "https://github.com/theta-proof/theta-calc#readme"
+
+[tool.setuptools.packages.find]
+include = ["theta_calculator*"]
+
+[tool.pytest.ini_options]
+testpaths = ["theta_calculator/tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+
+[tool.coverage.run]
+source = ["theta_calculator"]
+omit = ["theta_calculator/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise NotImplementedError",
+]

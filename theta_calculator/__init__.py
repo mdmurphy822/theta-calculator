@@ -1,7 +1,7 @@
 """
-Theta Calculator: Proving Theta as the Quantum-Classical Gradient
+Theta Calculator: Estimating the Quantum-Classical Gradient
 
-This library computes and proves theta (θ) exists as the interpolation
+This library computes and estimates theta (θ) as the interpolation
 parameter between quantum (θ=1) and classical (θ=0) states.
 
 Example:
@@ -15,8 +15,8 @@ Example:
         temperature=300.0
     )
 
-    proof = UnifiedThetaProof()
-    result = proof.prove_theta_exists(electron)
+    estimator = UnifiedThetaProof()
+    result = estimator.compute_theta(electron)
     print(f"Theta: {result.theta:.4f}")
 """
 

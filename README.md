@@ -6,16 +6,66 @@ Computes a dimensionless parameter **θ** that estimates where a system sits on 
 - **θ ≈ 1**: quantum-like (coherent/superposed, action near ℏ)
 - **0 < θ < 1**: transition regime (crossover scales)
 
+## Installation
+
+```bash
+pip install theta-calc
+```
+
+Or for development:
+```bash
+git clone <repo>
+pip install -e .[dev]
+```
+
 ## Quick Start
 
 ```bash
-pip install -r requirements.txt
-
 # Compare theta across systems
-python3 -m theta_calculator compare
+theta-calc compare
 
 # Score a custom system
-python3 -m theta_calculator quick --mass 9.1e-31 --length 2.8e-15 --temp 300
+theta-calc quick --mass 9.1e-31 --length 2.8e-15 --temp 300
+```
+
+---
+
+## Golden Demos (< 30 seconds each)
+
+### 1. Market Bubble Detection
+```bash
+# Normal trading vs flash crash
+theta-calc domain -d economics -s normal_trading
+# θ ≈ 0.41 (classical-leaning: independent traders)
+
+theta-calc domain -d economics -s flash_crash
+# θ ≈ 0.73 (quantum-like: correlated herding behavior)
+```
+
+### 2. Qubit Coherence Threshold
+```bash
+# Compare quantum computing technologies
+theta-calc domain -d quantum_computing -s google_willow
+# θ ≈ 0.90+ (highly coherent, below error threshold)
+
+theta-calc domain -d quantum_computing -s early_superconducting
+# θ ≈ 0.15 (noisy, classical-like)
+```
+
+### 3. Critical Point Detection
+```bash
+# Ferromagnet near/far from phase transition
+theta-calc domain -d complex_systems -s ferromagnet_critical
+# θ ≈ 1.0 (at critical point: diverging correlations)
+
+theta-calc domain -d complex_systems -s ferromagnet_cold
+# θ ≈ 0.37 (ordered phase: stable, predictable)
+```
+
+### JSON Output for Dashboards
+```bash
+theta-calc compare --json | jq '.systems.electron'
+# {"theta": 0.87, "regime": "transition"}
 ```
 
 ---
@@ -51,7 +101,7 @@ This is an *operational scoring model*, not a new physical constant.
 ### Compare theta across physical systems
 
 ```bash
-python3 -m theta_calculator compare
+theta-calc compare
 ```
 
 Output:
@@ -72,36 +122,36 @@ human                       0.130001 classical-like
 earth                       0.130000 classical-like
 ```
 
-### Prove theta for a custom system
+### Score theta for a custom system
 
 ```bash
-python3 -m theta_calculator prove --mass 9.1e-31 --length 2.8e-15 --energy 8.2e-14 --temp 300
+theta-calc score --mass 9.1e-31 --length 2.8e-15 --energy 8.2e-14 --temp 300
 ```
 
 ### Display fundamental constants
 
 ```bash
-python3 -m theta_calculator constants --show-planck --show-bootstrap
+theta-calc constants --show-planck --show-bootstrap
 ```
 
 ### Get detailed explanation for a system
 
 ```bash
-python3 -m theta_calculator explain --system electron --format markdown
+theta-calc explain --system electron --format markdown
 ```
 
 ### Cross-domain analysis
 
 ```bash
 # List all domains
-python3 -m theta_calculator domains
+theta-calc domains
 
 # Analyze specific domain system
-python3 -m theta_calculator domain -d economics -s market_crash
-python3 -m theta_calculator domain -d quantum_computing -s google_willow
+theta-calc domain -d economics -s market_crash
+theta-calc domain -d quantum_computing -s google_willow
 
 # Cross-domain comparison
-python3 -m theta_calculator crossdomain
+theta-calc crossdomain
 ```
 
 ---

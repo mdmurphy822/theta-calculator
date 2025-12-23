@@ -4,17 +4,29 @@ Information Theory Domain: Shannon vs Von Neumann Entropy
 This module implements theta as the quantum-classical interpolation parameter
 for information systems using entropy measures.
 
-Key Insight: Information systems transition between:
-- theta ~ 0: Pure/deterministic states (low entropy, classical)
-- theta ~ 1: Mixed/uncertain states (high entropy, quantum-like)
+## Mapping Definition
 
-Classical vs Quantum Information:
-- Shannon entropy: H(X) = -∑ p_i log p_i
-- Von Neumann entropy: S(ρ) = -Tr(ρ log ρ)
-- Purity: P = Tr(ρ²), ranges from 1/d (maximally mixed) to 1 (pure)
+This domain maps information systems to theta via entropy and purity:
 
-The key difference: quantum entropy can be NON-ADDITIVE due to entanglement!
+**Inputs (Physical Analogs):**
+- dimension (d) → Hilbert space size / number of possible states
+- purity (P) → Tr(ρ²), ranges from 1/d (maximally mixed) to 1 (pure)
+- entropy_shannon → Classical Shannon entropy H(X)
+- entropy_von_neumann → Quantum von Neumann entropy S(ρ)
+
+**Theta Mapping:**
+θ = S(ρ) / S_max = S(ρ) / log(d)
+
+Or equivalently: θ = 1 - P (for normalized purity)
+
+**Interpretation:**
+- θ → 0: Pure/deterministic state (low entropy, highly ordered information)
+- θ → 1: Maximally mixed state (maximum entropy, maximum uncertainty)
+
+**Key Quantum Feature:** Quantum entropy is NON-ADDITIVE due to entanglement.
 S(A∪B) ≤ S(A) + S(B) for classical, but S(A∪B) can be < S(A) for quantum.
+
+**Important:** This is an ANALOGY SCORE mapping entropy/purity to the [0,1] scale.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{Shannon1948} - A Mathematical Theory of Communication

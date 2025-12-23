@@ -4,16 +4,28 @@ Game Theory Domain: Quantum Games and Entanglement Parameter
 This module implements theta as the quantum-classical interpolation parameter
 for strategic games using entanglement as the key measure.
 
-Key Insight: Quantum games interpolate between:
-- theta ~ 0 (γ = 0): Classical Nash equilibria
-- theta ~ 1 (γ = π/2): Quantum strategies with maximal entanglement
+## Mapping Definition
 
-The entanglement parameter γ controls how "quantum" the game is:
-- γ = 0: Identity operator (classical game)
-- γ = π/2: Maximum entanglement (CNOT-like operation)
+This domain maps game-theoretic systems to theta via entanglement:
 
-This enables new equilibria that don't exist classically!
-Example: In quantum Prisoner's Dilemma, cooperation can emerge.
+**Inputs (Physical Analogs):**
+- gamma (γ) → Entanglement parameter [0, π/2]
+- game_type → Type of strategic game (Prisoner's Dilemma, Chicken, etc.)
+- payoff_matrix → Reward structure for player strategies
+
+**Theta Mapping:**
+θ = sin²(γ)
+
+Or equivalently: θ = 2γ/π (linear approximation)
+
+**Interpretation:**
+- θ → 0 (γ = 0): Classical Nash equilibria, no entanglement, classical strategies
+- θ → 1 (γ = π/2): Quantum strategies with maximal entanglement
+
+**Key Feature:** Quantum games enable new equilibria that don't exist classically.
+Example: In quantum Prisoner's Dilemma (θ ≈ 1), cooperation can emerge.
+
+**Important:** This is an ANALOGY SCORE based on quantum game theory.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{Eisert1999} - Quantum Games and Quantum Strategies

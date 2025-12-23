@@ -1,9 +1,11 @@
-# Theta Calculator Dependencies
+# Theta Calculator Development Dependencies
+# Install with: pip install -r requirements-dev.txt
+# Or use: pip install -e .[dev]
+
 # Core scientific computing
 numpy>=1.24.0
-
-# Scientific computing (for advanced calculations)
 scipy>=1.11.0
+pint>=0.23
 
 # Visualization
 matplotlib>=3.7.0

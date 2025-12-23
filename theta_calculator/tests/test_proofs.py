@@ -242,12 +242,12 @@ class TestUnifiedProof:
         assert "numerical_unified" in result.theta_values
         assert "bekenstein" in result.theta_values
 
-    def test_proof_agreement_calculated(self, proof):
-        """Proof agreement should be between 0 and 1."""
+    def test_method_agreement_calculated(self, proof):
+        """Method agreement should be between 0 and 1."""
         electron = EXAMPLE_SYSTEMS["electron"]
         result = proof.prove_theta_exists(electron)
 
-        assert 0 <= result.proof_agreement <= 1
+        assert 0 <= result.method_agreement <= 1
         assert 0 <= result.consistency_score <= 1
 
     def test_summary_generated(self, proof):

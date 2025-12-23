@@ -4,12 +4,30 @@ Cosmology Domain: Theta Across Cosmic History
 This module implements theta as the quantum-classical interpolation parameter
 for the evolution of the universe from the Big Bang to the far future.
 
-Key Insight: The universe transitions from quantum to classical:
-- theta ~ 1: Planck era (quantum gravity, all forces unified)
-- theta ~ 0: Present epoch (classical gravity, quantum only at small scales)
+## Mapping Definition
 
-The cosmic theta tracks how "quantum" the universe is at different epochs,
-determined by comparing characteristic energies to the Planck scale.
+This domain maps cosmic epochs to theta via Planck scale comparison:
+
+**Inputs (Physical Analogs):**
+- temperature → CMB/radiation temperature (K)
+- energy → Characteristic energy scale (eV)
+- time_since_bang → Time since Big Bang (seconds)
+- hubble_parameter → Expansion rate H (km/s/Mpc)
+- era → Cosmic era classification
+
+**Theta Mapping:**
+θ = (E / E_Planck)^n × f(T / T_Planck)
+
+Where E_Planck ≈ 1.22 × 10^19 GeV, T_Planck ≈ 1.42 × 10^32 K
+
+**Interpretation:**
+- θ → 1: Planck era (quantum gravity, all forces unified, t < 10^-44 s)
+- θ → 0: Present epoch (classical gravity, quantum only at small scales)
+
+**Key Feature:** Cosmic evolution represents the universe's journey from
+θ ≈ 1 (Big Bang) to θ → 0 (far future heat death).
+
+**Important:** This is an ANALOGY SCORE comparing energy scales to Planck scale.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{PlanckCollaboration2020} - Planck 2018 cosmological parameters
