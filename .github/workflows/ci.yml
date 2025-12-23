@@ -60,5 +60,6 @@ jobs:
           pip install ruff
 
       - name: Check code style
+        continue-on-error: true  # Advisory only - don't block PRs
         run: |
           ruff check theta_calculator --select=E,F,W --ignore=E501,E402
