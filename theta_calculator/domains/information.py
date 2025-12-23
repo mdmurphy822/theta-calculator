@@ -16,10 +16,10 @@ Classical vs Quantum Information:
 The key difference: quantum entropy can be NON-ADDITIVE due to entanglement!
 S(A∪B) ≤ S(A) + S(B) for classical, but S(A∪B) can be < S(A) for quantum.
 
-References:
-- Shannon (1948): A Mathematical Theory of Communication
-- Von Neumann (1932): Mathematical Foundations of Quantum Mechanics
-- Hastings (2009): Non-additivity of quantum channel capacity
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Shannon1948} - A Mathematical Theory of Communication
+    \\cite{VonNeumann1932} - Mathematical Foundations of Quantum Mechanics
+    \\cite{Hastings2009} - Non-additivity of quantum channel capacity
 """
 
 import numpy as np

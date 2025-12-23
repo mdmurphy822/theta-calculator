@@ -15,10 +15,10 @@ The entanglement parameter γ controls how "quantum" the game is:
 This enables new equilibria that don't exist classically!
 Example: In quantum Prisoner's Dilemma, cooperation can emerge.
 
-References:
-- Eisert, Wilkens, Lewenstein (1999): Quantum Games and Quantum Strategies
-- Meyer (1999): Quantum Strategies
-- Du et al. (2002): Experimental Quantum Games
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Eisert1999} - Quantum Games and Quantum Strategies
+    \\cite{Meyer1999} - Quantum Strategies
+    \\cite{Du2002} - Experimental Realization of Quantum Games
 """
 
 import numpy as np

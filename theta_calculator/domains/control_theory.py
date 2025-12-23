@@ -17,11 +17,11 @@ Key Mappings:
 - Feedback strength → theta (stronger feedback = higher theta)
 - Noise rejection → theta (better rejection = higher theta)
 
-References:
-- Astrom & Murray (2010): Feedback Systems
-- Ogata (2010): Modern Control Engineering
-- Doyle, Francis, Tannenbaum (1992): Feedback Control Theory
-- Skogestad & Postlethwaite (2005): Multivariable Feedback Control
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Astrom2010} - Feedback Systems: An Introduction
+    \\cite{Ogata2010} - Modern Control Engineering
+    \\cite{Doyle1992} - Feedback Control Theory
+    \\cite{Skogestad2005} - Multivariable Feedback Control
 """
 
 import numpy as np

@@ -540,8 +540,73 @@ python -m theta_calculator crossdomain
 
 ## References
 
-- CODATA 2022 for physical constants
-- Bekenstein (1973) for entropy bounds
-- Landauer (1961) for computational limits
-- Eisert et al. (1999) for quantum games
-- Wilson & Kogut (1974) for critical phenomena
+All citations reference entries in `BIBLIOGRAPHY.bib`.
+
+### Fundamental Constants
+- \cite{CODATA2022} - NIST CODATA 2022 Recommended Values
+
+### Information Theory
+- \cite{Bekenstein1981} - Bekenstein bound on entropy
+- \cite{Landauer1961} - Landauer limit on computation
+- \cite{MargoluLevitin1998} - Margolus-Levitin quantum speed limit
+- \cite{Shannon1948} - Shannon entropy
+- \cite{VonNeumann1932} - von Neumann entropy
+
+### Black Hole Thermodynamics
+- \cite{Hawking1974} - Hawking temperature
+- \cite{Bekenstein1973} - Bekenstein-Hawking entropy
+- \cite{Schwarzschild1916} - Schwarzschild radius
+
+### Quantum Computing
+- \cite{Shor1996} - Fault-tolerant quantum computation
+- \cite{Kitaev2003} - Topological quantum error correction
+- \cite{GoogleQuantum2024} - Experimental error correction threshold
+- \cite{Preskill2018} - NISQ computing framework
+- \cite{Fowler2012} - Surface code architecture
+
+### Quantum Biology
+- \cite{Engel2007} - Quantum coherence in photosynthesis
+- \cite{Ritz2000} - Radical pair magnetoreception
+- \cite{Klinman2013} - Hydrogen tunneling in enzymes
+- \cite{Lowdin1963} - Proton tunneling in DNA
+- \cite{Turin1996} - Vibration theory of olfaction
+
+### Game Theory
+- \cite{Eisert1999} - Quantum games and strategies
+- \cite{Meyer1999} - Quantum strategies
+- \cite{Du2002} - Experimental quantum games
+
+### Complex Systems
+- \cite{WilsonKogut1974} - Renormalization group theory
+- \cite{Stanley1971} - Phase transitions and critical phenomena
+- \cite{BakTangWiesenfeld1987} - Self-organized criticality
+
+### Cosmology
+- \cite{Planck2020} - Cosmological parameters
+- \cite{Weinberg1972} - Gravitation and cosmology
+- \cite{Guth1981} - Inflationary universe
+
+### Control Theory
+- \cite{Astrom2010} - Feedback systems
+- \cite{Ogata2010} - Modern control engineering
+- \cite{Doyle1992} - Feedback control theory
+
+### Nonlinear Dynamics
+- \cite{Strogatz2015} - Nonlinear dynamics and chaos
+- \cite{Feigenbaum1978} - Feigenbaum constants
+- \cite{Lorenz1963} - Deterministic chaos
+
+### Quantum Gravity
+- \cite{Rovelli2004} - Loop quantum gravity
+- \cite{Ashtekar2004} - Background independent quantum gravity
+- \cite{Thiemann2007} - Modern canonical quantum GR
+- \cite{Immirzi1997} - Barbero-Immirzi parameter
+
+### Economics
+- \cite{Bornholdt2001} - Ising model for markets
+- \cite{Krawiecki2002} - Volatility clustering
+
+### Quantum Decoherence
+- \cite{Zurek2003} - Quantum Darwinism
+- \cite{Penrose1996} - Gravitational decoherence
+- \cite{JoosZeh1985} - Environmental decoherence

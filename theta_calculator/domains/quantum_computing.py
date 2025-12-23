@@ -14,10 +14,12 @@ The critical parameter is the error threshold:
 
 Recent milestone (2024): Google Willow achieved below-threshold operation!
 
-References:
-- Shor (1995): Fault-Tolerant Quantum Computation
-- Kitaev (2003): Fault-tolerant quantum computation by anyons
-- Google (2024): Quantum error correction below threshold (Nature)
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Shor1996} - Fault-tolerant quantum computation (threshold theorem)
+    \\cite{Kitaev2003} - Fault-tolerant quantum computation by anyons
+    \\cite{GoogleQuantum2024} - Quantum error correction below threshold
+    \\cite{Preskill2018} - NISQ computing framework
+    \\cite{Fowler2012} - Surface code architecture
 """
 
 import numpy as np

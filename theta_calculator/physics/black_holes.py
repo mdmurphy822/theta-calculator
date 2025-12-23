@@ -12,6 +12,12 @@ This makes black holes the ultimate test case for theta:
 - Hawking radiation is a quantum effect at horizon scale
 
 Black holes prove that theta = 1 at the information-theoretic limit.
+
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Hawking1974} - Black hole explosions? (Hawking radiation prediction)
+    \\cite{Hawking1975} - Particle creation by black holes (full derivation)
+    \\cite{Bekenstein1973} - Black holes and entropy
+    \\cite{Schwarzschild1916} - Schwarzschild metric and event horizon
 """
 
 import numpy as np
@@ -80,7 +86,7 @@ class BlackHoleThermodynamics:
 
     def schwarzschild_radius(self, mass: float) -> float:
         """
-        Compute Schwarzschild radius.
+        Compute Schwarzschild radius. \\cite{Schwarzschild1916}
 
         r_s = 2GM/c²
 
@@ -96,7 +102,7 @@ class BlackHoleThermodynamics:
 
     def hawking_temperature(self, mass: float) -> float:
         """
-        Compute Hawking temperature.
+        Compute Hawking temperature. \\cite{Hawking1974} \\cite{Hawking1975}
 
         T_H = ℏc³/(8πGMk)
 
@@ -122,7 +128,7 @@ class BlackHoleThermodynamics:
 
     def bekenstein_hawking_entropy(self, mass: float) -> float:
         """
-        Compute Bekenstein-Hawking entropy.
+        Compute Bekenstein-Hawking entropy. \\cite{Bekenstein1973}
 
         S = kc³A/(4Gℏ) = (A/4) × (1/l_P²) × k
 

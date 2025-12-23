@@ -20,10 +20,10 @@ Applications:
 - Civil unrest and revolutions
 - Neural criticality
 
-References:
-- Wilson & Kogut (1974): Renormalization Group
-- Stanley (1971): Phase Transitions and Critical Phenomena
-- Bak, Tang, Wiesenfeld (1987): Self-Organized Criticality
+References (see BIBLIOGRAPHY.bib):
+    \\cite{WilsonKogut1974} - Renormalization Group theory
+    \\cite{Stanley1971} - Phase Transitions and Critical Phenomena
+    \\cite{BakTangWiesenfeld1987} - Self-Organized Criticality
 """
 
 import numpy as np

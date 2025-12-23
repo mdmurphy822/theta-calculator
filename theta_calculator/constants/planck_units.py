@@ -7,6 +7,11 @@ They represent the natural scales of the universe - where theta = 1 (fully quant
 Key insight: Planck units are constructed from c, ℏ, G to eliminate arbitrary
 human-scale units. At these scales, quantum and gravitational effects are
 equally important.
+
+References (see BIBLIOGRAPHY.bib):
+    \\cite{CODATA2022} - NIST CODATA 2022 for base constants
+    \\cite{Planck1901} - Original Planck constant derivation
+    \\cite{Rovelli2004} - Planck scale in quantum gravity
 """
 
 import numpy as np

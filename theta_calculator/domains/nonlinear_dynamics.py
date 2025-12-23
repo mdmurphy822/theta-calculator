@@ -18,12 +18,12 @@ Key Mappings:
 - Attractor dimension: Higher dimension → higher theta
 - Feigenbaum constant: Universal at period-doubling transitions
 
-References:
-- Strogatz (2015): Nonlinear Dynamics and Chaos
-- Feigenbaum (1978): Quantitative universality for nonlinear transformations
-- Lorenz (1963): Deterministic nonperiodic flow
-- Ott (2002): Chaos in Dynamical Systems
-- Langton (1990): Computation at the edge of chaos
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Strogatz2015} - Nonlinear Dynamics and Chaos
+    \\cite{Feigenbaum1978} - Quantitative universality for nonlinear transformations
+    \\cite{Lorenz1963} - Deterministic nonperiodic flow
+    \\cite{Ott2002} - Chaos in Dynamical Systems
+    \\cite{Langton1990} - Computation at the edge of chaos
 """
 
 import numpy as np

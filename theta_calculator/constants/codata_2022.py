@@ -25,9 +25,10 @@ Categories:
 13. QUANTUM_ELECTRODYNAMICS - QED precision constants
 14. RATIOS - Mass and moment ratios
 
-References:
-- NIST CODATA 2022: https://physics.nist.gov/cuu/Constants/
-- Arxiv papers on fundamental constant variations and relationships
+References (see BIBLIOGRAPHY.bib):
+    \\cite{CODATA2022} - NIST CODATA 2022 Recommended Values
+                        https://physics.nist.gov/cuu/Constants/
+    \\cite{StefanBoltzmann} - Stefan-Boltzmann law (1879)
 """
 
 import numpy as np

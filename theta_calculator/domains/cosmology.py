@@ -11,10 +11,12 @@ Key Insight: The universe transitions from quantum to classical:
 The cosmic theta tracks how "quantum" the universe is at different epochs,
 determined by comparing characteristic energies to the Planck scale.
 
-References:
-- Planck Collaboration (2020): Cosmological parameters
-- Weinberg (1972): Gravitation and Cosmology
-- Guth (1981): Inflationary universe
+References (see BIBLIOGRAPHY.bib):
+    \\cite{PlanckCollaboration2020} - Planck 2018 cosmological parameters
+    \\cite{Weinberg1972} - Gravitation and Cosmology
+    \\cite{Guth1981} - Inflationary universe
+    \\cite{Peebles1965} - Big Bang nucleosynthesis
+    \\cite{Riess1998} - Discovery of cosmic acceleration
 """
 
 import numpy as np

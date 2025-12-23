@@ -17,13 +17,15 @@ Key Mappings:
 - Curvature: theta = R / R_P (higher curvature → more quantum)
 - Black hole mass: theta = m_P / M (smaller mass → more quantum)
 
-References:
-- Rovelli (2004): Quantum Gravity
-- Ashtekar & Lewandowski (2004): Background Independent Quantum Gravity
-- Thiemann (2007): Modern Canonical Quantum General Relativity
-- Penrose (1996): On Gravity's role in Quantum State Reduction
-- Bekenstein (1973): Black holes and entropy
-- Hawking (1975): Particle creation by black holes
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Rovelli2004} - Quantum Gravity (Loop quantum gravity)
+    \\cite{Ashtekar2004} - Background Independent Quantum Gravity
+    \\cite{Thiemann2007} - Modern Canonical Quantum General Relativity
+    \\cite{Immirzi1997} - Barbero-Immirzi parameter
+    \\cite{Penrose1996} - Gravitational decoherence
+    \\cite{Diosi1989} - Gravitational decoherence model
+    \\cite{Bekenstein1973} - Black holes and entropy
+    \\cite{Hawking1975} - Particle creation by black holes
 """
 
 import numpy as np

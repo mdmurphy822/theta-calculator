@@ -6,6 +6,11 @@ They are not arbitrary but form a self-consistent, recursively interconnected sy
 
 Key insight: Constants are operational thresholds that determine when different
 physical descriptions become applicable.
+
+References (see BIBLIOGRAPHY.bib):
+    \\cite{CODATA2022} - NIST CODATA 2022 Recommended Values
+    \\cite{Planck1901} - Planck constant original derivation
+    \\cite{Einstein1905SR} - Special relativity (speed of light)
 """
 
 from dataclasses import dataclass

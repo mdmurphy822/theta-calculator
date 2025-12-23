@@ -195,7 +195,7 @@ The `UnifiedThetaProof` combines three independent methodologies:
 
 ---
 
-## Constants Architecture
+## Constants Architecture \cite{CODATA2022}
 
 Physical constants use CODATA 2022 values with SI/2019 exact definitions:
 
@@ -321,9 +321,9 @@ Agreement across methods strengthens the proof.
 ### Why Domain Extensions?
 
 Theta as a universal parameter appears across physics:
-- **Economics:** Ising model maps traders to spins
-- **Biology:** Quantum coherence in warm systems
-- **Computing:** Error correction thresholds
+- **Economics:** Ising model maps traders to spins \cite{Bornholdt2001}
+- **Biology:** Quantum coherence in warm systems \cite{Engel2007}
+- **Computing:** Error correction thresholds \cite{Shor1996}
 
 These aren't analogies—they're exact mathematical mappings.
 
@@ -360,3 +360,17 @@ Current coverage: **425 tests** across 14 test files.
 3. **Interactive visualization** of theta landscapes
 4. **Machine learning** for theta prediction from experimental data
 5. **Additional domains:** Finance, epidemiology, neural networks
+
+---
+
+## References
+
+All citations reference entries in `BIBLIOGRAPHY.bib`.
+
+- \cite{CODATA2022} - NIST CODATA 2022 fundamental constants
+- \cite{Bornholdt2001} - Ising model for financial markets
+- \cite{Engel2007} - Quantum coherence in photosynthesis
+- \cite{Shor1996} - Fault-tolerant quantum computation
+- \cite{Hawking1974} - Black hole thermodynamics
+- \cite{Bekenstein1981} - Bekenstein entropy bound
+- \cite{Landauer1961} - Landauer limit on computation

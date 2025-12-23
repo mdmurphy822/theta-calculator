@@ -17,6 +17,12 @@ Key relationships:
 
 The existence of these relationships proves that the constants define
 a coherent boundary between quantum and classical regimes.
+
+References (see BIBLIOGRAPHY.bib):
+    \\cite{CODATA2022} - NIST CODATA 2022 constant values
+    \\cite{Einstein1905SR} - Special relativity (c as universal constant)
+    \\cite{Planck1901} - Planck constant derivation
+    \\cite{Hawking1974} - Black hole thermodynamics unifying all constants
 """
 
 import numpy as np

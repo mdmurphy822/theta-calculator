@@ -14,10 +14,9 @@ The Ising model maps traders to spins:
 - Coupling J_ij: Correlation between traders i and j
 - Temperature T: Market volatility / uncertainty
 
-References:
-- Bornholdt (2001): Ising model of financial markets
-- Krawiecki et al. (2002): Volatility clustering
-- Phase Transitions in Financial Markets (ArXiv)
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Bornholdt2001} - Ising model of financial markets
+    \\cite{Krawiecki2002} - Volatility clustering in market models
 """
 
 import numpy as np

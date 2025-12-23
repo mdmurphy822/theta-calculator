@@ -12,12 +12,12 @@ Key Insight: Living systems exploit quantum effects at the boundary:
 Quantum biology demonstrates that life operates in the transition regime,
 using quantum effects for efficiency while remaining robust against decoherence.
 
-References:
-- Engel et al. (2007): Quantum coherence in photosynthesis
-- Ritz, Adem, Schulten (2000): Radical pair magnetoreception
-- Klinman & Kohen (2013): Hydrogen tunneling in enzymes
-- Lowdin (1963): Proton tunneling in DNA
-- Turin (1996): Vibration theory of olfaction
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Engel2007} - Quantum coherence in FMO complex photosynthesis
+    \\cite{Ritz2000} - Radical pair magnetoreception in birds
+    \\cite{Klinman2013} - Hydrogen tunneling in enzyme catalysis
+    \\cite{Lowdin1963} - Proton tunneling in DNA base pairs
+    \\cite{Turin1996} - Vibration theory of olfaction
 """
 
 import numpy as np

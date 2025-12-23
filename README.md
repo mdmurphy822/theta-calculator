@@ -209,3 +209,33 @@ theta_calculator/
 ## License
 
 MIT
+
+---
+
+## References
+
+This project uses established physics and computational foundations. All citations reference entries in `BIBLIOGRAPHY.bib`.
+
+### Fundamental Constants
+- CODATA 2022 values: \cite{CODATA2022}
+
+### Black Hole Thermodynamics
+- Hawking radiation: \cite{Hawking1974}, \cite{Hawking1975}
+- Bekenstein entropy: \cite{Bekenstein1973}
+- Schwarzschild metric: \cite{Schwarzschild1916}
+
+### Information Theory
+- Shannon entropy: \cite{Shannon1948}
+- von Neumann entropy: \cite{VonNeumann1932}
+- Landauer limit: \cite{Landauer1961}
+- Bekenstein bound: \cite{Bekenstein1981}
+- Margolus-Levitin limit: \cite{MargoluLevitin1998}
+
+### Quantum Mechanics & Decoherence
+- Quantum Darwinism: \cite{Zurek2003}
+- Gravitational decoherence: \cite{Penrose1996}
+- Environmental decoherence: \cite{JoosZeh1985}
+
+### Foundational Physics
+- Planck constant: \cite{Planck1901}
+- Special relativity: \cite{Einstein1905SR}

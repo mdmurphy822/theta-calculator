@@ -12,6 +12,12 @@ Key concepts:
 
 Decoherence provides a physical mechanism for the quantum-classical transition,
 directly computing how theta decays from 1 (quantum) to 0 (classical).
+
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Zurek2003} - Decoherence, einselection, and quantum origins of the classical
+    \\cite{Penrose1996} - Gravitational decoherence (Penrose-Diosi mechanism)
+    \\cite{JoosZeh1985} - Environmental decoherence mechanisms
+    \\cite{Diosi1989} - Gravitational decoherence model
 """
 
 import numpy as np
@@ -156,6 +162,7 @@ class DecoherenceCalculator:
     ) -> float:
         """
         Compute decoherence time from gravitational self-interaction.
+        \\cite{Penrose1996} \\cite{Diosi1989}
 
         Penrose's proposal: gravity causes objective collapse when
         superposed masses have significant gravitational self-energy difference.

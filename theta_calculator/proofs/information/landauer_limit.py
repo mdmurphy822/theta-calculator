@@ -14,6 +14,10 @@ Key insight: The ratio of quantum to thermal information limits
 determines theta.
 - When quantum limit dominates → classical (thermal fluctuations dominate)
 - When Landauer limit dominates → quantum effects matter
+
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Landauer1961} - Irreversibility and heat generation in computing
+    \\cite{MargoluLevitin1998} - Maximum speed of dynamical evolution
 """
 
 import numpy as np
@@ -235,25 +239,25 @@ class LandauerLimit:
 
         # Theta from ratio of limits
         # When quantum limit is tighter (fewer ops allowed), system is more quantum
+        # N_quantum < N_thermal means quantum limit constrains → high theta
+        # N_quantum > N_thermal means thermal limit constrains → low theta
         if N_thermal + N_quantum > 0:
-            # Use ratio that gives high theta when quantum limit dominates
-            # quantum dominates when N_quantum < N_thermal
             ratio = N_quantum / N_thermal if N_thermal > 0 else float('inf')
-            # theta should be high when ratio is low (quantum limit is tighter)
-            theta = 1 / (1 + ratio) if ratio != float('inf') else 0.0
+            # theta = 1/(1+ratio): small ratio → high theta (quantum-limited)
+            theta_ops = 1 / (1 + ratio) if ratio != float('inf') else 0.0
         else:
-            theta = 0.5  # Undefined case
+            theta_ops = 0.5  # Undefined case
 
         # Alternative: based on time scales
-        # t_thermal = ℏ/(kT) is thermal time scale
+        # t_thermal = ℏ/(kT) is the thermal coherence time
+        # Operations faster than t_thermal show quantum behavior
         t_thermal = self.h_bar / (self.k * system.temperature) if system.temperature > 0 else float('inf')
-
-        # If operation time < t_thermal, quantum effects matter
         time_ratio = operation_time / t_thermal if t_thermal != float('inf') else 0
+        # theta_time = 1/(1+ratio): fast operations (small ratio) → high theta
         theta_time = 1 / (1 + time_ratio)
 
-        # Combine both estimates
-        theta = (theta + theta_time) / 2
+        # Average both measures for robust estimate
+        theta = (theta_ops + theta_time) / 2
 
         # Generate explanation
         if theta > 0.7:

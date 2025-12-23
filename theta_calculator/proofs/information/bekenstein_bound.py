@@ -15,6 +15,10 @@ Key insight: The Bekenstein bound defines the theta=1 (quantum) limit.
 
 This module computes theta from how close a system is to saturating
 the Bekenstein bound.
+
+References (see BIBLIOGRAPHY.bib):
+    \\cite{Bekenstein1981} - Universal upper bound on entropy-to-energy ratio
+    \\cite{Bekenstein1973} - Black holes and entropy
 """
 
 import numpy as np
