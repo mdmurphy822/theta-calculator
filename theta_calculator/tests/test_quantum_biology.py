@@ -6,7 +6,6 @@ magnetoreception, enzyme catalysis, and other biological systems.
 """
 
 import pytest
-import numpy as np
 
 from theta_calculator.domains.quantum_biology import (
     BIOLOGICAL_SYSTEMS,
@@ -15,7 +14,6 @@ from theta_calculator.domains.quantum_biology import (
     QuantumMechanism,
     compute_quantum_bio_theta,
     compute_coherence_theta,
-    compute_functional_theta,
     compute_tunneling_theta,
     classify_regime,
     thermal_time,

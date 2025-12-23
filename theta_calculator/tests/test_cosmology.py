@@ -6,7 +6,6 @@ including phase transitions and temperature scaling.
 """
 
 import pytest
-import numpy as np
 
 from theta_calculator.domains.cosmology import (
     COSMIC_TIMELINE,
@@ -15,7 +14,6 @@ from theta_calculator.domains.cosmology import (
     CosmicEra,
     compute_cosmic_theta,
     compute_thermal_theta,
-    compute_hubble_theta,
     temperature_to_energy_ev,
     energy_to_temperature,
     theta_evolution,
@@ -88,7 +86,7 @@ class TestThetaComputation:
         first_theta = evolution[0][1]
         last_theta = evolution[-1][1]
         assert first_theta > last_theta * 1e30, \
-            f"Theta should decrease from Planck era to heat death"
+            "Theta should decrease from Planck era to heat death"
 
     def test_theta_spans_many_orders_of_magnitude(self):
         """Theta should span at least 30 orders of magnitude."""

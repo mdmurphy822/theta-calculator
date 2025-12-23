@@ -1,4 +1,4 @@
-"""
+r"""
 Networks Domain: Shannon Capacity, Percolation, and Quantum Key Distribution
 
 This module implements theta as the communication/network efficiency parameter.
@@ -21,7 +21,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Tuple
 from enum import Enum
 
 
@@ -72,7 +72,7 @@ class NetworkSystem:
 # =============================================================================
 
 def shannon_capacity(bandwidth: float, snr: float) -> float:
-    """
+    r"""
     Compute Shannon channel capacity.
 
     C = B * log₂(1 + SNR)
@@ -104,7 +104,7 @@ def compute_shannon_theta(
     bandwidth: float,
     snr: float
 ) -> float:
-    """
+    r"""
     Compute theta for communication channel.
 
     Theta = R_actual / C_Shannon
@@ -132,7 +132,7 @@ def compute_shannon_theta(
 # =============================================================================
 
 def percolation_threshold(network_type: str = "2d_square") -> float:
-    """
+    r"""
     Get percolation threshold for different network types.
 
     The percolation threshold p_c is where a giant component emerges.
@@ -159,7 +159,7 @@ def percolation_threshold(network_type: str = "2d_square") -> float:
 
 
 def giant_component_fraction(p: float, p_c: float = 0.5) -> float:
-    """
+    r"""
     Compute fraction of network in giant component.
 
     Above p_c:
@@ -185,7 +185,7 @@ def compute_percolation_theta(
     p: float,
     p_c: float = 0.5
 ) -> float:
-    """
+    r"""
     Compute theta for network percolation.
 
     Theta = p / p_c for p < p_c (subcritical)
@@ -219,7 +219,7 @@ def compute_percolation_theta(
 
 @dataclass
 class QKDResult:
-    """
+    r"""
     Result of QKD analysis.
 
     Attributes:
@@ -245,7 +245,7 @@ def bb84_key_rate(
     dark_count_rate: float,
     qber: float
 ) -> Tuple[float, float]:
-    """
+    r"""
     Compute BB84 QKD key rate.
 
     Secure key rate:
@@ -297,7 +297,7 @@ def compute_qkd_theta(
     classical_rate: float,
     max_qkd_advantage: float = 10.0
 ) -> float:
-    """
+    r"""
     Compute theta for QKD vs classical cryptography.
 
     QKD provides information-theoretic security, classical doesn't.
@@ -332,7 +332,7 @@ def compute_qkd_theta(
 # =============================================================================
 
 def barabasi_albert_degree_dist(k: int, m: int = 2) -> float:
-    """
+    r"""
     Degree distribution for Barabasi-Albert scale-free network.
 
     P(k) ~ k^(-γ) with γ = 3
@@ -356,7 +356,7 @@ def compute_scalefree_theta(
     gamma_min: float = 2.0,
     gamma_max: float = 4.0
 ) -> float:
-    """
+    r"""
     Compute theta for scale-free network.
 
     Theta based on power-law exponent γ:
@@ -397,7 +397,8 @@ def compute_network_theta(system: NetworkSystem) -> float:
     if system.network_type == NetworkType.COMMUNICATION:
         # Use Shannon capacity
         if system.bandwidth > 0 and system.snr > 0:
-            capacity = shannon_capacity(system.bandwidth, system.snr)
+            # Shannon capacity calculated but returns typical utilization
+            _ = shannon_capacity(system.bandwidth, system.snr)
             # Assume 80% utilization typical
             return 0.8
         else:

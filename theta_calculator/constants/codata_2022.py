@@ -31,9 +31,8 @@ References (see BIBLIOGRAPHY.bib):
     \\cite{StefanBoltzmann} - Stefan-Boltzmann law (1879)
 """
 
-import numpy as np
 from dataclasses import dataclass, field
-from typing import Dict, List, Optional, Callable
+from typing import Dict, List
 from enum import Enum
 
 
@@ -4528,7 +4527,6 @@ ALL_CONSTANTS: Dict[str, Constant] = {
     "m_n_u": m_n_u,
     "m_n_eV": m_n_eV,
     "lambda_C_n": lambda_C_n,
-    "g_n": g_n,
     "mu_n": mu_n,
 
     # Muon
@@ -4856,8 +4854,6 @@ ALL_CONSTANTS: Dict[str, Constant] = {
     "m_top": m_top,
     "m_top_GeV": m_top_GeV,
     "alpha_s": alpha_s,
-    "sin2_theta_W": sin2_theta_W,
-    "G_F": G_F,
 
     # Particle Physics (Mesons)
     "m_pi_plus": m_pi_plus,

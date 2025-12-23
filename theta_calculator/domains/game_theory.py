@@ -35,7 +35,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple, Callable
+from typing import Dict, List, Tuple
 from enum import Enum
 
 
@@ -403,7 +403,7 @@ def game_theory_theta_summary():
         else:
             adv_str = "N/A"
 
-        gamma_str = f"{game.gamma:.4f}" if game.gamma < 1 else f"π/2"
+        gamma_str = f"{game.gamma:.4f}" if game.gamma < 1 else "π/2"
         if np.isclose(game.gamma, np.pi/4):
             gamma_str = "π/4"
         elif np.isclose(game.gamma, np.pi/2):

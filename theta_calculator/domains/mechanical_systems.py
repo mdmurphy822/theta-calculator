@@ -1,4 +1,4 @@
-"""
+r"""
 Mechanical Systems Domain: Engines, Motors, and Energy Conversion
 
 This module implements theta as the efficiency parameter for mechanical
@@ -22,7 +22,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional
+from typing import Dict, Optional
 from enum import Enum
 
 
@@ -76,7 +76,7 @@ class MechanicalSystem:
 # =============================================================================
 
 def carnot_efficiency(T_hot: float, T_cold: float) -> float:
-    """
+    r"""
     Compute Carnot efficiency for heat engine.
 
     η_Carnot = 1 - T_cold / T_hot
@@ -102,7 +102,7 @@ def carnot_efficiency(T_hot: float, T_cold: float) -> float:
 
 
 def otto_efficiency(compression_ratio: float, gamma: float = 1.4) -> float:
-    """
+    r"""
     Compute Otto cycle efficiency (gasoline engine).
 
     η_Otto = 1 - r^(1-γ)
@@ -128,7 +128,7 @@ def diesel_efficiency(
     cutoff_ratio: float,
     gamma: float = 1.4
 ) -> float:
-    """
+    r"""
     Compute Diesel cycle efficiency.
 
     η_Diesel = 1 - (1/r^(γ-1)) * (ρ^γ - 1) / (γ(ρ - 1))
@@ -162,7 +162,7 @@ def compute_engine_theta(
     T_hot: float,
     T_cold: float
 ) -> float:
-    """
+    r"""
     Compute theta for heat engine.
 
     Theta = η_actual / η_Carnot
@@ -192,7 +192,7 @@ def compute_engine_theta(
 
 @dataclass
 class MotorEfficiency:
-    """
+    r"""
     Electric motor efficiency analysis.
 
     Losses in motors:
@@ -259,7 +259,7 @@ def nernst_potential(
     n_electrons: int,
     activity_ratio: float
 ) -> float:
-    """
+    r"""
     Compute Nernst potential for electrochemical cell.
 
     E = E° - (RT/nF) * ln(Q)
@@ -321,7 +321,7 @@ def compute_battery_theta(
 # =============================================================================
 
 def critical_damping(mass: float, spring_constant: float) -> float:
-    """
+    r"""
     Compute critical damping coefficient.
 
     c_critical = 2 * sqrt(k * m)

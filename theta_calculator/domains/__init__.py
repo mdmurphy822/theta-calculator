@@ -266,11 +266,13 @@ __all__ = [
     "compute_susceptibility",
     "compute_correlation_length",
     "detect_critical_point",
+    "compute_complex_theta",
     "COMPLEX_SYSTEMS",
     # Quantum Computing
     "QubitSystem",
     "compute_coherence_theta",
     "compute_error_threshold_theta",
+    "compute_quantum_computing_theta",
     "QUANTUM_HARDWARE",
     # Quantum Biology
     "BiologicalSystem",

@@ -27,7 +27,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List
 
 from ...constants.values import FundamentalConstants as FC
 from ...constants.planck_units import PlanckUnits

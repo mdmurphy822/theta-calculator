@@ -21,9 +21,8 @@ This unification suggests theta is a FUNDAMENTAL parameter of nature,
 not just a convenient mathematical construct.
 """
 
-import numpy as np
 from dataclasses import dataclass
-from typing import Dict, Any, Optional, Union
+from typing import Dict, Any, Optional
 from enum import Enum
 
 # Import domain-specific types and functions

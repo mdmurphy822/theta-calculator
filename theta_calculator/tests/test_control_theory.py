@@ -6,7 +6,6 @@ feedback systems, and control architectures.
 """
 
 import pytest
-import numpy as np
 
 from theta_calculator.domains.control_theory import (
     CONTROL_SYSTEMS,

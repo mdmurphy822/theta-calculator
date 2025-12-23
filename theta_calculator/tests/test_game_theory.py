@@ -12,7 +12,6 @@ from theta_calculator.domains.game_theory import (
     GAME_SYSTEMS,
     QuantumGame,
     GameType,
-    StrategyType,
     compute_entanglement_theta,
     compute_quantum_advantage,
     entangling_gate,

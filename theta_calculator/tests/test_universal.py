@@ -5,7 +5,6 @@ Tests cross-domain theta unification and the universal theta interface.
 """
 
 import pytest
-import numpy as np
 
 from theta_calculator.domains.universal import (
     UniversalTheta,

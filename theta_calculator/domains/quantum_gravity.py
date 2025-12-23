@@ -34,7 +34,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, Optional, List
+from typing import Dict, Optional
 from enum import Enum
 
 

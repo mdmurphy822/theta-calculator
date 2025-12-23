@@ -1,4 +1,4 @@
-"""
+r"""
 Quantum Proofs Module
 
 This module contains theta proofs based on fundamental quantum mechanics.

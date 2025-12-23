@@ -9,44 +9,37 @@ import numpy as np
 
 from theta_calculator.domains import (
     # Education
-    LearningSystem,
     compute_education_theta,
     compute_retention_theta,
     compute_learning_theta,
     ebbinghaus_retention,
     EDUCATION_SYSTEMS,
     # Mechanical Systems
-    MechanicalSystem,
     compute_mechanical_theta,
     compute_engine_theta,
     carnot_efficiency,
     MECHANICAL_SYSTEMS,
     # Networks
-    NetworkSystem,
     compute_network_theta,
     compute_shannon_theta,
     shannon_capacity,
     compute_percolation_theta,
     NETWORK_SYSTEMS,
     # Cognition
-    CognitiveSystem,
     compute_cognition_theta,
     compute_phi_ratio,
     compute_criticality_theta,
     compute_working_memory_theta,
     COGNITIVE_SYSTEMS,
     # Social Systems
-    SocialSystem,
     compute_social_theta,
     compute_epidemic_theta,
     compute_traffic_theta,
     herd_immunity_threshold,
     SOCIAL_SYSTEMS,
     # Chemistry
-    QuantumMaterial,
     compute_chemistry_theta,
     compute_superconductor_theta,
-    compute_bec_theta,
     bec_condensate_fraction,
     SUPERCONDUCTORS,
 )

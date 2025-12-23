@@ -6,7 +6,6 @@ black hole quantum properties, and spacetime discreteness.
 """
 
 import pytest
-import numpy as np
 
 from theta_calculator.domains.quantum_gravity import (
     QUANTUM_GRAVITY_SYSTEMS,
@@ -16,8 +15,6 @@ from theta_calculator.domains.quantum_gravity import (
     compute_quantum_gravity_theta,
     compute_length_theta,
     compute_energy_theta,
-    compute_mass_theta,
-    compute_curvature_theta,
     classify_regime,
     schwarzschild_radius,
     hawking_temperature_k,
@@ -32,7 +29,6 @@ from theta_calculator.domains.quantum_gravity import (
     E_PLANCK_EV,
     M_PLANCK,
     R_PLANCK,
-    A_MIN_LQG,
     IMMIRZI_PARAMETER,
 )
 
@@ -187,7 +183,7 @@ class TestBlackHoles:
     def test_hawking_temperature_planck_mass(self):
         """Planck mass BH should have Planck temperature."""
         T_H = hawking_temperature_k(M_PLANCK)
-        T_PLANCK = 1.417e32  # K
+        # Planck temperature ~ 1.417e32 K
         # Should be of order Planck temperature
         assert T_H > 1e30
 

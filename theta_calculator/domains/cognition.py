@@ -1,4 +1,4 @@
-"""
+r"""
 Cognition Domain: Integrated Information, Neural Criticality, and Working Memory
 
 This module implements theta as the consciousness/cognition parameter
@@ -23,7 +23,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Tuple
 from enum import Enum
 
 
@@ -78,7 +78,7 @@ def compute_phi_simple(
     connectivity_matrix: np.ndarray,
     states: np.ndarray
 ) -> float:
-    """
+    r"""
     Compute simplified integrated information Φ.
 
     Φ measures how much a system is "more than the sum of its parts."
@@ -116,7 +116,7 @@ def compute_phi_simple(
 
 
 def compute_phi_ratio(phi: float, phi_max: float = 1.0) -> float:
-    """
+    r"""
     Compute theta from integrated information.
 
     Theta = Φ / Φ_max
@@ -136,7 +136,7 @@ def compute_phi_ratio(phi: float, phi_max: float = 1.0) -> float:
 
 
 def consciousness_from_phi(phi: float) -> ConsciousnessState:
-    """
+    r"""
     Classify consciousness level from Φ.
 
     Reference: \cite{Tononi2016}
@@ -158,7 +158,7 @@ def consciousness_from_phi(phi: float) -> ConsciousnessState:
 # =============================================================================
 
 def criticality_exponent(avalanche_sizes: List[int]) -> float:
-    """
+    r"""
     Compute power-law exponent from neural avalanche sizes.
 
     At criticality: P(s) ~ s^(-τ) with τ ≈ 1.5
@@ -200,7 +200,7 @@ def compute_criticality_theta(
     tau_critical: float = 1.5,
     tau_range: float = 0.5
 ) -> float:
-    """
+    r"""
     Compute theta from criticality exponent.
 
     At criticality (τ = 1.5), information processing is optimal.
@@ -231,7 +231,7 @@ def compute_criticality_theta(
 # =============================================================================
 
 def miller_capacity() -> Tuple[int, int, int]:
-    """
+    r"""
     Return Miller's magical number: 7 ± 2.
 
     Working memory can hold about 7 (±2) chunks of information.
@@ -248,7 +248,7 @@ def compute_working_memory_theta(
     items: int,
     capacity: int = 7
 ) -> float:
-    """
+    r"""
     Compute theta from working memory load.
 
     Theta = items / capacity
@@ -312,7 +312,7 @@ def compute_global_broadcast_theta(
     total_modules: int,
     broadcast_strength: float = 1.0
 ) -> float:
-    """
+    r"""
     Compute theta from global workspace theory.
 
     Conscious processing involves "global broadcast" where

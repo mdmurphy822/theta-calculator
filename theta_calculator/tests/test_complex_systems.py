@@ -11,7 +11,6 @@ import numpy as np
 from theta_calculator.domains.complex_systems import (
     COMPLEX_SYSTEMS,
     ComplexSystem,
-    CriticalExponents,
     PhaseType,
     compute_complex_theta,
     compute_order_parameter,

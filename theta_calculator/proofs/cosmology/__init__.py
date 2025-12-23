@@ -1,4 +1,4 @@
-"""
+r"""
 Cosmology Proofs Module
 
 This module contains theta proofs based on cosmological physics,

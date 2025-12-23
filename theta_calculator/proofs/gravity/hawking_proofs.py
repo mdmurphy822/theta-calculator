@@ -1,4 +1,4 @@
-"""
+r"""
 Hawking Radiation Proofs: Power, Page Time, and Area Quantization
 
 This module implements theta derivations from black hole thermodynamics
@@ -25,7 +25,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Optional, Dict, Any
+from typing import Dict, Any
 from enum import Enum
 
 # Physical constants (SI units)
@@ -56,7 +56,7 @@ class BlackHoleType(Enum):
 
 @dataclass
 class HawkingRadiationResult:
-    """
+    r"""
     Result of Hawking radiation analysis.
 
     Black holes emit thermal radiation with temperature:
@@ -91,7 +91,7 @@ class HawkingRadiationResult:
 
 @dataclass
 class PageTimeResult:
-    """
+    r"""
     Result of Page time analysis.
 
     The Page time is when half the black hole's entropy has been radiated.
@@ -120,7 +120,7 @@ class PageTimeResult:
 
 @dataclass
 class AreaQuantizationResult:
-    """
+    r"""
     Result of area quantization analysis.
 
     In Loop Quantum Gravity, black hole area is quantized:
@@ -153,7 +153,7 @@ def schwarzschild_radius(mass: float) -> float:
 
 
 def hawking_temperature(mass: float) -> float:
-    """
+    r"""
     Compute Hawking temperature.
 
     T_H = ℏc³ / (8πGMk_B)
@@ -166,7 +166,7 @@ def hawking_temperature(mass: float) -> float:
 
 
 def hawking_power(mass: float) -> float:
-    """
+    r"""
     Compute Hawking radiation power.
 
     P = ℏc⁶ / (15360πG²M²)
@@ -182,7 +182,7 @@ def hawking_power(mass: float) -> float:
 
 
 def evaporation_time(mass: float) -> float:
-    """
+    r"""
     Compute black hole evaporation time.
 
     t_evap = 5120π G²M³ / (ℏc⁴)
@@ -195,7 +195,7 @@ def evaporation_time(mass: float) -> float:
 
 
 def compute_hawking_theta(mass: float) -> HawkingRadiationResult:
-    """
+    r"""
     Compute theta from Hawking radiation properties.
 
     Theta = T_H / T_Planck = M_Planck / (8πM)
@@ -236,7 +236,7 @@ def compute_hawking_theta(mass: float) -> HawkingRadiationResult:
 
 
 def page_time(mass: float) -> float:
-    """
+    r"""
     Compute Page time.
 
     t_Page = t_evap / 2 (approximately)
@@ -249,7 +249,7 @@ def page_time(mass: float) -> float:
 
 
 def scrambling_time(mass: float) -> float:
-    """
+    r"""
     Compute scrambling time.
 
     t_scramble = (r_s/c) * ln(S_BH) = (r_s/c) * ln(A/(4l_P²))
@@ -268,7 +268,7 @@ def compute_page_time_theta(
     mass: float,
     current_time: float = 0.0
 ) -> PageTimeResult:
-    """
+    r"""
     Compute theta based on Page time.
 
     Before Page time: Information is hidden (theta ~ 0)
@@ -318,7 +318,7 @@ def compute_page_time_theta(
 
 
 def minimum_area_eigenvalue() -> float:
-    """
+    r"""
     Compute minimum area eigenvalue in LQG.
 
     A_min = 4√3 πγ l_P²
@@ -331,7 +331,7 @@ def minimum_area_eigenvalue() -> float:
 
 
 def compute_area_quantization_theta(area: float) -> AreaQuantizationResult:
-    """
+    r"""
     Compute theta from area quantization.
 
     Theta = A_min / A_actual
@@ -371,7 +371,7 @@ def compute_area_quantization_theta(area: float) -> AreaQuantizationResult:
 
 
 class HawkingProofs:
-    """
+    r"""
     Unified interface for Hawking radiation theta calculations.
 
     Reference: \cite{Hawking1975}

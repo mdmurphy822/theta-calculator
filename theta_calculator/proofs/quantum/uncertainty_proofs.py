@@ -1,4 +1,4 @@
-"""
+r"""
 Uncertainty Principle Proofs: Heisenberg, Energy-Time, and Entropic
 
 This module implements theta derivations from quantum uncertainty relations.
@@ -25,7 +25,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Optional, Dict, Any
+from typing import Dict, Any
 from enum import Enum
 
 # Physical constants (SI units)
@@ -44,7 +44,7 @@ class UncertaintyType(Enum):
 
 @dataclass
 class HeisenbergResult:
-    """
+    r"""
     Result of Heisenberg uncertainty analysis.
 
     The position-momentum uncertainty relation:
@@ -81,7 +81,7 @@ class HeisenbergResult:
 
 @dataclass
 class EnergyTimeResult:
-    """
+    r"""
     Result of energy-time uncertainty analysis.
 
     The energy-time uncertainty relation:
@@ -112,7 +112,7 @@ class EnergyTimeResult:
 
 @dataclass
 class EntropicResult:
-    """
+    r"""
     Result of entropic uncertainty analysis.
 
     The entropic uncertainty relation (Deutsch-Maassen-Uffink):
@@ -146,7 +146,7 @@ def compute_heisenberg_theta(
     delta_p: float,
     normalize: bool = True
 ) -> HeisenbergResult:
-    """
+    r"""
     Compute theta from Heisenberg position-momentum uncertainty.
 
     Theta = (ℏ/2) / (Δx · Δp)
@@ -210,7 +210,7 @@ def compute_energy_time_theta(
     delta_t: float,
     normalize: bool = True
 ) -> EnergyTimeResult:
-    """
+    r"""
     Compute theta from energy-time uncertainty.
 
     Theta = (ℏ/2) / (ΔE · Δt)
@@ -264,7 +264,7 @@ def compute_entropic_theta(
     entropy_p: float,
     hbar_units: float = 1.0
 ) -> EntropicResult:
-    """
+    r"""
     Compute theta from entropic uncertainty relation.
 
     H(X) + H(P) ≥ log(πeℏ)
@@ -312,7 +312,7 @@ def compute_entropic_theta(
 
 
 class UncertaintyProofs:
-    """
+    r"""
     Unified interface for uncertainty-based theta calculations.
 
     Provides methods for computing theta from various uncertainty
@@ -323,7 +323,7 @@ class UncertaintyProofs:
 
     @staticmethod
     def heisenberg(delta_x: float, delta_p: float) -> Dict[str, Any]:
-        """
+        r"""
         Compute theta from Heisenberg uncertainty.
 
         Reference: \cite{Heisenberg1927}
@@ -342,7 +342,7 @@ class UncertaintyProofs:
 
     @staticmethod
     def energy_time(delta_E: float, delta_t: float) -> Dict[str, Any]:
-        """
+        r"""
         Compute theta from energy-time uncertainty.
 
         Reference: \cite{MandelstamTamm1945}
@@ -360,7 +360,7 @@ class UncertaintyProofs:
 
     @staticmethod
     def entropic(entropy_x: float, entropy_p: float) -> Dict[str, Any]:
-        """
+        r"""
         Compute theta from entropic uncertainty.
 
         Reference: \cite{MaassenUffink1988}

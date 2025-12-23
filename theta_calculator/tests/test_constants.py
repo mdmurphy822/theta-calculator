@@ -6,7 +6,7 @@ import pytest
 from theta_calculator.constants.values import (
     FundamentalConstants,
     verify_relationships,
-    c, h, h_bar, G, k_B, alpha, e, epsilon_0, mu_0
+    c, h, h_bar, k_B, alpha, e, epsilon_0, mu_0
 )
 from theta_calculator.constants.planck_units import PlanckUnits
 

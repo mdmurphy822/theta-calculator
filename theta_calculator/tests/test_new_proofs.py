@@ -13,8 +13,6 @@ from theta_calculator.proofs import (
     compute_heisenberg_theta,
     compute_energy_time_theta,
     compute_entropic_theta,
-    HeisenbergResult,
-    # Hawking proofs
     HawkingProofs,
     compute_hawking_theta,
     compute_page_time_theta,
@@ -115,7 +113,6 @@ class TestHawkingProofs:
         assert result_before.theta == 0.0  # No info yet
 
         # After Page time
-        evap_time = 2 * t_page  # Approximate
         result_after = compute_page_time_theta(mass, 1.5 * t_page)
         assert result_after.theta > 0  # Info emerging
 

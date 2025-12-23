@@ -13,9 +13,7 @@ import numpy as np
 from dataclasses import dataclass
 from typing import Tuple, Optional, List, Dict, Callable
 
-from ..core.theta_state import PhysicalSystem
 from ..core.interpolation import ThetaCalculator, estimate_theta_quick
-from ..constants.values import FundamentalConstants as FC
 from ..constants.planck_units import PlanckUnits
 
 

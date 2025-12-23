@@ -13,7 +13,7 @@ Usage:
 import argparse
 import json
 import sys
-from typing import Optional, Any, Dict
+from typing import Any, Dict
 
 from .core.theta_state import PhysicalSystem, EXAMPLE_SYSTEMS
 from .proofs.unified import UnifiedThetaProof, score_theta
@@ -30,7 +30,6 @@ from .domains import (
     compute_market_theta, compute_information_theta,
     compute_entanglement_theta, compute_complex_theta,
     compute_quantum_computing_theta, cross_domain_comparison,
-    UniversalTheta, DomainType,
 )
 from .domains.quantum_biology import (
     BIOLOGICAL_SYSTEMS, compute_quantum_bio_theta
@@ -111,7 +110,7 @@ def cmd_constants(args):
         if const.uncertainty > 0:
             print(f"  Uncertainty: {const.uncertainty:.1e}")
         else:
-            print(f"  Uncertainty: exact")
+            print("  Uncertainty: exact")
 
     if args.show_planck:
         print("\n" + "=" * 60)
@@ -206,7 +205,7 @@ def cmd_quick(args):
         }
         print(format_json(output))
     else:
-        print(f"Quick theta estimate:")
+        print("Quick theta estimate:")
         print(f"  Mass: {args.mass:.2e} kg")
         print(f"  Length: {args.length:.2e} m")
         print(f"  Temperature: {args.temp:.1f} K")
@@ -503,8 +502,8 @@ Examples:
                                help="System name within the domain")
 
     # crossdomain command
-    crossdomain_parser = subparsers.add_parser("crossdomain",
-                                               help="Cross-domain theta comparison")
+    subparsers.add_parser("crossdomain",
+                          help="Cross-domain theta comparison")
 
     # Parse arguments
     args = parser.parse_args()

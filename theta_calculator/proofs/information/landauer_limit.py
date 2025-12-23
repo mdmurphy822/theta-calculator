@@ -234,8 +234,8 @@ class LandauerLimit:
         # Compute Landauer energy
         E_landauer = self.minimum_erasure_energy(system.temperature)
 
-        # Compute minimum quantum time
-        t_quantum = self.minimum_computation_time(system.energy)
+        # Compute minimum quantum time (used for validation)
+        _ = self.minimum_computation_time(system.energy)
 
         # Theta from ratio of limits
         # When quantum limit is tighter (fewer ops allowed), system is more quantum

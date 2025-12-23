@@ -1,4 +1,4 @@
-"""
+r"""
 Chemistry Domain: Superconductivity, BEC, and Quantum Materials
 
 This module implements theta as the quantum coherence parameter
@@ -23,7 +23,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Optional
 from enum import Enum
 
 
@@ -75,7 +75,7 @@ class QuantumMaterial:
 # =============================================================================
 
 def bcs_gap_temperature(T: float, T_c: float, Delta_0: float) -> float:
-    """
+    r"""
     Compute BCS gap as function of temperature.
 
     Δ(T) ≈ Δ₀ × tanh(1.74√(T_c/T - 1)) for T < T_c
@@ -105,7 +105,7 @@ def bcs_gap_temperature(T: float, T_c: float, Delta_0: float) -> float:
 
 
 def bcs_gap_zero_temp(T_c: float) -> float:
-    """
+    r"""
     Compute zero-temperature BCS gap.
 
     Δ₀ = 1.76 k_B T_c
@@ -125,7 +125,7 @@ def compute_superconductor_theta(
     T: float,
     T_c: float
 ) -> float:
-    """
+    r"""
     Compute theta for superconductor.
 
     Theta = T_c / T for T > T_c (normal state)
@@ -198,7 +198,7 @@ def bec_critical_temperature(
     n: float,
     mass: float
 ) -> float:
-    """
+    r"""
     Compute BEC critical temperature.
 
     T_c = (2πℏ²/mk_B) × (n/ζ(3/2))^(2/3)
@@ -223,7 +223,7 @@ def bec_condensate_fraction(
     T: float,
     T_c: float
 ) -> float:
-    """
+    r"""
     Compute BEC condensate fraction.
 
     N₀/N = 1 - (T/T_c)^(3/2) for T < T_c
@@ -247,7 +247,7 @@ def bec_condensate_fraction(
 
 
 def compute_bec_theta(T: float, T_c: float) -> float:
-    """
+    r"""
     Compute theta for BEC.
 
     Theta = condensate fraction = N₀/N
@@ -272,7 +272,7 @@ def quantum_dot_confinement_energy(
     size: float,
     mass: float = M_ELECTRON
 ) -> float:
-    """
+    r"""
     Compute quantum confinement energy in quantum dot.
 
     E_conf = ℏ²π² / (2mL²)
@@ -296,7 +296,7 @@ def compute_quantum_dot_theta(
     temperature: float,
     effective_mass: float = 0.023 * M_ELECTRON
 ) -> float:
-    """
+    r"""
     Compute theta for quantum dot.
 
     Theta = E_confinement / E_thermal
@@ -334,7 +334,7 @@ def compute_quantum_dot_theta(
 # =============================================================================
 
 def lambda_transition_exponent(T: float, T_lambda: float) -> float:
-    """
+    r"""
     Compute superfluid fraction near lambda transition.
 
     Helium-4 superfluid transition at T_λ = 2.17 K.
@@ -361,7 +361,7 @@ def lambda_transition_exponent(T: float, T_lambda: float) -> float:
 
 
 def compute_superfluid_theta(T: float, T_lambda: float = 2.17) -> float:
-    """
+    r"""
     Compute theta for superfluid helium.
 
     Theta = superfluid fraction ρ_s/ρ

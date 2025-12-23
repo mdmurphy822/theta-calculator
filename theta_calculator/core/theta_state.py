@@ -339,8 +339,8 @@ class ThetaState:
     def summary(self) -> str:
         """Generate a human-readable summary."""
         lines = [
-            f"Theta State Summary",
-            f"=" * 40,
+            "Theta State Summary",
+            "=" * 40,
             f"θ = {self.theta:.6f} ± {self.theta_uncertainty:.6f}",
             f"Regime: {self.regime}",
             f"Quantum fraction: {self.quantum_fraction:.1f}%",
@@ -351,7 +351,7 @@ class ThetaState:
             lines.append(f"System: {self.system.name}")
 
         if self.components:
-            lines.append(f"\nComponent contributions:")
+            lines.append("\nComponent contributions:")
             for method, value in self.components.items():
                 lines.append(f"  {method}: {value:.4f}")
 

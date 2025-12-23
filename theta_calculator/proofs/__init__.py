@@ -1,4 +1,4 @@
-"""
+r"""
 Proofs module: Mathematical, numerical, and information-theoretic proofs.
 
 This module contains theta derivations from fundamental physics principles.

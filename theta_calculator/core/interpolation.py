@@ -20,7 +20,7 @@ import numpy as np
 from typing import Callable, Optional, Dict
 from dataclasses import dataclass
 
-from .theta_state import ThetaState, PhysicalSystem, Regime
+from .theta_state import ThetaState, PhysicalSystem
 from ..constants.values import FundamentalConstants as FC
 from ..constants.planck_units import PlanckUnits
 

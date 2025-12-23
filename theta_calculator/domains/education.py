@@ -1,4 +1,4 @@
-"""
+r"""
 Education Domain: Learning, Memory, and Knowledge Integration
 
 This module implements theta as the learning effectiveness parameter
@@ -23,7 +23,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional
 from enum import Enum
 
 
@@ -69,7 +69,7 @@ class LearningSystem:
 
 @dataclass
 class MemoryRetention:
-    """
+    r"""
     Memory retention analysis result.
 
     Based on Ebbinghaus forgetting curve:
@@ -95,7 +95,7 @@ class MemoryRetention:
 
 @dataclass
 class LearningCurve:
-    """
+    r"""
     Power law of learning analysis.
 
     Performance improves with practice:
@@ -134,7 +134,7 @@ def ebbinghaus_retention(
     strength: float = 1.0,
     decay_model: str = "exponential"
 ) -> float:
-    """
+    r"""
     Compute memory retention using Ebbinghaus forgetting curve.
 
     Models:
@@ -173,7 +173,7 @@ def optimal_review_time(
     current_strength: float,
     target_retention: float = 0.9
 ) -> float:
-    """
+    r"""
     Compute optimal time for spaced repetition review.
 
     Review should happen when retention drops to target level.
@@ -197,7 +197,7 @@ def compute_retention_theta(
     strength: float,
     max_strength: float = 168.0  # 1 week in hours
 ) -> MemoryRetention:
-    """
+    r"""
     Compute theta for memory retention.
 
     Theta = S / S_max = τ / τ_max
@@ -241,7 +241,7 @@ def power_law_performance(
     learning_rate: float = 0.3,
     asymptote: float = 0.0
 ) -> float:
-    """
+    r"""
     Compute performance using power law of learning.
 
     T = A * N^(-β) + asymptote
@@ -266,7 +266,7 @@ def estimate_learning_rate(
     times: List[float],
     trials: Optional[List[int]] = None
 ) -> float:
-    """
+    r"""
     Estimate learning rate from performance data.
 
     Fits T = A * N^(-β) using log-linear regression.
@@ -301,7 +301,7 @@ def compute_learning_theta(
     current_time: float,
     max_learning_rate: float = 0.5
 ) -> LearningCurve:
-    """
+    r"""
     Compute theta from power law of learning.
 
     Theta = β / β_max
@@ -363,7 +363,7 @@ def compute_integration_theta(
     max_connections: int,
     transfer_rate: float = 0.0
 ) -> float:
-    """
+    r"""
     Compute theta for knowledge integration.
 
     Like integrated information (Φ) in consciousness theory,
@@ -400,7 +400,7 @@ def compute_feedback_theta(
     max_acceptable_delay: float = 10.0,
     feedback_specificity: float = 1.0
 ) -> float:
-    """
+    r"""
     Compute theta for feedback quality.
 
     Based on control theory: faster, more specific feedback

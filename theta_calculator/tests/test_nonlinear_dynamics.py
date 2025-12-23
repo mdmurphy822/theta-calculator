@@ -16,7 +16,6 @@ from theta_calculator.domains.nonlinear_dynamics import (
     compute_dynamics_theta,
     compute_lyapunov_theta,
     compute_dimension_theta,
-    compute_bifurcation_theta,
     classify_regime,
     logistic_map,
     logistic_lyapunov,

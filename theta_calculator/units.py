@@ -22,9 +22,8 @@ Usage:
 """
 
 import warnings
-from typing import Optional, Union, Tuple
+from typing import Optional, Tuple
 from dataclasses import dataclass
-from enum import Enum
 
 try:
     import pint

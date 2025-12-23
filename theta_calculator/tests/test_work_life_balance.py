@@ -14,7 +14,6 @@ References:
 """
 
 import pytest
-import numpy as np
 
 from theta_calculator.domains import (
     # Core classes

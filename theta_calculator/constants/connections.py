@@ -21,10 +21,10 @@ Reference: Arxiv papers on "Fundamental Constants in Physics and Their Time Vari
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Callable, Optional, Tuple
+from typing import Dict, List, Callable, Tuple
 from enum import Enum
 
-from .codata_2022 import ALL_CONSTANTS, Constant
+from .codata_2022 import ALL_CONSTANTS
 
 
 class ConnectionType(Enum):
@@ -81,7 +81,7 @@ class ConstantConnection:
 
             error = abs(computed - expected) / abs(expected)
             return error < tolerance, error
-        except KeyError as e:
+        except KeyError:
             return False, float('inf')
 
 

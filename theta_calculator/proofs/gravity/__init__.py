@@ -1,4 +1,4 @@
-"""
+r"""
 Gravity Proofs Module
 
 This module contains theta proofs based on gravitational physics,

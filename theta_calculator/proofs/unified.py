@@ -19,10 +19,10 @@ all compute the same theta value, then theta is well-determined.
 """
 
 import numpy as np
-from dataclasses import dataclass, field
-from typing import Dict, List, Optional
+from dataclasses import dataclass
+from typing import Dict, List
 
-from ..core.theta_state import ThetaState, PhysicalSystem, Regime
+from ..core.theta_state import PhysicalSystem, Regime
 from ..core.interpolation import ThetaCalculator
 from .mathematical.constant_bootstrap import ConstantBootstrap
 from .information.bekenstein_bound import BekensteinBound
@@ -419,7 +419,7 @@ class UnifiedThetaProof:
             f"   Regime: {regime.value}",
             "",
             "6. PHYSICAL INTERPRETATION",
-            f"   This system is described by:",
+            "   This system is described by:",
             f"   - {theta_final*100:.1f}% quantum mechanics",
             f"   - {(1-theta_final)*100:.1f}% classical physics",
             "",

@@ -1,4 +1,4 @@
-"""
+r"""
 Holographic Entropy Proofs: Ryu-Takayanagi and Entanglement Wedge
 
 This module implements theta derivations from the holographic principle
@@ -26,7 +26,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any
 from enum import Enum
 
 # Physical constants
@@ -49,7 +49,7 @@ class HolographicRegime(Enum):
 
 @dataclass
 class RyuTakayanagiResult:
-    """
+    r"""
     Result of Ryu-Takayanagi entropy analysis.
 
     The RT formula:
@@ -76,7 +76,7 @@ class RyuTakayanagiResult:
 
 @dataclass
 class EntanglementWedgeResult:
-    """
+    r"""
     Result of entanglement wedge analysis.
 
     The entanglement wedge is the bulk region reconstructable
@@ -100,7 +100,7 @@ class EntanglementWedgeResult:
 
 
 def rt_entropy(area: float, G_N: float = G) -> float:
-    """
+    r"""
     Compute Ryu-Takayanagi entanglement entropy.
 
     S = Area / (4G_N)
@@ -118,7 +118,7 @@ def compute_rt_theta(
     classical_entropy: Optional[float] = None,
     G_N: float = G
 ) -> RyuTakayanagiResult:
-    """
+    r"""
     Compute theta from Ryu-Takayanagi formula.
 
     Theta measures quantum corrections to holographic entropy.
@@ -173,7 +173,7 @@ def compute_wedge_theta(
     ads_radius: float = 1.0,
     cutoff: float = 0.01
 ) -> EntanglementWedgeResult:
-    """
+    r"""
     Compute theta from entanglement wedge geometry.
 
     In AdS/CFT, the entanglement wedge grows with boundary region size.
@@ -231,7 +231,7 @@ def subregion_complexity(
     boundary_volume: float,
     ads_radius: float = 1.0
 ) -> Dict[str, float]:
-    """
+    r"""
     Compute holographic subregion complexity.
 
     Complexity = Volume(Wedge) / (G_N * l_AdS)
@@ -260,7 +260,7 @@ def mutual_information_holographic(
     area_AB: float,
     G_N: float = G
 ) -> Dict[str, float]:
-    """
+    r"""
     Compute holographic mutual information.
 
     I(A:B) = S_A + S_B - S_AB
@@ -292,7 +292,7 @@ def mutual_information_holographic(
 
 
 class HolographicProofs:
-    """
+    r"""
     Unified interface for holographic theta calculations.
 
     Reference: \cite{RyuTakayanagi2006}

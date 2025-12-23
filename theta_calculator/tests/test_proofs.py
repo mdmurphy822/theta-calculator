@@ -3,7 +3,7 @@
 import numpy as np
 import pytest
 
-from theta_calculator.core.theta_state import PhysicalSystem, Regime, EXAMPLE_SYSTEMS
+from theta_calculator.core.theta_state import Regime, EXAMPLE_SYSTEMS
 from theta_calculator.core.interpolation import ThetaCalculator, compute_theta
 from theta_calculator.proofs.unified import UnifiedThetaProof, prove_theta
 from theta_calculator.proofs.information.bekenstein_bound import BekensteinBound

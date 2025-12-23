@@ -14,7 +14,7 @@ from dataclasses import dataclass
 from typing import List, Optional
 
 from ..proofs.unified import UnifiedProofResult
-from ..core.theta_state import ThetaState, Regime
+from ..core.theta_state import Regime
 
 
 @dataclass

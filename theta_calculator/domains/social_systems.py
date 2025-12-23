@@ -1,4 +1,4 @@
-"""
+r"""
 Social Systems Domain: Opinion Dynamics, Epidemics, Urban Scaling, and Traffic
 
 This module implements theta as the collective behavior parameter
@@ -23,7 +23,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List
 from enum import Enum
 
 
@@ -109,7 +109,7 @@ def voter_model_magnetization(
     time: float,
     n: int
 ) -> float:
-    """
+    r"""
     Compute magnetization in voter model.
 
     In voter model, agents copy random neighbor's opinion.
@@ -132,7 +132,7 @@ def compute_opinion_theta(
     polarization: float,
     consensus_threshold: float = 0.9
 ) -> float:
-    """
+    r"""
     Compute theta for opinion dynamics.
 
     High polarization = high theta (collective separation)
@@ -158,7 +158,7 @@ def compute_opinion_theta(
 
 @dataclass
 class SIRState:
-    """
+    r"""
     State of SIR epidemic model.
 
     dS/dt = -βSI
@@ -186,7 +186,7 @@ def compute_R0(
     recovery_rate: float,
     contacts_per_day: float
 ) -> float:
-    """
+    r"""
     Compute basic reproduction number R₀.
 
     R₀ = β/γ = (transmission × contacts) / recovery
@@ -214,7 +214,7 @@ def compute_epidemic_theta(
     R0: float,
     R0_critical: float = 1.0
 ) -> float:
-    """
+    r"""
     Compute theta for epidemic spreading.
 
     Theta = R₀ / R₀_max (normalized by typical pandemic R₀)
@@ -248,7 +248,7 @@ def compute_epidemic_theta(
 
 
 def herd_immunity_threshold(R0: float) -> float:
-    """
+    r"""
     Compute herd immunity threshold.
 
     HIT = 1 - 1/R₀
@@ -282,7 +282,7 @@ def urban_scaling_exponent(
     city_sizes: List[float],
     metric_values: List[float]
 ) -> float:
-    """
+    r"""
     Compute urban scaling exponent β.
 
     Y = Y₀ × N^β
@@ -315,7 +315,7 @@ def compute_urban_theta(
     beta: float,
     beta_typical: float = 1.15
 ) -> float:
-    """
+    r"""
     Compute theta for urban scaling.
 
     Superlinear scaling (β > 1) indicates emergent collective effects.
@@ -355,7 +355,7 @@ def fundamental_diagram(
     v_max: float = 1.0,
     critical_density: float = 0.3
 ) -> float:
-    """
+    r"""
     Compute traffic flow from fundamental diagram.
 
     Flow = density × velocity
@@ -389,7 +389,7 @@ def compute_traffic_theta(
     density: float,
     critical_density: float = 0.3
 ) -> float:
-    """
+    r"""
     Compute theta for traffic flow.
 
     Theta = density / critical_density (before jamming)

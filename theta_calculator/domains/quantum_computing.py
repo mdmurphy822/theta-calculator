@@ -39,7 +39,7 @@ References (see BIBLIOGRAPHY.bib):
 
 import numpy as np
 from dataclasses import dataclass
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Optional
 from enum import Enum
 
 
@@ -151,8 +151,8 @@ def depolarizing(rho: np.ndarray, p: float) -> np.ndarray:
     This is the standard error model for quantum error correction.
     """
     d = rho.shape[0]
-    I = np.eye(d) / d
-    return (1 - p) * rho + p * I
+    identity_normalized = np.eye(d) / d
+    return (1 - p) * rho + p * identity_normalized
 
 
 def compute_T2_star(T1: float, T_phi: float) -> float:
@@ -554,8 +554,6 @@ def quantum_computing_theta_summary():
 
         # Format error rate
         p_str = f"{system.error_rate*100:.3f}%"
-
-        below_threshold = "✓" if system.is_below_threshold else "✗"
 
         print(f"{system.name:<25} {theta:>8.3f} {theta_coh:>8.3f} {theta_err:>8.3f} "
               f"{T1_str:>10} {p_str:>10} {regime.value:<15}")

@@ -1,4 +1,4 @@
-"""
+r"""
 Vacuum Energy and Dark Energy Proofs
 
 This module implements theta derivations from cosmological observations,
@@ -63,7 +63,7 @@ class DarkEnergyModel(Enum):
 
 @dataclass
 class VacuumEnergyResult:
-    """
+    r"""
     Result of vacuum energy analysis.
 
     The cosmological constant Λ relates to vacuum energy:
@@ -91,7 +91,7 @@ class VacuumEnergyResult:
 
 @dataclass
 class DarkEnergyEOSResult:
-    """
+    r"""
     Result of dark energy equation of state analysis.
 
     The equation of state parameter w:
@@ -120,7 +120,7 @@ def compute_vacuum_theta(
     rho_observed: Optional[float] = None,
     use_planck_cutoff: bool = True
 ) -> VacuumEnergyResult:
-    """
+    r"""
     Compute theta from vacuum energy.
 
     Theta = ρ_observed / ρ_quantum
@@ -178,7 +178,7 @@ def compute_dark_energy_theta(
     w: float = -1.0,
     w_uncertainty: float = 0.03
 ) -> DarkEnergyEOSResult:
-    """
+    r"""
     Compute theta from dark energy equation of state.
 
     Theta measures deviation from pure cosmological constant (w = -1).
@@ -228,7 +228,7 @@ def compute_dark_energy_theta(
 
 
 def hubble_tension_theta() -> Dict[str, float]:
-    """
+    r"""
     Compute theta from Hubble tension.
 
     The Hubble tension is the discrepancy between:
@@ -260,7 +260,7 @@ def hubble_tension_theta() -> Dict[str, float]:
 
 
 def cosmic_coincidence_theta() -> Dict[str, float]:
-    """
+    r"""
     Compute theta from cosmic coincidence problem.
 
     Why is Ω_Λ ~ Ω_m ~ 0.7, 0.3 TODAY?
@@ -294,7 +294,7 @@ def cosmic_coincidence_theta() -> Dict[str, float]:
 
 
 class VacuumEnergyProofs:
-    """
+    r"""
     Unified interface for vacuum energy theta calculations.
 
     Reference: \cite{Weinberg1989}
@@ -394,7 +394,7 @@ def vacuum_energy_theta_summary():
     print(f"  ρ_quantum:  {result.rho_quantum:.2e} J/m³")
     print(f"  Discrepancy: {result.discrepancy:.2e}")
     print(f"  θ = {result.theta:.2e}")
-    print(f"  (This is the 10^122 problem!)")
+    print("  (This is the 10^122 problem!)")
     print()
 
     # Dark energy EOS
@@ -414,7 +414,7 @@ def vacuum_energy_theta_summary():
 
     # Hubble tension
     h_result = hubble_tension_theta()
-    print(f"HUBBLE TENSION:")
+    print("HUBBLE TENSION:")
     print(f"  H_0 (early): {h_result['H_0_early']:.1f} km/s/Mpc")
     print(f"  H_0 (late):  {h_result['H_0_late']:.1f} km/s/Mpc")
     print(f"  Tension: {h_result['tension_sigma']:.1f}σ")
