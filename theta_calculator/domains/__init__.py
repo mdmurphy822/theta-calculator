@@ -26,6 +26,7 @@ New Domains (2024):
 - cognition: Integrated information, neural criticality, working memory
 - social_systems: Opinion dynamics, epidemics, urban scaling, traffic
 - chemistry: Superconductivity, BEC, quantum dots, superfluidity
+- work_life_balance: Burnout, effort-reward, work-family conflict
 
 Each domain maps to the universal theta framework:
     theta = 0: Classical limit (random, independent, deterministic)
@@ -219,6 +220,25 @@ from .chemistry import (
     SUPERCONDUCTORS,
 )
 
+from .work_life_balance import (
+    WorkLifeSystem,
+    WellbeingPhase,
+    BurnoutDimension,
+    ConflictDirection,
+    compute_burnout_theta,
+    compute_effort_reward_theta,
+    compute_work_family_conflict_theta,
+    compute_cognitive_load_theta,
+    compute_jdr_theta,
+    compute_recovery_theta,
+    compute_job_strain_theta,
+    compute_work_life_theta,
+    classify_burnout,
+    classify_wellbeing_phase,
+    classify_job_strain,
+    WORK_LIFE_SYSTEMS,
+)
+
 __all__ = [
     # Economics
     "MarketSystem",
@@ -370,4 +390,21 @@ __all__ = [
     "bcs_gap_zero_temp",
     "bec_condensate_fraction",
     "SUPERCONDUCTORS",
+    # Work-Life Balance
+    "WorkLifeSystem",
+    "WellbeingPhase",
+    "BurnoutDimension",
+    "ConflictDirection",
+    "compute_burnout_theta",
+    "compute_effort_reward_theta",
+    "compute_work_family_conflict_theta",
+    "compute_cognitive_load_theta",
+    "compute_jdr_theta",
+    "compute_recovery_theta",
+    "compute_job_strain_theta",
+    "compute_work_life_theta",
+    "classify_burnout",
+    "classify_wellbeing_phase",
+    "classify_job_strain",
+    "WORK_LIFE_SYSTEMS",
 ]

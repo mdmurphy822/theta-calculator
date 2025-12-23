@@ -14,6 +14,9 @@ This makes black holes the ultimate test case for theta:
 Black holes prove that theta = 1 at the information-theoretic limit.
 
 References (see BIBLIOGRAPHY.bib):
+    \\cite{Einstein1916GR} - General Relativity foundation
+    \\cite{MisnerThorneWheeler1973} - Gravitation (GR textbook)
+    \\cite{Wheeler1957} - Quantum geometrodynamics
     \\cite{Hawking1974} - Black hole explosions? (Hawking radiation prediction)
     \\cite{Hawking1975} - Particle creation by black holes (full derivation)
     \\cite{Bekenstein1973} - Black holes and entropy

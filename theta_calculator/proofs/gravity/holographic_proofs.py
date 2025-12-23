@@ -16,6 +16,8 @@ Theta Mapping:
 - theta ~ 1: Quantum gravity (Planck-scale areas, quantum geometry)
 
 References (see BIBLIOGRAPHY.bib):
+    \cite{Einstein1915GR} - Einstein field equations (foundation)
+    \cite{MisnerThorneWheeler1973} - Gravitation textbook
     \cite{RyuTakayanagi2006} - Holographic derivation of entanglement entropy
     \cite{Hubeny2007} - Covariant holographic entanglement entropy
     \cite{Maldacena1999} - AdS/CFT correspondence

@@ -378,7 +378,7 @@ All 152 systems satisfy **0 ≤ θ ≤ 1** (verified by test suite).
 | Ryu-Takayanagi | S = A/(4G_N) | A_P/A | proofs/gravity/ | 4 |
 | Entanglement Wedge | Bulk reconstruction | A_w/A_b | proofs/gravity/ | 3 |
 | Vacuum Energy | ρ_vac = Λc²/(8πG) | ρ_obs/ρ_QM | proofs/cosmology/ | 3 |
-| Dark Energy EOS | w = P/ρ | |w+1|/0.1 | proofs/cosmology/ | 4 |
+| Dark Energy EOS | w = P/ρc² | 10·|w + 1| | proofs/cosmology/ | 4 |
 | Bekenstein Bound | S ≤ 2πRE/(ℏc) | S/S_max | proofs/information/ | 5 |
 | Landauer Limit | E ≥ kT·ln(2) | E_L/E | proofs/information/ | 4 |
 

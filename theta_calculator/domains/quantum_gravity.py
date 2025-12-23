@@ -18,6 +18,10 @@ Key Mappings:
 - Black hole mass: theta = m_P / M (smaller mass → more quantum)
 
 References (see BIBLIOGRAPHY.bib):
+    \\cite{Einstein1915GR} - Einstein field equations (foundation of GR)
+    \\cite{Wheeler1957} - Quantum geometrodynamics, quantum foam
+    \\cite{Wheeler1990ItFromBit} - "It from Bit" information-theoretic foundation
+    \\cite{MisnerThorneWheeler1973} - Gravitation (definitive GR textbook)
     \\cite{Rovelli2004} - Quantum Gravity (Loop quantum gravity)
     \\cite{Ashtekar2004} - Background Independent Quantum Gravity
     \\cite{Thiemann2007} - Modern Canonical Quantum General Relativity

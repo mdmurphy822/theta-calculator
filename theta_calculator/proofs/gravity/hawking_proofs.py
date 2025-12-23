@@ -15,6 +15,8 @@ Theta Mapping:
 - theta ~ 1: Planck-scale black holes (T_H ~ T_Planck)
 
 References (see BIBLIOGRAPHY.bib):
+    \cite{Einstein1916GR} - General Relativity foundation
+    \cite{MisnerThorneWheeler1973} - Gravitation textbook
     \cite{Hawking1975} - Particle creation by black holes
     \cite{Page1993} - Information in black hole radiation
     \cite{Bekenstein1998} - Quantum black holes as atoms
