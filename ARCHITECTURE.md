@@ -42,18 +42,49 @@ theta_calculator/
 │   └── mathematical/     # Mathematical derivations
 │       └── constant_bootstrap.py
 │
-├── domains/              # Multi-domain theta
-│   ├── economics.py      # Market phase transitions
-│   ├── information.py    # Entropy measures
-│   ├── game_theory.py    # Quantum games
-│   ├── complex_systems.py # Critical phenomena
-│   ├── quantum_computing.py # Error thresholds
-│   ├── quantum_biology.py # Biological coherence
-│   ├── cosmology.py      # Cosmic evolution
-│   ├── control_theory.py # Stability margins
+├── domains/              # 35 multi-domain theta modules
+│   ├── # Physics & Foundations (10)
+│   ├── quantum_computing.py # Error thresholds, decoherence
+│   ├── quantum_biology.py   # Biological coherence
+│   ├── quantum_gravity.py   # Planck-scale physics
+│   ├── quantum_foundations.py # Decoherence, measurement theory
+│   ├── cosmology.py         # Cosmic evolution
+│   ├── condensed_matter.py  # Phase transitions, topological
+│   ├── high_energy_physics.py # QCD, lattice gauge theory
+│   ├── atomic_optical_physics.py # BEC, cavity QED
+│   ├── physics_extended.py  # GR, holography
+│   ├── # Mathematics (4)
+│   ├── advanced_mathematics.py # Topology, geometry
+│   ├── pure_mathematics.py  # Algebraic geometry
+│   ├── applied_mathematics.py # PDE, optimization
+│   ├── category_theory.py   # Functors, topoi
+│   ├── # Information & Computing (6)
+│   ├── information.py       # Entropy measures
+│   ├── signal_processing.py # SNR, compression
+│   ├── distributed_systems.py # CAP theorem
+│   ├── information_systems.py # IR, graphics, code
+│   ├── cybersecurity.py     # Attack surface, MTTD/MTTR
+│   ├── ai_ml.py             # Generalization, attention
+│   ├── # Complex & Social (5)
+│   ├── economics.py         # Market phase transitions
+│   ├── complex_systems.py   # Critical phenomena
+│   ├── social_systems.py    # Opinion dynamics, epidemics
+│   ├── networks.py          # Percolation, QKD
+│   ├── game_theory.py       # Quantum games
+│   ├── # Cognitive & Biological (4)
+│   ├── cognition.py         # IIT, neural criticality
+│   ├── cognitive_neuro.py   # Attention, metacognition
+│   ├── semantic_structure.py # Text coherence
+│   ├── recursive_learning.py # Meta-learning
+│   ├── # Engineering & Applied (7)
+│   ├── control_theory.py    # Stability margins
 │   ├── nonlinear_dynamics.py # Chaos theory
-│   ├── quantum_gravity.py # Planck-scale physics
-│   └── universal.py      # Cross-domain unification
+│   ├── mechanical_systems.py # Efficiency, damping
+│   ├── education.py         # Learning curves
+│   ├── work_life_balance.py # Burnout, JD-R model
+│   ├── ux_accessibility.py  # WCAG, SUS
+│   ├── chemistry.py         # Superconductors, BEC
+│   └── universal.py         # Cross-domain unification
 │
 ├── physics/              # Physical models
 │   ├── decoherence.py    # Decoherence models
@@ -63,7 +94,7 @@ theta_calculator/
 │   ├── theta_landscape.py
 │   └── proof_narrator.py
 │
-└── tests/                # Test suite (425 tests)
+└── tests/                # Test suite (1,966 tests)
 ```
 
 ---
@@ -136,21 +167,67 @@ def classify_regime(theta: float) -> DomainRegime:
     ...
 ```
 
-### Domain-Theta Mappings
+### Domain-Theta Mappings (35 Domains)
 
+**Physics & Foundations:**
 | Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
 |--------|-------------------|-----------------|
 | Physics | S >> ℏ | S ≈ ℏ |
-| Economics | Efficient market | Crash/bubble |
-| Information | Pure state | Maximally mixed |
-| Game Theory | Nash equilibrium | Entangled strategies |
-| Complex Systems | Disordered | Critical point |
 | Quantum Computing | Noisy/decoherent | Coherent |
 | Quantum Biology | Classical chemistry | Coherent transfer |
+| Quantum Gravity | Macroscopic | Planck scale |
+| Quantum Foundations | Decoherence | Superposition |
 | Cosmology | Present day | Planck era |
+| Condensed Matter | Disordered/insulating | Ordered/topological |
+| High Energy Physics | Perturbative | Confinement |
+| Atomic/Optical | Incoherent | Strong coupling |
+| Physics Extended | Weak field | Planck scale |
+
+**Mathematics:**
+| Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
+|--------|-------------------|-----------------|
+| Advanced Math | Trivial topology | Complex homotopy |
+| Pure Math | Low genus | Modular forms |
+| Applied Math | Ill-conditioned | Spectral convergence |
+| Category Theory | Set-theoretic | ∞-topoi |
+
+**Information & Computing:**
+| Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
+|--------|-------------------|-----------------|
+| Information | Pure state | Maximally mixed |
+| Signal Processing | Low SNR | Optimal coding |
+| Distributed Systems | Eventual consistency | Strong consistency |
+| Information Systems | Poor retrieval | Perfect precision |
+| Cybersecurity | Compromised | Zero-trust |
+| AI/ML | Overfitting | Perfect generalization |
+
+**Complex & Social:**
+| Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
+|--------|-------------------|-----------------|
+| Economics | Efficient market | Crash/bubble |
+| Complex Systems | Disordered | Critical point |
+| Social Systems | Fragmented | Consensus |
+| Networks | Disconnected | Giant component |
+| Game Theory | Nash equilibrium | Entangled strategies |
+
+**Cognitive & Biological:**
+| Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
+|--------|-------------------|-----------------|
+| Cognition | Fragmented | Integrated |
+| Cognitive Neuroscience | Inattentive | Full metacognition |
+| Semantic Structure | Incoherent | Formal ontology |
+| Recursive Learning | Static | Self-improving |
+
+**Engineering & Applied:**
+| Domain | θ = 0 (Classical) | θ = 1 (Quantum) |
+|--------|-------------------|-----------------|
 | Control Theory | Unstable | Optimal |
 | Nonlinear Dynamics | Fixed point | Chaotic |
-| Quantum Gravity | Macroscopic | Planck scale |
+| Mechanical Systems | Inefficient | Carnot limit |
+| Education | Rote memorization | Deep understanding |
+| Work-Life Balance | Burnout | Flow state |
+| UX/Accessibility | Inaccessible | WCAG AAA |
+| Chemistry | Normal | Superconducting/BEC |
 
 ---
 
@@ -340,7 +417,7 @@ The 2019 SI revision made ℏ, c, k_B exact by definition. This eliminates uncer
 - **Consistency tests:** Methods should agree for standard systems
 - **Domain tests:** All predefined systems produce valid theta
 
-Current coverage: **425 tests** across 14 test files.
+Current coverage: **1,966 tests** across 43 test files.
 
 ---
 
@@ -359,7 +436,7 @@ Current coverage: **425 tests** across 14 test files.
 2. **Uncertainty propagation** through all calculations
 3. **Interactive visualization** of theta landscapes
 4. **Machine learning** for theta prediction from experimental data
-5. **Additional domains:** Finance, epidemiology, neural networks
+5. **Additional domains:** Climate systems, financial derivatives, materials discovery
 
 ---
 

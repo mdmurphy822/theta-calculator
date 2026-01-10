@@ -46,6 +46,22 @@ from .domains.nonlinear_dynamics import (
 from .domains.quantum_gravity import (
     QUANTUM_GRAVITY_SYSTEMS, compute_quantum_gravity_theta
 )
+# New domains (2025)
+from .domains.cybersecurity import (
+    SECURITY_SYSTEMS, compute_security_theta
+)
+from .domains.ai_ml import (
+    ML_SYSTEMS, compute_ml_theta
+)
+from .domains.category_theory import (
+    CATEGORY_SYSTEMS, compute_category_theta
+)
+from .domains.semantic_structure import (
+    SEMANTIC_SYSTEMS, compute_semantic_theta
+)
+from .domains.recursive_learning import (
+    RECURSIVE_SYSTEMS, compute_recursive_theta
+)
 
 
 def format_json(data: Dict[str, Any], indent: int = 2) -> str:
@@ -253,6 +269,12 @@ def cmd_domains(args):
         "control_theory": ("Stability margins and feedback loops", CONTROL_SYSTEMS),
         "nonlinear_dynamics": ("Chaos, bifurcations, and edge of chaos", DYNAMICAL_SYSTEMS),
         "quantum_gravity": ("Planck scale emergence and spacetime", QUANTUM_GRAVITY_SYSTEMS),
+        # New domains (2025)
+        "cybersecurity": ("Attack/defense dynamics and security posture", SECURITY_SYSTEMS),
+        "ai_ml": ("Learning convergence, attention, generalization", ML_SYSTEMS),
+        "category_theory": ("Abstract structures, morphisms, functors", CATEGORY_SYSTEMS),
+        "semantic_structure": ("Information organization, coherence", SEMANTIC_SYSTEMS),
+        "recursive_learning": ("Meta-cognition, self-improvement loops", RECURSIVE_SYSTEMS),
     }
 
     print("=" * 70)
@@ -300,6 +322,12 @@ def cmd_domain(args):
         "control_theory": (CONTROL_SYSTEMS, compute_control_theta, "Gain margin", "Phase margin"),
         "nonlinear_dynamics": (DYNAMICAL_SYSTEMS, compute_dynamics_theta, "Lyapunov exp", "Attractor"),
         "quantum_gravity": (QUANTUM_GRAVITY_SYSTEMS, compute_quantum_gravity_theta, "Length scale", "Energy"),
+        # New domains (2025)
+        "cybersecurity": (SECURITY_SYSTEMS, compute_security_theta, "Attack surface", "MTTD"),
+        "ai_ml": (ML_SYSTEMS, compute_ml_theta, "Train acc", "Val acc"),
+        "category_theory": (CATEGORY_SYSTEMS, compute_category_theta, "Abstraction", "Functoriality"),
+        "semantic_structure": (SEMANTIC_SYSTEMS, compute_semantic_theta, "Coherence", "Connectivity"),
+        "recursive_learning": (RECURSIVE_SYSTEMS, compute_recursive_theta, "Meta-levels", "Improvement"),
     }
 
     if domain not in domain_map:
@@ -376,6 +404,37 @@ def cmd_domain(args):
         print(f"Energy scale: {system.energy_ev:.2e} eV")
         if system.mass_kg:
             print(f"Mass: {system.mass_kg:.2e} kg")
+    # New domains (2025)
+    elif domain == "cybersecurity":
+        print(f"Attack surface: {system.attack_surface_ratio*100:.1f}%")
+        print(f"MTTD: {system.mttd_hours:.0f} hours")
+        print(f"MTTR: {system.mttr_hours:.0f} hours")
+        print(f"Defense layers: {system.defense_layers}")
+        print(f"Crypto bits: {system.crypto_bits}")
+    elif domain == "ai_ml":
+        print(f"Architecture: {system.architecture.value}")
+        print(f"Train accuracy: {system.train_accuracy:.2f}")
+        print(f"Val accuracy: {system.val_accuracy:.2f}")
+        print(f"Generalization gap: {system.generalization_gap:.3f}")
+        print(f"Parameters: {system.n_parameters:,}")
+    elif domain == "category_theory":
+        print(f"Abstraction level: {system.abstraction_level.value}")
+        print(f"Objects: {system.n_objects}")
+        print(f"Morphisms: {system.n_morphisms}")
+        print(f"Functoriality: {system.functoriality:.2f}")
+        print(f"Has adjunctions: {system.has_adjunctions}")
+    elif domain == "semantic_structure":
+        print(f"Structure format: {system.structure_format.value}")
+        print(f"Coherence score: {system.coherence_score:.2f}")
+        print(f"Connectivity: {system.connectivity:.2f}")
+        print(f"Ambiguity: {system.ambiguity_score:.2f}")
+        print(f"Entities: {system.n_entities}")
+    elif domain == "recursive_learning":
+        print(f"Meta-levels: {system.meta_levels}/{system.max_meta_levels}")
+        print(f"Improvement rate: {system.improvement_rate:.2f}")
+        print(f"Recursion depth: {system.recursion_depth}")
+        print(f"Feedback loops: {system.closed_loops}/{system.total_pathways}")
+        print(f"Has self-model: {system.has_self_model}")
 
     return 0
 
@@ -417,6 +476,11 @@ def cmd_crossdomain(args):
     print(f"{'Control Theory':<20} {'Unstable system':<25} {'Perfectly stable':<25}")
     print(f"{'Nonlinear Dynamics':<20} {'Periodic/ordered':<25} {'Chaotic':<25}")
     print(f"{'Quantum Gravity':<20} {'Smooth spacetime':<25} {'Planck foam':<25}")
+    print(f"{'Cybersecurity':<20} {'Compromised/vulnerable':<25} {'Fortified/zero-trust':<25}")
+    print(f"{'AI/ML':<20} {'Overfitting':<25} {'Optimal generalization':<25}")
+    print(f"{'Category Theory':<20} {'Sets/functions':<25} {'∞-categories/topoi':<25}")
+    print(f"{'Semantic Structure':<20} {'Incoherent/flat':<25} {'Unified ontology':<25}")
+    print(f"{'Recursive Learning':<20} {'Static algorithm':<25} {'Full self-model':<25}")
 
     return 0
 

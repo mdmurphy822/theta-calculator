@@ -329,6 +329,30 @@ BIOLOGICAL_SYSTEMS: Dict[str, BiologicalSystem] = {
         functional_time=1e-4,          # Proton transit time
         temperature=310,
     ),
+    # Avian compass magnetoreception mechanism
+    "avian_magnetoreception": BiologicalSystem(
+        name="Avian Compass (FAD radical pair)",
+        organism="Migratory birds (general)",
+        mechanism=QuantumMechanism.RADICAL_PAIR,
+        coherence_time=1.5e-6,         # ~1.5 μs FAD-Trp radical pair
+        thermal_time=thermal_time(313), # Bird body temp ~40°C
+        functional_time=1e-6,          # Microsecond decision timescale
+        temperature=313,
+        efficiency_classical=0.0,      # No classical explanation
+        efficiency_quantum=1.0,        # Functional inclination compass
+    ),
+    # Proton-coupled electron transfer in photosystem II
+    "psii_water_oxidation": BiologicalSystem(
+        name="PSII Water Oxidation (OEC)",
+        organism="Cyanobacteria / chloroplasts",
+        mechanism=QuantumMechanism.TUNNELING,
+        coherence_time=5e-14,          # Fast proton-coupled ET
+        thermal_time=thermal_time(298),
+        functional_time=1e-3,          # S-state cycle ~1 ms
+        temperature=298,
+        efficiency_classical=0.20,     # Classical Marcus theory
+        efficiency_quantum=0.85,       # Enhanced by PCET
+    ),
 }
 
 

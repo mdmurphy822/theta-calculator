@@ -330,6 +330,36 @@ ECONOMIC_SYSTEMS: Dict[str, MarketSystem] = {
         volatility=0.40,
         correlation=0.8,
     ),
+    # High-frequency trading microstructure
+    "hft_microstructure": MarketSystem(
+        name="HFT Microstructure",
+        n_traders=1000,
+        coupling_strength=0.05,  # Low coupling (independent algos)
+        temperature=2.0,         # High noise
+        order_parameter=0.02,    # Near-zero net direction
+        volatility=0.01,         # Low per-trade
+        correlation=0.05,        # Minimal cross-correlation
+    ),
+    # Cryptocurrency market (high volatility)
+    "crypto_market": MarketSystem(
+        name="Crypto Market (BTC)",
+        n_traders=5000000,
+        coupling_strength=0.7,   # Social media herding
+        temperature=0.4,
+        order_parameter=0.6,     # Generally bullish bias
+        volatility=0.80,         # 80% annual vol typical
+        correlation=0.65,        # Alt-coins follow BTC
+    ),
+    # Options volatility surface
+    "options_volatility": MarketSystem(
+        name="Options Vol Surface",
+        n_traders=25000,
+        coupling_strength=0.4,
+        temperature=0.6,
+        order_parameter=0.3,     # Slight put skew
+        volatility=0.25,         # VIX ~ 25
+        correlation=0.4,
+    ),
 }
 
 

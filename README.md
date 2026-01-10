@@ -194,16 +194,67 @@ The library includes **308 CODATA 2022 constants** including particle physics (W
 
 ## Cross-Domain Extensions
 
-The theta framework extends to other domains exhibiting classical-quantum-like transitions:
+The theta framework extends to **35 domains** exhibiting classical-quantum-like transitions:
 
+### Physics & Foundations
 | Domain | θ → 0 | θ → 1 |
 |--------|-------|-------|
-| Physics | Planets, baseballs | Electrons, photons |
-| Economics | Efficient markets | Crashes, bubbles |
-| Information | Pure/deterministic | Maximally mixed |
-| Game Theory | Classical Nash | Entangled strategies |
-| Complex Systems | Disordered phase | Critical point |
+| Physics (core) | Planets, baseballs | Electrons, photons |
 | Quantum Computing | Noisy/decoherent | Coherent qubits |
+| Quantum Biology | Classical chemistry | Coherent transfer |
+| Quantum Gravity | Macroscopic | Planck scale |
+| Quantum Foundations | Classical limit | Quantum superposition |
+| Cosmology | Present day | Planck era |
+| Condensed Matter | Disordered/insulating | Ordered/topological |
+| High Energy Physics | Perturbative QCD | Confinement |
+| Atomic/Optical | Incoherent | Strong coupling/BEC |
+| Physics Extended | Weak field GR | Planck scale |
+
+### Mathematics
+| Domain | θ → 0 | θ → 1 |
+|--------|-------|-------|
+| Advanced Mathematics | Trivial topology | Complex homotopy |
+| Pure Mathematics | Low genus | Modular forms |
+| Applied Mathematics | Ill-conditioned | Spectral convergence |
+| Category Theory | Set-theoretic | ∞-categories |
+
+### Information & Computing
+| Domain | θ → 0 | θ → 1 |
+|--------|-------|-------|
+| Information Theory | Pure/deterministic | Maximally mixed |
+| Signal Processing | Low SNR | Optimal coding |
+| Distributed Systems | Eventual consistency | Strong consistency |
+| Information Systems | Poor retrieval | Perfect precision |
+| Cybersecurity | Compromised | Zero-trust fortified |
+| AI/ML | Overfitting | Perfect generalization |
+
+### Complex & Social Systems
+| Domain | θ → 0 | θ → 1 |
+|--------|-------|-------|
+| Economics | Efficient markets | Crashes, bubbles |
+| Complex Systems | Disordered phase | Critical point |
+| Social Systems | Fragmented | Consensus |
+| Networks | Disconnected | Giant component |
+| Game Theory | Classical Nash | Entangled strategies |
+
+### Cognitive & Biological
+| Domain | θ → 0 | θ → 1 |
+|--------|-------|-------|
+| Cognition | Fragmented | Integrated consciousness |
+| Cognitive Neuroscience | Inattentive | Full metacognition |
+| Semantic Structure | Incoherent | Formal ontology |
+| Recursive Learning | Static algorithm | Self-improving |
+
+### Engineering & Applied
+| Domain | θ → 0 | θ → 1 |
+|--------|-------|-------|
+| Control Theory | Unstable | Optimal control |
+| Nonlinear Dynamics | Fixed point | Chaotic attractor |
+| Mechanical Systems | Inefficient | Carnot limit |
+| Education | Rote memorization | Deep understanding |
+| Work-Life Balance | Burnout | Flow state |
+| UX/Accessibility | Inaccessible | WCAG AAA |
+| Chemistry | Normal materials | Superconductors/BEC |
 
 > **Note**: Cross-domain θ values are analogy scores produced by domain-specific mappings (see `domains/`), not literal quantum parameters.
 
@@ -239,18 +290,56 @@ theta_calculator/
 │   ├── codata_2022.py       # 308 constants
 │   ├── values.py            # Core values
 │   └── planck_units.py      # Planck scale
-├── domains/                 # Cross-domain extensions
-│   ├── economics.py         # Ising model markets
+├── domains/                 # 35 cross-domain extensions
+│   ├── # Physics & Foundations (10)
+│   ├── quantum_computing.py # Error thresholds, decoherence
+│   ├── quantum_biology.py   # Photosynthesis, enzyme tunneling
+│   ├── quantum_gravity.py   # Planck-scale physics
+│   ├── quantum_foundations.py # Decoherence, measurement
+│   ├── cosmology.py         # Big Bang to heat death
+│   ├── condensed_matter.py  # Phase transitions, topological
+│   ├── high_energy_physics.py # QCD, lattice gauge theory
+│   ├── atomic_optical_physics.py # BEC, cavity QED
+│   ├── physics_extended.py  # GR, holography
+│   ├── # Mathematics (4)
+│   ├── advanced_mathematics.py # Topology, geometry
+│   ├── pure_mathematics.py  # Algebraic geometry
+│   ├── applied_mathematics.py # PDE, optimization
+│   ├── category_theory.py   # Functors, topoi
+│   ├── # Information & Computing (6)
 │   ├── information.py       # Shannon vs von Neumann entropy
-│   ├── game_theory.py       # Quantum game entanglement
+│   ├── signal_processing.py # SNR, compression
+│   ├── distributed_systems.py # CAP theorem
+│   ├── information_systems.py # IR, graphics, code
+│   ├── cybersecurity.py     # Attack surface, MTTD
+│   ├── ai_ml.py             # Generalization, attention
+│   ├── # Complex & Social (5)
+│   ├── economics.py         # Ising model markets
 │   ├── complex_systems.py   # Critical phenomena
-│   ├── quantum_computing.py # Error thresholds
+│   ├── social_systems.py    # Opinion dynamics, epidemics
+│   ├── networks.py          # Percolation, QKD
+│   ├── game_theory.py       # Quantum game entanglement
+│   ├── # Cognitive & Biological (4)
+│   ├── cognition.py         # IIT, neural criticality
+│   ├── cognitive_neuro.py   # Attention, metacognition
+│   ├── semantic_structure.py # Text coherence
+│   ├── recursive_learning.py # Meta-learning
+│   ├── # Engineering & Applied (7)
+│   ├── control_theory.py    # Stability margins
+│   ├── nonlinear_dynamics.py # Lyapunov, chaos
+│   ├── mechanical_systems.py # Efficiency, damping
+│   ├── education.py         # Learning curves
+│   ├── work_life_balance.py # Burnout, JD-R
+│   ├── ux_accessibility.py  # WCAG, SUS
+│   ├── chemistry.py         # Superconductors, BEC
 │   └── universal.py         # Cross-domain framework
 ├── proofs/                  # Validation framework
 │   ├── unified.py
 │   ├── mathematical/
-│   └── information/
+│   ├── information/
+│   └── cross_domain/        # Universal proofs
 ├── visualization/           # Plotting and explanation
+├── tests/                   # 1,966 tests across 43 files
 └── cli.py                   # Command-line interface
 ```
 

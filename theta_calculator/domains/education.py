@@ -539,6 +539,36 @@ EDUCATION_SYSTEMS: Dict[str, LearningSystem] = {
         integration_level=0.95,
         feedback_delay=1.0,  # Real-time conversation
     ),
+    # Mastery-based learning (competency-based)
+    "mastery_learning": LearningSystem(
+        name="Mastery Learning (Bloom)",
+        learner_count=25,
+        practice_time=45.0,
+        retention_rate=0.88,
+        transfer_rate=0.65,
+        integration_level=0.75,
+        feedback_delay=5.0,  # Quick formative assessment
+    ),
+    # Peer instruction (active learning)
+    "peer_instruction": LearningSystem(
+        name="Peer Instruction (Mazur)",
+        learner_count=150,
+        practice_time=40.0,
+        retention_rate=0.70,
+        transfer_rate=0.55,
+        integration_level=0.60,
+        feedback_delay=30.0,  # ConcepTest feedback cycle
+    ),
+    # Retrieval practice (testing effect)
+    "retrieval_practice": LearningSystem(
+        name="Retrieval Practice",
+        learner_count=1,
+        practice_time=15.0,
+        retention_rate=0.82,
+        transfer_rate=0.50,
+        integration_level=0.45,
+        feedback_delay=1.0,  # Immediate flashcard feedback
+    ),
 }
 
 

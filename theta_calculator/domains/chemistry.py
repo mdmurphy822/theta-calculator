@@ -451,6 +451,31 @@ SUPERCONDUCTORS: Dict[str, QuantumMaterial] = {
         current_temperature=293.0,
         gap_energy=45e-3,
     ),
+    # NEW: Additional quantum materials
+    "lead": QuantumMaterial(
+        name="Lead (Pb)",
+        critical_temperature=7.2,
+        current_temperature=4.2,
+        gap_energy=1.35e-3,
+        coherence_length=83e-9,
+        penetration_depth=37e-9,
+    ),
+    "mercury": QuantumMaterial(
+        name="Mercury (Hg) - First SC",
+        critical_temperature=4.15,
+        current_temperature=2.0,
+        gap_energy=0.82e-3,
+        coherence_length=200e-9,
+        penetration_depth=45e-9,
+    ),
+    "nb3sn": QuantumMaterial(
+        name="Nb3Sn (A15)",
+        critical_temperature=18.3,
+        current_temperature=10.0,
+        gap_energy=3.4e-3,
+        coherence_length=3e-9,
+        penetration_depth=80e-9,
+    ),
 }
 
 BEC_EXAMPLES = {

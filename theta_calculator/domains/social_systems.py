@@ -505,6 +505,42 @@ SOCIAL_SYSTEMS: Dict[str, SocialSystem] = {
         clustering=0.8,
         cascade_probability=0.3,
     ),
+    # Viral meme spreading
+    "viral_meme": SocialSystem(
+        name="Viral Meme Cascade",
+        population=50000000,
+        connectivity=300,         # High social media reach
+        polarization=0.4,         # Moderate division
+        clustering=0.5,
+        cascade_probability=0.95, # Near-certain spread
+    ),
+    # Protest cascade dynamics
+    "protest_cascade": SocialSystem(
+        name="Protest Cascade (2020)",
+        population=500000,
+        connectivity=200,
+        polarization=0.75,        # High political division
+        clustering=0.6,
+        cascade_probability=0.7,  # Strong mobilization
+    ),
+    # Urban mobility network
+    "urban_mobility": SocialSystem(
+        name="Urban Mobility Network",
+        population=8000000,       # Major city
+        connectivity=100,         # Daily contact patterns
+        polarization=0.15,        # Low ideological split
+        clustering=0.4,           # Neighborhood clusters
+        cascade_probability=0.2,  # Information diffusion
+    ),
+    # Pandemic misinformation spread
+    "pandemic_misinfo": SocialSystem(
+        name="Pandemic Misinformation",
+        population=100000000,
+        connectivity=250,
+        polarization=0.65,        # Science vs denial split
+        clustering=0.75,          # Echo chambers
+        cascade_probability=0.85, # Viral spread
+    ),
 }
 
 EPIDEMIC_EXAMPLES = {
