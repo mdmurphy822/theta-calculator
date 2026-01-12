@@ -6,6 +6,30 @@ Computes a dimensionless parameter **θ** that estimates where a system sits on 
 - **θ ≈ 1**: quantum-like (coherent/superposed, action near ℏ)
 - **0 < θ < 1**: transition regime (crossover scales)
 
+---
+
+## Theta in 30 Seconds
+
+```
+  CLASSICAL                        QUANTUM
+     θ = 0 ─────────────────────── θ = 1
+        │                              │
+   Baseballs                      Electrons
+   Planets                        Photons
+   Stock markets                  Entangled qubits
+   (predictable)                  (superposition)
+```
+
+**Three intuitions for theta:**
+
+1. **Size**: Small things (electrons) are quantum. Big things (baseballs) are classical. Theta tells you where the boundary is.
+
+2. **Temperature**: Cold things stay quantum longer. Hot things decohere quickly. Theta = how much "quantumness" survives.
+
+3. **Correlation**: Independent agents (efficient markets) are classical. Correlated agents (market crashes) are "quantum-like."
+
+---
+
 ## Installation
 
 ```bash
@@ -96,6 +120,20 @@ This is an *operational scoring model*, not a new physical constant.
 
 ---
 
+## Glossary
+
+| Term | Definition |
+|------|------------|
+| **Theta (θ)** | A dimensionless number from 0 to 1 indicating where a system sits on the classical-quantum spectrum. |
+| **Regime** | The classification of a system based on its theta: quantum (θ > 0.7), transition (0.3-0.7), or classical (θ < 0.3). |
+| **Action** | A physical quantity with units of energy × time (Joule-seconds). Quantum effects matter when action ≈ ℏ. |
+| **Coherence** | The ability of a system to maintain quantum superposition. High coherence = high theta. |
+| **Decoherence** | Loss of quantum behavior due to environmental interaction. Decoherence drives theta toward 0. |
+| **Classical-like** | Behavior where outcomes are predictable, states are definite, and parts act independently. |
+| **Quantum-like** | Behavior where superposition, interference, or correlation between parts is significant. |
+
+---
+
 ## Usage
 
 ### Compare theta across physical systems
@@ -164,7 +202,9 @@ Five independent approaches that should yield consistent θ values:
 θ = ℏ/S (quantum when action ≈ Planck constant)
 
 ### 2. Thermal Ratio
-θ = (ℏω)/(kT) (quantum vs thermal energy)
+θ = r/(1+r) where r = (ℏω)/(kT)
+
+Maps quantum-to-thermal energy ratio to [0,1] via sigmoid. When ℏω >> kT, θ → 1 (quantum); when kT >> ℏω, θ → 0 (classical).
 
 ### 3. Scale Ratio
 Compare Planck/de Broglie wavelength to system size
@@ -188,18 +228,19 @@ Weighted combination with confidence scoring
 | Elementary charge | e | 1.602176634 × 10⁻¹⁹ C | Charge quantum |
 | Fine structure constant | α | 1/137.035999... | EM coupling strength |
 
-The library includes **308 CODATA 2022 constants** including particle physics (W, Z, Higgs masses) and cosmological parameters (H₀, Λ, Ω).
+The library includes **136 CODATA 2022 constants** including particle physics (W, Z, Higgs masses) and cosmological parameters (H₀, Λ, Ω).
 
 ---
 
 ## Cross-Domain Extensions
 
-The theta framework extends to **35 domains** exhibiting classical-quantum-like transitions:
+The theta framework extends to **36 domains** exhibiting classical-quantum-like transitions:
 
 ### Physics & Foundations
 | Domain | θ → 0 | θ → 1 |
 |--------|-------|-------|
 | Physics (core) | Planets, baseballs | Electrons, photons |
+| Electromagnetic | Radio waves | Gamma rays |
 | Quantum Computing | Noisy/decoherent | Coherent qubits |
 | Quantum Biology | Classical chemistry | Coherent transfer |
 | Quantum Gravity | Macroscopic | Planck scale |
@@ -287,11 +328,11 @@ theta_calculator/
 │   ├── theta_state.py       # Data structures
 │   └── interpolation.py     # 5 theta calculation methods
 ├── constants/               # Physical constants (CODATA 2022)
-│   ├── codata_2022.py       # 308 constants
+│   ├── codata_2022.py       # 136 constants
 │   ├── values.py            # Core values
 │   └── planck_units.py      # Planck scale
-├── domains/                 # 35 cross-domain extensions
-│   ├── # Physics & Foundations (10)
+├── domains/                 # 36 cross-domain extensions
+│   ├── # Physics & Foundations (11)
 │   ├── quantum_computing.py # Error thresholds, decoherence
 │   ├── quantum_biology.py   # Photosynthesis, enzyme tunneling
 │   ├── quantum_gravity.py   # Planck-scale physics
@@ -351,6 +392,35 @@ MIT
 
 ---
 
+## Frequently Asked Questions
+
+### Is theta a real physical constant?
+
+**No.** Theta is a *computed index*, not a fundamental constant like the speed of light or Planck's constant. It's a useful scoring model that tells you where a system sits on the quantum-classical spectrum, but it's not something you'd measure directly with an instrument.
+
+### Can I use theta to predict [X]?
+
+For **physics domains** (particles, atoms, quantum computers), theta reflects real physical properties and can inform predictions about coherence, interference, and quantum effects.
+
+For **cross-domain analogies** (economics, cognition, social systems), theta is a *structural analogy* based on mathematical similarities (phase transitions, criticality, correlation). These are useful for insight and comparison, but they don't claim that markets are "literally quantum."
+
+### Why do different calculation methods give different theta values?
+
+The five methods (action ratio, thermal ratio, scale ratio, decoherence, unified) approach the same question from different angles. They should approximately agree for well-characterized systems. If they diverge significantly, it may indicate:
+- The system has unusual properties
+- Some input parameters are poorly estimated
+- The system is in a transition regime where different effects compete
+
+### What if I get theta = 0 or theta = 1 for everything?
+
+Check your input scales. Very large masses or very high temperatures push theta toward 0 (classical). Very small masses or very low temperatures push toward 1 (quantum). If your parameters span many orders of magnitude, the log-scale display in PRECALCULATED_RESULTS.md may be more informative.
+
+### How accurate are these calculations?
+
+The calculations use CODATA 2022 physical constants, which are the best available values. The theta *formulas* themselves are physical approximations. For real quantum systems (electrons, atoms), they match experimental expectations well. For metaphorical applications, accuracy depends on how well the domain mapping captures the relevant physics.
+
+---
+
 ## References
 
 This project uses established physics and computational foundations. All citations reference entries in `BIBLIOGRAPHY.bib`.
@@ -368,7 +438,7 @@ This project uses established physics and computational foundations. All citatio
 - von Neumann entropy: \cite{VonNeumann1932}
 - Landauer limit: \cite{Landauer1961}
 - Bekenstein bound: \cite{Bekenstein1981}
-- Margolus-Levitin limit: \cite{MargoluLevitin1998}
+- Margolus-Levitin limit: \cite{MargolusLevitin1998}
 
 ### Quantum Mechanics & Decoherence
 - Quantum Darwinism: \cite{Zurek2003}

@@ -85,24 +85,29 @@ class BekensteinBound:
 
     def compute_bound_nats(self, radius: float, energy: float) -> float:
         """
-        Compute the Bekenstein entropy bound in nats (natural units).
+        Compute the Bekenstein entropy bound in nats (dimensionless natural units).
 
-        S_max = 2πkRE / (ℏc)
+        S_max = 2πRE / (ℏc)  [in nats, i.e., natural logarithm units]
+
+        Note: The Bekenstein bound in SI units includes k_B: S = 2πkRE/(ℏc) [J/K].
+        For dimensionless entropy in nats, we use S/k_B = 2πRE/(ℏc).
+        To convert to bits, divide by ln(2): S_bits = S_nats / ln(2).
 
         Args:
             radius: System radius in meters
             energy: Total energy in Joules
 
         Returns:
-            Maximum entropy in J/K (multiply by k to get dimensionless)
+            Maximum entropy in nats (dimensionless)
         """
-        return 2 * np.pi * self.k * radius * energy / (self.h_bar * self.c)
+        # Correct formula: S_nats = 2πRE/(ℏc) without k (dimensionless)
+        return 2 * np.pi * radius * energy / (self.h_bar * self.c)
 
     def compute_bound_bits(self, radius: float, energy: float) -> float:
         """
         Compute the Bekenstein bound in bits.
 
-        S_bits = S / (k × ln(2))
+        S_bits = S_nats / ln(2)
 
         This gives the maximum number of bits of information that
         can be stored in the region.
@@ -115,7 +120,8 @@ class BekensteinBound:
             Maximum entropy in bits
         """
         S_nats = self.compute_bound_nats(radius, energy)
-        return S_nats / (self.k * np.log(2))
+        # S_nats is now dimensionless, so just divide by ln(2) to get bits
+        return S_nats / np.log(2)
 
     def schwarzschild_radius(self, mass: float) -> float:
         """
@@ -156,31 +162,32 @@ class BekensteinBound:
         S_joules_per_kelvin = self.k * self.c**3 * A / (4 * self.G * self.h_bar)
         return S_joules_per_kelvin / (self.k * np.log(2))
 
-    def estimate_thermal_entropy(self, system: PhysicalSystem) -> float:
+    def estimate_thermal_entropy_nats(self, system: PhysicalSystem) -> float:
         """
-        Estimate actual entropy of a thermal system.
+        Estimate actual entropy of a thermal system in nats (dimensionless).
 
-        For an ideal gas: S ≈ Nk(ln(V/N) + 3/2 ln(T) + const)
+        For an ideal gas: S/k ≈ N(ln(V/N) + 3/2 ln(T) + const)
 
-        We use a simpler estimate: S ≈ kN for N particles,
-        or S ≈ E/T for thermal systems.
+        We use a simpler estimate: S/k ≈ N for N particles,
+        or S/k ≈ E/(kT) for thermal systems.
 
         Args:
             system: Physical system
 
         Returns:
-            Estimated entropy in J/K
+            Estimated entropy in nats (dimensionless)
         """
         if system.entropy is not None:
-            return system.entropy
+            # Convert from J/K to nats by dividing by k
+            return system.entropy / self.k
 
         if system.number_of_particles is not None:
-            # Rough estimate: ~1 bit per particle = k ln(2) per particle
-            return self.k * system.number_of_particles
+            # Rough estimate: ~1 nat per particle
+            return float(system.number_of_particles)
 
         if system.temperature > 0:
-            # Thermal estimate: S ~ E/T
-            return system.energy / system.temperature
+            # Thermal estimate: S/k ~ E/(kT)
+            return system.energy / (self.k * system.temperature)
 
         return 0.0
 
@@ -210,21 +217,22 @@ class BekensteinBound:
         # Use rest mass energy if energy seems like kinetic energy
         energy = max(system.energy, system.rest_energy)
 
-        # Compute the Bekenstein bound
+        # Compute the Bekenstein bound (now returns dimensionless nats)
         S_max_nats = self.compute_bound_nats(radius, energy)
-        S_max_bits = S_max_nats / (self.k * np.log(2))
+        S_max_bits = S_max_nats / np.log(2)  # Convert nats to bits
 
-        # Get or estimate actual entropy
+        # Get or estimate actual entropy (in nats)
         if actual_entropy is None:
-            S_actual_joules_per_kelvin = self.estimate_thermal_entropy(system)
+            S_actual_nats = self.estimate_thermal_entropy_nats(system)
         else:
-            S_actual_joules_per_kelvin = actual_entropy
+            # Convert from J/K to nats
+            S_actual_nats = actual_entropy / self.k
 
-        S_actual_bits = S_actual_joules_per_kelvin / (self.k * np.log(2))
+        S_actual_bits = S_actual_nats / np.log(2)  # Convert nats to bits
 
-        # Compute saturation
+        # Compute saturation (both in nats, so dimensionally consistent)
         if S_max_nats > 0:
-            saturation = S_actual_joules_per_kelvin / S_max_nats
+            saturation = S_actual_nats / S_max_nats
             saturation = min(1.0, saturation)  # Cap at 1
         else:
             saturation = 0.0

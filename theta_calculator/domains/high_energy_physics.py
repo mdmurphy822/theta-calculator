@@ -198,19 +198,22 @@ def running_alpha_s(Q: float, n_f: int = 5) -> float:
         n_f: Number of active flavors
 
     Returns:
-        Strong coupling alpha_s(Q)
+        Strong coupling alpha_s(Q). Returns inf at/below Landau pole
+        to indicate perturbation theory breakdown.
 
     Reference: \cite{Gross1973}
     """
     if Q <= 0:
-        return 1.0  # Non-perturbative
+        return float('inf')  # Non-perturbative: coupling diverges
 
     b0 = beta_0(n_f)
     log_ratio = np.log(Q**2 / M_Z**2)
     denominator = 1 + b0 * ALPHA_S_MZ * log_ratio
 
     if denominator <= 0:
-        return 1.0  # Landau pole reached
+        # Landau pole reached: perturbation theory breaks down
+        # Return infinity to indicate coupling diverges
+        return float('inf')
 
     return ALPHA_S_MZ / denominator
 
@@ -239,8 +242,11 @@ def compute_qcd_coupling_theta(
     alpha_Q = running_alpha_s(Q, n_f)
     alpha_ref = running_alpha_s(Q_ref, n_f)
 
-    if alpha_ref <= 0:
-        return 0.0
+    # Handle infinite coupling (Landau pole / non-perturbative regime)
+    if not np.isfinite(alpha_Q):
+        return 1.0  # Maximum theta at strong coupling
+    if not np.isfinite(alpha_ref) or alpha_ref <= 0:
+        return 0.0  # Can't normalize without valid reference
 
     theta = alpha_Q / alpha_ref
     return np.clip(theta, 0.0, 1.0)
@@ -252,38 +258,47 @@ def compute_qcd_coupling_theta(
 
 def lattice_beta(a: float, Lambda: float = LAMBDA_QCD) -> float:
     r"""
-    Lattice coupling beta from lattice spacing.
+    Estimate lattice coupling beta from lattice spacing.
 
-    beta = 6 / g^2 where g is the bare coupling.
-    For a ~ 0.1 fm, beta ~ 6.0
+    Physical definition: beta = 6/g² (for SU(3) pure gauge)
+
+    This uses a phenomenological fit calibrated to lattice QCD data:
+    - a = 0.05 fm → beta ≈ 6.5-6.8 (fine lattice)
+    - a = 0.10 fm → beta ≈ 6.0-6.2 (typical)
+    - a = 0.15 fm → beta ≈ 5.7-5.9 (coarse)
+
+    The fit uses: beta = 6 + C × ln(a_ref / a) where C ≈ 0.8
+
+    Note: This is a phenomenological approximation. For precision work,
+    use non-perturbative scale setting (e.g., r₀, w₀, or t₀ scales).
 
     Args:
         a: Lattice spacing in fm
-        Lambda: QCD scale in GeV
+        Lambda: QCD scale in GeV (default: Λ_QCD ≈ 0.217 GeV)
 
     Returns:
-        Lattice beta parameter
+        Lattice beta parameter (approximate)
 
     Reference: \cite{Wilson1974}
     """
     if a <= 0:
         return float('inf')  # Continuum limit
 
-    # Approximate: beta ~ 6 / g^2, where g^2 ~ 1 / ln(1/(a*Lambda))
-    # Convert a from fm to GeV^-1: 1 fm = 5.068 GeV^-1
-    a_gev = a * 5.068
-    Lambda_inv = 1.0 / Lambda
+    # Reference scale: a_ref = 0.1 fm → beta ~ 6.0
+    a_ref = 0.1  # fm
 
-    if a_gev >= Lambda_inv:
-        return 5.0  # Strong coupling regime
-
-    # 1-loop relation
-    log_term = np.log(Lambda_inv / a_gev)
-    if log_term <= 0:
+    # Strong coupling regime for very large lattice spacing
+    if a > 0.2:
         return 5.0
 
-    beta = 6 * log_term / np.log(10)  # Approximate scaling
-    return max(5.0, min(7.0, beta))
+    # Phenomenological fit: beta increases logarithmically as a decreases
+    # Calibrated to typical lattice QCD values
+    # Coefficient C ≈ 0.8 gives correct slope
+    log_ratio = np.log(a_ref / a)
+    beta = 6.0 + 0.8 * log_ratio
+
+    # Clamp to physically reasonable range [5.0, 7.5] for lattice QCD
+    return max(5.0, min(7.5, beta))
 
 
 def compute_lattice_theta(

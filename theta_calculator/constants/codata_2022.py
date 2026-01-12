@@ -1,7 +1,7 @@
 """
 Complete CODATA 2022 Fundamental Physical Constants
 
-This module contains ALL 347 constants from the 2022 CODATA adjustment,
+This module contains 136 key constants from the 2022 CODATA adjustment,
 organized by category with mathematical relationships showing how they connect.
 
 Key insight from arxiv research: Constants are not independent values but form

@@ -6,6 +6,27 @@ The Theta Calculator computes θ (theta), the quantum-classical interpolation pa
 - θ = 0: Classical limit (deterministic, independent, macroscopic)
 - θ = 1: Quantum limit (coherent, entangled, microscopic)
 
+## Quick Reference Card
+
+| Domain | Key Function | Systems Dict | θ=0 Means | θ=1 Means |
+|--------|-------------|--------------|-----------|-----------|
+| Physics (core) | `UnifiedThetaProof.prove_theta_exists()` | — | Classical | Quantum |
+| Electromagnetic | `compute_em_theta()` | `EM_SPECTRUM` | Radio waves | Gamma rays |
+| Economics | `compute_market_theta()` | `ECONOMIC_SYSTEMS` | Efficient market | Crash/bubble |
+| Quantum Computing | `compute_quantum_computing_theta()` | `QUANTUM_HARDWARE` | Noisy | Coherent |
+| Quantum Biology | `compute_quantum_bio_theta()` | `BIOLOGICAL_SYSTEMS` | Classical | Coherent transfer |
+| Complex Systems | `compute_complex_theta()` | `COMPLEX_SYSTEMS` | Disordered | Critical point |
+| Cosmology | `compute_cosmic_theta()` | `COSMIC_TIMELINE` | Present day | Planck era |
+| Information | `compute_information_theta()` | `INFORMATION_SYSTEMS` | Pure state | Mixed state |
+| Game Theory | `compute_entanglement_theta()` | `GAME_SYSTEMS` | Classical Nash | Quantum strategies |
+| Networks | `compute_network_theta()` | `NETWORK_SYSTEMS` | Disconnected | Giant component |
+| AI/ML | `compute_ml_theta()` | `ML_SYSTEMS` | Overfitting | Generalizing |
+| Cybersecurity | `compute_security_theta()` | `SECURITY_SYSTEMS` | Compromised | Zero-trust |
+
+**Full list:** 36 domains, 403 systems. See domain-specific sections below.
+
+---
+
 ## Installation
 
 ```python
@@ -976,6 +997,170 @@ theta = compute_integrability_theta(integrable)
 
 ---
 
+## Common Usage Patterns
+
+### Pattern 1: Compute Theta for a Predefined System
+
+```python
+from theta_calculator.domains import ECONOMIC_SYSTEMS, compute_market_theta
+
+# Get a predefined system
+system = ECONOMIC_SYSTEMS["market_crash"]
+
+# Compute theta
+theta = compute_market_theta(system)
+print(f"Market crash theta: {theta:.3f}")  # ~0.73
+```
+
+### Pattern 2: Create a Custom System
+
+```python
+from theta_calculator.domains import MarketSystem
+
+# Create custom market
+custom_market = MarketSystem(
+    name="My Market",
+    n_traders=500,
+    coupling_strength=1.2,
+    temperature=0.8,
+    order_parameter=0.6,
+    correlation=0.5,
+)
+
+theta = compute_market_theta(custom_market)
+```
+
+### Pattern 3: Compare Across Domains
+
+```python
+from theta_calculator.domains import (
+    ECONOMIC_SYSTEMS, QUANTUM_HARDWARE, COMPLEX_SYSTEMS,
+    compute_market_theta, compute_quantum_computing_theta, compute_complex_theta
+)
+
+# Collect theta values from different domains
+comparisons = [
+    ("Market crash", compute_market_theta(ECONOMIC_SYSTEMS["market_crash"])),
+    ("Google Willow", compute_quantum_computing_theta(QUANTUM_HARDWARE["google_willow"])),
+    ("Ferromagnet at T_c", compute_complex_theta(COMPLEX_SYSTEMS["ferromagnet_critical"])),
+]
+
+for name, theta in sorted(comparisons, key=lambda x: -x[1]):
+    print(f"{name}: θ = {theta:.3f}")
+```
+
+### Pattern 4: Batch Processing
+
+```python
+from theta_calculator.domains import BIOLOGICAL_SYSTEMS, compute_quantum_bio_theta
+
+# Process all systems in a domain
+results = {}
+for name, system in BIOLOGICAL_SYSTEMS.items():
+    try:
+        results[name] = compute_quantum_bio_theta(system)
+    except Exception as e:
+        results[name] = f"Error: {e}"
+
+# Sort by theta
+for name, theta in sorted(results.items(), key=lambda x: -x[1] if isinstance(x[1], float) else 0):
+    print(f"{name}: {theta}")
+```
+
+---
+
+## Troubleshooting
+
+### Getting `nan` Values
+
+**Cause:** Usually from division by zero or invalid input parameters.
+
+**Fix:**
+```python
+import math
+
+# Check for valid inputs before computing
+if system.temperature <= 0:
+    print("Warning: Temperature must be positive")
+if system.energy <= 0:
+    print("Warning: Energy must be positive")
+
+# Handle nan in output
+theta = compute_theta(system)
+if math.isnan(theta):
+    print("Computation returned nan - check input parameters")
+```
+
+### Theta Always Returns 0 or 1
+
+**Cause:** Parameters span extreme scales (e.g., mass of 1 kg with length of 10⁻³⁵ m).
+
+**Fix:** Check that your parameters are physically consistent:
+```python
+# Electron example - all scales are quantum
+electron = PhysicalSystem(
+    name="electron",
+    mass=9.1e-31,       # kg (tiny)
+    length_scale=2.8e-15,  # m (tiny)
+    energy=8.2e-14,     # J (small)
+    temperature=300.0   # K (room temp)
+)
+# This gives theta ≈ 0.87 (quantum regime)
+
+# Baseball example - all scales are classical
+baseball = PhysicalSystem(
+    name="baseball",
+    mass=0.145,         # kg (large)
+    length_scale=0.074, # m (large)
+    energy=100,         # J (large)
+    temperature=300.0   # K
+)
+# This gives theta ≈ 10⁻³³ (classical regime)
+```
+
+### Import Errors
+
+**Cause:** Missing dependencies or incorrect import path.
+
+**Fix:**
+```bash
+# Ensure package is installed
+pip install theta-calculator
+
+# Or for development
+pip install -e .[dev]
+```
+
+```python
+# Correct imports
+from theta_calculator import PhysicalSystem, ThetaCalculator
+from theta_calculator.domains import compute_market_theta, ECONOMIC_SYSTEMS
+from theta_calculator.constants import FundamentalConstants
+```
+
+### Inconsistent Results Across Methods
+
+**Cause:** System is in a transition regime where different physical effects compete.
+
+**This is expected behavior.** Use the unified method for a weighted average:
+```python
+from theta_calculator import ThetaCalculator, PhysicalSystem
+
+calc = ThetaCalculator()
+system = PhysicalSystem(...)
+
+# Get all methods
+all_results = calc.compute_all_methods(system)
+for method, state in all_results.items():
+    print(f"{method}: θ = {state.theta:.3f}")
+
+# Use unified for final answer
+unified = calc.compute_unified_theta(system)
+print(f"Unified: θ = {unified.theta:.3f}")
+```
+
+---
+
 ## CLI Commands
 
 ```bash
@@ -1011,7 +1196,7 @@ python -m theta_calculator crossdomain
 | Method | Formula | Interpretation |
 |--------|---------|----------------|
 | Action Ratio | θ = ℏ/S | Quantum when S ≈ ℏ |
-| Thermal Ratio | θ = E_q/E_th | Quantum when E_q > k_B T |
+| Thermal Ratio | θ = r/(1+r), r = E_q/E_th | Quantum when E_q >> k_B T (sigmoid mapping) |
 | Scale Ratio | θ = L_P/L | Quantum when L ≈ L_P |
 | Decoherence | θ = τ_coh/τ_dyn | Quantum when coherence persists |
 | Information | θ = S/S_max | Mixed when entropy is high |
@@ -1035,7 +1220,7 @@ All citations reference entries in `BIBLIOGRAPHY.bib`.
 ### Information Theory
 - \cite{Bekenstein1981} - Bekenstein bound on entropy
 - \cite{Landauer1961} - Landauer limit on computation
-- \cite{MargoluLevitin1998} - Margolus-Levitin quantum speed limit
+- \cite{MargolusLevitin1998} - Margolus-Levitin quantum speed limit
 - \cite{Shannon1948} - Shannon entropy
 - \cite{VonNeumann1932} - von Neumann entropy
 

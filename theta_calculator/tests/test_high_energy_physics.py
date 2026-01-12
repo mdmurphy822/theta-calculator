@@ -123,14 +123,16 @@ class TestRunningAlphaS:
         assert alpha < 0.1
 
     def test_zero_energy(self):
-        """Zero energy returns maximum coupling."""
+        """Zero energy returns infinite coupling (non-perturbative)."""
+        import math
         alpha = running_alpha_s(0)
-        assert alpha == 1.0
+        assert math.isinf(alpha)
 
     def test_negative_energy(self):
-        """Negative energy returns maximum coupling."""
+        """Negative energy returns infinite coupling (non-perturbative)."""
+        import math
         alpha = running_alpha_s(-10)
-        assert alpha == 1.0
+        assert math.isinf(alpha)
 
 
 class TestQCDCouplingTheta:

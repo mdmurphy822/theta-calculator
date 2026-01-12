@@ -217,10 +217,16 @@ class ThetaState:
             self._classify_regime()
 
     def _classify_regime(self):
-        """Classify the regime based on theta value."""
-        if self.theta > 0.99:
+        """Classify the regime based on theta value.
+
+        Thresholds:
+            theta > 0.7: QUANTUM (quantum effects dominate)
+            theta < 0.3: CLASSICAL (classical description sufficient)
+            0.3 <= theta <= 0.7: TRANSITION (mixed regime)
+        """
+        if self.theta > 0.7:
             self.regime = Regime.QUANTUM
-        elif self.theta < 0.01:
+        elif self.theta < 0.3:
             self.regime = Regime.CLASSICAL
         else:
             self.regime = Regime.TRANSITION

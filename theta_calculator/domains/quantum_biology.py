@@ -169,6 +169,16 @@ def compute_tunneling_theta(
 
     theta = P_tunnel / (P_tunnel + P_classical)
     """
+    # Input validation: handle edge cases
+    if barrier_height <= 0:
+        return 1.0  # No barrier = classical transmission (tunneling irrelevant)
+    if barrier_width <= 0:
+        return 1.0  # Zero width = no barrier to tunnel through
+    if particle_mass <= 0:
+        return 0.0  # Invalid mass
+    if temperature <= 0:
+        return 0.0  # Invalid temperature
+
     # Convert units
     V_joules = barrier_height * 1.602176634e-19  # eV to J
     d_meters = barrier_width * 1e-9              # nm to m

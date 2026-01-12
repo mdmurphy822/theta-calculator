@@ -150,12 +150,14 @@ UNIVERSALITY_CLASSES: Dict[UniversalityClass, Dict[str, float]] = {
         "eta": 0.208,      # = 5/24
     },
     UniversalityClass.PERCOLATION_3D: {
-        "alpha": -0.62,
-        "beta": 0.42,
-        "gamma": 1.80,
-        "delta": 5.29,
-        "nu": 0.88,
-        "eta": -0.05,
+        # Modern high-precision values from Monte Carlo and series expansions
+        # See: Xu et al. (2014) Phys. Rev. E 89, 012120
+        "alpha": -0.625,     # = -2 + d*nu ≈ -0.625 (hyperscaling)
+        "beta": 0.4271,      # Order parameter exponent (±0.0006)
+        "gamma": 1.793,      # Susceptibility exponent (±0.003)
+        "delta": 5.20,       # Critical isotherm (±0.02)
+        "nu": 0.8765,        # Correlation length exponent (±0.0012)
+        "eta": -0.046,       # Anomalous dimension (±0.008)
     },
     UniversalityClass.DIRECTED_PERCOLATION: {
         "alpha": 0.159,

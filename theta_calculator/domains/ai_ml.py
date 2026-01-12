@@ -180,6 +180,10 @@ def compute_loss_ratio_theta(
     Returns:
         theta in [0, 1]
     """
+    # Handle edge cases: infinite or NaN losses indicate failed training
+    if not np.isfinite(train_loss) or not np.isfinite(val_loss):
+        return 0.0  # Diverging/failed training = worst case
+
     if train_loss <= 0:
         return 0.0
 

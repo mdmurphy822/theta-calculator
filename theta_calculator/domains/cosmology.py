@@ -33,7 +33,7 @@ References (see BIBLIOGRAPHY.bib):
     \\cite{PlanckCollaboration2020} - Planck 2018 cosmological parameters
     \\cite{Weinberg1972} - Gravitation and Cosmology
     \\cite{Guth1981} - Inflationary universe
-    \\cite{Peebles1965} - Big Bang nucleosynthesis
+    \\cite{Peebles1966} - Big Bang nucleosynthesis
     \\cite{Riess1998} - Discovery of cosmic acceleration
 """
 

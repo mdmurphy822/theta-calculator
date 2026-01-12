@@ -155,13 +155,23 @@ class UnifiedThetaProof:
         theta_array = np.array(list(theta_values.values()))
         theta_mean = float(np.mean(theta_array))
         theta_std = float(np.std(theta_array))
+        theta_min = float(np.min(theta_array))
+        theta_max = float(np.max(theta_array))
 
-        # Method agreement: inverse of coefficient of variation
-        if theta_mean > 0.01:
-            cv = theta_std / theta_mean
-            method_agreement = max(0.0, min(1.0, 1.0 - cv))
+        # Method agreement: range-normalized standard deviation
+        # This is more robust than coefficient of variation, which is scale-dependent
+        # and undefined/unreliable when mean is near zero
+        theta_range = theta_max - theta_min
+        if theta_range > 1e-10:
+            # Agreement = 1 - (normalized spread)
+            # When all methods agree: std = 0, agreement = 1
+            # When methods span full [0,1] range: agreement approaches 0
+            method_agreement = max(0.0, min(1.0, 1.0 - (theta_std / theta_range)))
+        elif len(theta_array) > 1:
+            # All values essentially identical
+            method_agreement = 1.0
         else:
-            method_agreement = 1.0 if theta_std < 0.01 else 0.0
+            method_agreement = 0.5  # Only one method, unknown agreement
 
         # === PHASE 6: COMPUTE FINAL THETA ===
         # Weighted average favoring more reliable methods

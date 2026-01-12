@@ -17,7 +17,7 @@ determines theta.
 
 References (see BIBLIOGRAPHY.bib):
     \\cite{Landauer1961} - Irreversibility and heat generation in computing
-    \\cite{MargoluLevitin1998} - Maximum speed of dynamical evolution
+    \\cite{MargolusLevitin1998} - Maximum speed of dynamical evolution
 """
 
 import numpy as np

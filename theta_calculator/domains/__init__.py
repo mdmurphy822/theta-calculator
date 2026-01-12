@@ -565,6 +565,24 @@ from .signal_processing import (
     SIGNAL_SYSTEMS,
 )
 
+from .electromagnetic import (
+    PhotonSystem,
+    EMBand,
+    PhotonRegime,
+    compute_em_theta,
+    compute_wavelength_theta,
+    compute_frequency_theta,
+    classify_photon_regime,
+    classify_em_band,
+    wien_displacement_wavelength,
+    planck_spectral_radiance,
+    photon_occupation_number,
+    EM_SPECTRUM,
+    C as SPEED_OF_LIGHT,
+    HC_EV_NM,
+    KT_300K_EV,
+)
+
 __all__ = [
     # Economics
     "MarketSystem",
@@ -1021,4 +1039,20 @@ __all__ = [
     "compute_signal_theta",
     "classify_signal_quality",
     "SIGNAL_SYSTEMS",
+    # Electromagnetic Spectrum
+    "PhotonSystem",
+    "EMBand",
+    "PhotonRegime",
+    "compute_em_theta",
+    "compute_wavelength_theta",
+    "compute_frequency_theta",
+    "classify_photon_regime",
+    "classify_em_band",
+    "wien_displacement_wavelength",
+    "planck_spectral_radiance",
+    "photon_occupation_number",
+    "EM_SPECTRUM",
+    "SPEED_OF_LIGHT",
+    "HC_EV_NM",
+    "KT_300K_EV",
 ]
